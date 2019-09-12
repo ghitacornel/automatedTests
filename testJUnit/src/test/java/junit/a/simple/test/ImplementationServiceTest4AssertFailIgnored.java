@@ -32,7 +32,8 @@ public class ImplementationServiceTest4AssertFailIgnored {
         {
             // if test reach this step then consider this test as fail
             // make this test fail with the specified message
-            Assert.fail("this test will certainly fail");
+            // useful when defining complex expectations
+            Assert.fail("this test must fail if this step is reached");
         }
 
     }
@@ -48,8 +49,11 @@ public class ImplementationServiceTest4AssertFailIgnored {
     @Test
     @Ignore("this test is intentionally disabled")
     public void testCanMarkTestAsIgnored() {
+
         // test for negative values
-        // TODO too lazy today, count on tomorrow
+        // TODO i'm too lazy today :D , will do it tomorrow
+        // TODO this test failed again !!! , i'm too lazy to fix it
+
     }
 
 }
