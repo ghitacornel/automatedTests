@@ -1,4 +1,4 @@
-package junit.d.complex;
+package junit.cases.exceptions;
 
 public class ComplexService {
 
@@ -16,7 +16,7 @@ public class ComplexService {
             return -1;
 
         if (a == -3 && b == -4)
-            throw new VerySpecialBusinessException();
+            throw new CustomBusinessException();
         if (a < 0 || b < 0)
             throw new Exception();
 

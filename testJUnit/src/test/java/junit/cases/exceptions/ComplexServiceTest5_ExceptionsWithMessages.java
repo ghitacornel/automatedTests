@@ -1,7 +1,7 @@
-package junit.d.exceptions.test;
+package junit.cases.exceptions;
 
-import junit.d.complex.ComplexService;
-import junit.d.complex.VerySpecialBusinessException;
+import junit.cases.exceptions.ComplexService;
+import junit.cases.exceptions.CustomBusinessException;
 
 import org.junit.Rule;
 import org.junit.Test;
@@ -24,12 +24,12 @@ public class ComplexServiceTest5_ExceptionsWithMessages {
      * @throws Exception
      */
     @Test
-    public void testVerySpecialBusinessStuff() throws Exception {
+    public void testCustomBusinessException() throws Exception {
 
         // define in the rule the expected exception type
-        expectedException.expect(VerySpecialBusinessException.class);
+        expectedException.expect(CustomBusinessException.class);
         // define in the rule the expected exception message
-        expectedException.expectMessage("very special business exception");
+        expectedException.expectMessage("custom business exception");
 
         new ComplexService().complexBusinessMethod(-3, -4);
     }

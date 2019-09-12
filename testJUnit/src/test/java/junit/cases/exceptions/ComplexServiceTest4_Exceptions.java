@@ -1,6 +1,6 @@
-package junit.d.exceptions.test;
+package junit.cases.exceptions;
 
-import junit.d.complex.ComplexService;
+import junit.cases.exceptions.ComplexService;
 
 import org.junit.Test;
 

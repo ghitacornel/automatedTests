@@ -3,7 +3,7 @@ package junit.d.complex.test;
 import java.util.Arrays;
 import java.util.Collection;
 
-import junit.d.complex.ComplexService;
+import junit.cases.exceptions.ComplexService;
 
 import org.junit.Assert;
 import org.junit.Test;

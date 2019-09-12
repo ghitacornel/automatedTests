@@ -1,6 +1,6 @@
 package junit.d.complex.test;
 
-import junit.d.complex.ComplexService;
+import junit.cases.exceptions.ComplexService;
 
 import org.junit.Assert;
 import org.junit.Test;
