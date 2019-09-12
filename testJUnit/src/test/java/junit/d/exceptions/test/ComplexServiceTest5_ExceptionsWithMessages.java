@@ -19,14 +19,18 @@ public class ComplexServiceTest5_ExceptionsWithMessages {
     public ExpectedException expectedException = ExpectedException.none();
 
     /**
-     * TEST FOR exception type AND exception message !!!
+     * test for exception type and exception message
      *
      * @throws Exception
      */
     @Test
     public void testVerySpecialBusinessStuff() throws Exception {
+
+        // define in the rule the expected exception type
         expectedException.expect(VerySpecialBusinessException.class);
+        // define in the rule the expected exception message
         expectedException.expectMessage("very special business exception");
+
         new ComplexService().complexBusinessMethod(-3, -4);
     }
 
