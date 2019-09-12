@@ -35,7 +35,7 @@ public class ComplexServiceTest3_LotsOfSpecialValues {
     }
 
     /**
-     * @return all input and expected output as pairs (input,output)
+     * @return all input and expected output as pairs (input,output) => useful for defining a decision matrix
      */
     @Parameters
     public static Collection<Object[]> data() {
