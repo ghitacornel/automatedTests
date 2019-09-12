@@ -1,0 +1,44 @@
+What is JUnit ?
+JUnit is a general testing framework. 
+
+How JUnit helps us ?
+JUnit allows us to write better, organized tests.
+
+How to run JUnit test methods ?
+There are many ways of executing them.
+Eclipse plug-in allows us to run tests defined as a single method, as a class methods 
+or as all methods from all classes placed in the same package/s or folders.
+Other build tools like Maven can run JUnit tests automatically for us from a command line.
+
+There's a clear separation between tests / tests framework / tests running context / tests running procedure and reporting tools.
+Tests are written using a test framework (or a combination of them).
+Tests are executed using different tools.
+Tests are executed by the developer/tester or other specialized tools, like build tools or continuous integration tools.
+Tests execution takes place in a separate testing environment. 
+Tests execution needs to be perfectly reproducible; in case of failure the failure reason should be easy to understand.
+Tests execution will produce tests results in different formats (simple text/ xml/ html).
+Tests execution results can be displayed in different ways by different tools (simple text reports, UI diagrams, etc)
+
+NOTE : 
+
+-our tests will test self sufficient classes, meaning classes without external dependencies.
+
+Topics covered:
+
+-simple single test; Assert
+-many tests in single class; how they are executed
+-tests execution order
+-assert vs Assert / test fail / test ignored
+
+-fixtures or test context setup; before/after/class and inheritance
+
+-test runners/suites/categories
+
+-some tests principles
+-normal tests (or happy flow tests)
+-special values tests (still happy tests but odd ones)
+-tests for exceptions
+-tests for exceptions with messages; rules
+
+-tests timeouts; tests for performance as time out
+-tests with assumptions
