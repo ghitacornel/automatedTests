@@ -4,7 +4,11 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>automatedTests</groupId>
     <artifactId>automatedTests</artifactId>
+    <packaging>pom</packaging>
     <version>1</version>
+    <modules>
+        <module>testJUnit</module>
+    </modules>
 
     <properties>
         <maven.compiler.target>1.8</maven.compiler.target>
@@ -14,6 +18,7 @@
 
     <dependencies>
 
+        <!-- LOMBOK -->
         <dependency>
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
@@ -21,12 +26,14 @@
             <scope>provided</scope>
         </dependency>
 
+        <!-- JUNIT -->
         <dependency>
             <groupId>junit</groupId>
             <artifactId>junit</artifactId>
             <version>4.12</version>
             <scope>test</scope>
         </dependency>
+
         <dependency>
             <groupId>org.jeasy</groupId>
             <artifactId>easy-random-core</artifactId>
