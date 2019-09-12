@@ -8,7 +8,7 @@ import org.junit.Test;
 
 /**
  * use assumptions for writing tests that will be run when certain external constraints are met<br>
- * e.g. tests are executed under certain environment (linux/windows)<br>
+ * e.g. tests are executed under certain environment (linux/windows) => assumeThat(File.separatorChar, is('/'));<br>
  * e.g. some tests must be executed only for some certain external configuration settings ( environment variables )
  * while other tests must not be executed for same configuration settings
  */
@@ -25,7 +25,7 @@ public class ServiceNotFullyImplementedTest {
                 new ServiceNotFullyImplemented().multiply(1, 1);
             } catch (UnsupportedOperationException e) {
 
-                // if this exception was raised => ignore this test
+                // if this exception was raised => ignore this test; assume the method was not yet implemented
                 Assume.assumeNoException(e);
 
             }
