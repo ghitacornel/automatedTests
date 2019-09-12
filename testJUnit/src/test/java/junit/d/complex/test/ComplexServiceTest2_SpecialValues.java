@@ -1,11 +1,11 @@
 package junit.d.complex.test;
 
-import junit.d.complex.ServiceD;
+import junit.d.complex.ComplexService;
 
 import org.junit.Assert;
 import org.junit.Test;
 
-public class ServiceTest2ASpecialValues {
+public class ComplexServiceTest2_SpecialValues {
 
     /**
      * good practice : special values for method parameters require special test
@@ -20,9 +20,9 @@ public class ServiceTest2ASpecialValues {
      */
     @Test
     public void testBusinessSumSpecialValue() throws Exception {
-        Assert.assertEquals(-1, new ServiceD().businessSum(0, 2));
-        Assert.assertEquals(-1, new ServiceD().businessSum(1, 0));
-        Assert.assertEquals(-1, new ServiceD().businessSum(0, 0));
+        Assert.assertEquals(-1, new ComplexService().complexBusinessMethod(0, 2));
+        Assert.assertEquals(-1, new ComplexService().complexBusinessMethod(1, 0));
+        Assert.assertEquals(-1, new ComplexService().complexBusinessMethod(0, 0));
     }
 
 }

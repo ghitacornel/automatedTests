@@ -1,13 +1,13 @@
 package junit.d.exceptions.test;
 
-import junit.d.complex.ServiceD;
+import junit.d.complex.ComplexService;
 import junit.d.complex.VerySpecialBusinessException;
 
 import org.junit.Rule;
 import org.junit.Test;
 import org.junit.rules.ExpectedException;
 
-public class ServiceTest3BExceptionsWithMessages {
+public class ComplexServiceTest5_ExceptionsWithMessages {
 
     /**
      * this is something 'special'<br>
@@ -27,12 +27,11 @@ public class ServiceTest3BExceptionsWithMessages {
     public void testVerySpecialBusinessStuff() throws Exception {
         expectedException.expect(VerySpecialBusinessException.class);
         expectedException.expectMessage("very special business exception");
-        new ServiceD().businessSum(-3, -4);
+        new ComplexService().complexBusinessMethod(-3, -4);
     }
 
     /**
-     * run these 2 tests to prove that JUNit creates a {@link Rule} for each
-     * test
+     * run these 2 tests to prove that JUNit creates a {@link Rule} for each test
      */
     @Test
     public void test1() {

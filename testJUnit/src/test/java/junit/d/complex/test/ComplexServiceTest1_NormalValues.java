@@ -1,11 +1,11 @@
 package junit.d.complex.test;
 
-import junit.d.complex.ServiceD;
+import junit.d.complex.ComplexService;
 
 import org.junit.Assert;
 import org.junit.Test;
 
-public class ServiceTest1NormalValues {
+public class ComplexServiceTest1_NormalValues {
 
     /**
      * good practice : test all work flows for working 'normal' input values
@@ -14,7 +14,7 @@ public class ServiceTest1NormalValues {
      */
     @Test
     public void testBusinessSum() throws Exception {
-        Assert.assertEquals(3, new ServiceD().businessSum(1, 2));
+        Assert.assertEquals(3, new ComplexService().complexBusinessMethod(1, 2));
     }
 
 }

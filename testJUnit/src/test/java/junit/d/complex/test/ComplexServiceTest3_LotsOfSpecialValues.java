@@ -3,7 +3,7 @@ package junit.d.complex.test;
 import java.util.Arrays;
 import java.util.Collection;
 
-import junit.d.complex.ServiceD;
+import junit.d.complex.ComplexService;
 
 import org.junit.Assert;
 import org.junit.Test;
@@ -20,7 +20,7 @@ import org.junit.runners.Parameterized.Parameters;
  * @author Cornel
  */
 @RunWith(Parameterized.class)
-public class ServiceTest2BManySpecialValues {
+public class ComplexServiceTest3_LotsOfSpecialValues {
 
     /**
      * input bean for each test
@@ -66,7 +66,7 @@ public class ServiceTest2BManySpecialValues {
     @Test
     public void testBusinessSumSpecialValue() throws Exception {
         Assert.assertEquals(output,
-                new ServiceD().businessSum(input.a, input.b));
+                new ComplexService().complexBusinessMethod(input.a, input.b));
     }
 
 }

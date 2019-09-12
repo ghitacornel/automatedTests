@@ -1,10 +1,10 @@
 package junit.d.exceptions.test;
 
-import junit.d.complex.ServiceD;
+import junit.d.complex.ComplexService;
 
 import org.junit.Test;
 
-public class ServiceTest3AExceptions {
+public class ComplexServiceTest4_Exceptions {
 
     /**
      * good practice : if method throws exceptions for certain parameter values
@@ -24,17 +24,17 @@ public class ServiceTest3AExceptions {
      */
     @Test(expected = Exception.class)
     public void testBusinessSumAException() throws Exception {
-        new ServiceD().businessSum(-1, 2);
+        new ComplexService().complexBusinessMethod(-1, 2);
     }
 
     @Test(expected = Exception.class)
     public void testBusinessSumBException() throws Exception {
-        new ServiceD().businessSum(1, -2);
+        new ComplexService().complexBusinessMethod(1, -2);
     }
 
     @Test(expected = Exception.class)
     public void testBusinessSumABException() throws Exception {
-        new ServiceD().businessSum(-1, -2);
+        new ComplexService().complexBusinessMethod(-1, -2);
     }
 
 }
