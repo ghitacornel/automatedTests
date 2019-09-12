@@ -9,6 +9,7 @@
     <modules>
         <module>testJUnit</module>
         <module>testMockito</module>
+        <module>testDBUnit</module>
     </modules>
 
     <properties>
@@ -40,6 +41,14 @@
             <groupId>org.mockito</groupId>
             <artifactId>mockito-core</artifactId>
             <version>3.0.0</version>
+            <scope>test</scope>
+        </dependency>
+
+        <!-- DBUnit -->
+        <dependency>
+            <groupId>org.dbunit</groupId>
+            <artifactId>dbunit</artifactId>
+            <version>2.6.0</version>
             <scope>test</scope>
         </dependency>
 
