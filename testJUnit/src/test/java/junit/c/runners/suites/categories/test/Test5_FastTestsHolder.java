@@ -5,6 +5,8 @@ import org.junit.runner.RunWith;
 import org.junit.runners.Suite;
 import org.junit.runners.Suite.SuiteClasses;
 
+// Runners => see org.junit.runner.Runner
+// useful for managing "special" tests contexts
 @RunWith(Suite.class)
 @SuiteClasses({
         Test1_FastRunningService.class,
