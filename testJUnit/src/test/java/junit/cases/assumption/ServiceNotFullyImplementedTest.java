@@ -1,6 +1,4 @@
-package junit.e.assumptions.test;
-
-import junit.e.assumptions.ServiceNotFullyImplemented;
+package junit.cases.assumption;
 
 import org.junit.Assert;
 import org.junit.Assume;

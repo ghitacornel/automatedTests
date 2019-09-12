@@ -1,4 +1,4 @@
-package junit.e.assumptions;
+package junit.cases.assumption;
 
 /**
  * incomplete service
