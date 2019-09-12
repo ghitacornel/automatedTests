@@ -8,6 +8,7 @@
     <version>1</version>
     <modules>
         <module>testJUnit</module>
+        <module>testMockito</module>
     </modules>
 
     <properties>
