@@ -1,7 +1,5 @@
 package junit.cases.exceptions;
 
-import junit.cases.exceptions.ComplexService;
-
 import org.junit.Test;
 
 public class ComplexServiceTest4_Exceptions {
@@ -24,17 +22,22 @@ public class ComplexServiceTest4_Exceptions {
      */
     @Test(expected = Exception.class)
     public void testBusinessSumAException() throws Exception {
-        new ComplexService().complexBusinessMethod(-1, 2);
+        new ComplexService().complexBusinessMethod(-10, 20);
     }
 
     @Test(expected = Exception.class)
     public void testBusinessSumBException() throws Exception {
-        new ComplexService().complexBusinessMethod(1, -2);
+        new ComplexService().complexBusinessMethod(10, -20);
     }
 
     @Test(expected = Exception.class)
     public void testBusinessSumABException() throws Exception {
-        new ComplexService().complexBusinessMethod(-1, -2);
+        new ComplexService().complexBusinessMethod(-10, -20);
+    }
+
+    @Test(expected = RuntimeException.class)
+    public void testBusinessSumException() throws Exception {
+        new ComplexService().complexBusinessMethod(-1, -1);
     }
 
 }

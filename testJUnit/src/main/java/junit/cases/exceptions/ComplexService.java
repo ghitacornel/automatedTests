@@ -17,6 +17,10 @@ public class ComplexService {
 
         if (a == -3 && b == -4)
             throw new CustomBusinessException();
+
+        if (a == -1 || b == -1)
+            throw new RuntimeException("minus one");
+
         if (a < 0 || b < 0)
             throw new Exception();
 
