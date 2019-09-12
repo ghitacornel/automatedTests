@@ -1,17 +1,22 @@
-package junit.f.longrunning;
+package junit.cases.timeout;
 
 public class LongRunningService {
 
     /**
      * this is a time consuming very complex business method
-     *
-     * @throws Exception
      */
     public void timeConsumingBusinessOperation() {
+
         try {
+
+            // ensure this method takes a "long time"
             Thread.sleep(100);
-        } catch (InterruptedException e) {
+
+        } catch (Exception e) {
+
             // for simplicity of the test ignore exceptions
+            e.printStackTrace();
+
         }
     }
 

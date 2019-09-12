@@ -1,6 +1,4 @@
-package junit.f.timeout.test;
-
-import junit.f.longrunning.LongRunningService;
+package junit.cases.timeout;
 
 import org.junit.Rule;
 import org.junit.Test;
