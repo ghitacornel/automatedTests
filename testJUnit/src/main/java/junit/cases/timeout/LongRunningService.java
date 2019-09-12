@@ -15,7 +15,7 @@ public class LongRunningService {
         } catch (Exception e) {
 
             // for simplicity of the test ignore exceptions
-            e.printStackTrace();
+//            e.printStackTrace();
 
         }
     }

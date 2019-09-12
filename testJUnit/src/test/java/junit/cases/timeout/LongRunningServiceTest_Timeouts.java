@@ -5,10 +5,10 @@ import org.junit.Test;
 import org.junit.rules.Timeout;
 
 /**
- * tests with timeouts can be used to test algorithms for efficiency<br>
  * it is possible to set timeouts for tests<br>
+ * tests with timeouts can be used to test algorithms for efficiency<br>
  */
-public class LongRunningServiceTest4Timeouts {
+public class LongRunningServiceTest_Timeouts {
 
     /**
      * see JUnit documentation related to time {@link Rule} and {@link Timeout}
