@@ -1,6 +1,6 @@
 package junit.f.longrunning;
 
-public class ServiceF {
+public class LongRunningService {
 
     /**
      * this is a time consuming very complex business method

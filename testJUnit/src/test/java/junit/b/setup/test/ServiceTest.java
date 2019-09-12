@@ -1,6 +1,6 @@
 package junit.b.setup.test;
 
-import junit.b.setup.ServiceB;
+import junit.b.setup.ServiceWithRunningContext;
 
 import org.junit.After;
 import org.junit.AfterClass;
@@ -13,8 +13,6 @@ import org.junit.Test;
  * sometimes the test context is hard to build and can be reused across
  * different test methods<br>
  * JUnit comes with a flavor of context 'listeners'
- *
- * @author CornelGhita
  */
 public class ServiceTest extends AbstractTest {
 
@@ -22,7 +20,7 @@ public class ServiceTest extends AbstractTest {
      * we want to test on the same service instance across many test scenarios
      * due to hard to build test context
      */
-    private static ServiceB service;
+    private static ServiceWithRunningContext service;
 
     /**
      * called once before all test defined in this class are executed<br>
@@ -36,7 +34,7 @@ public class ServiceTest extends AbstractTest {
         // since a service instance is hard to create => we will create one
         // instance of service + and we will reuse it across all tests performed
         // in this class
-        service = new ServiceB();
+        service = new ServiceWithRunningContext();
 
     }
 

@@ -6,7 +6,7 @@ package junit.b.setup;
  *
  * @author CornelGhita
  */
-public class ServiceB {
+public class ServiceWithRunningContext {
 
     /**
      * state across business service invocations is kept here
@@ -19,7 +19,7 @@ public class ServiceB {
      * class<br>
      * this constructor is intended only for demo
      */
-    public ServiceB() {
+    public ServiceWithRunningContext() {
         state = 0;// very difficult to build state
         System.out.println(this + " created");
     }

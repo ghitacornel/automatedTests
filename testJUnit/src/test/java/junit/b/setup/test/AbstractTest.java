@@ -27,7 +27,6 @@ public class AbstractTest {
     @Before
     public void setupBeforeEachTest() {
         System.out.println("abstract set up before each test");
-
     }
 
     /**

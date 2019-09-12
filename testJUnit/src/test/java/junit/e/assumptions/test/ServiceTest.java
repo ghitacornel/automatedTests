@@ -21,8 +21,10 @@ public class ServiceTest {
                 // just make dummy call to see if this method was implemented
                 new ServiceE().multiply(1, 1);
             } catch (UnsupportedOperationException e) {
+
                 // this exception was raised => ignore this test
                 Assume.assumeNoException(e);
+
             }
         }
 
