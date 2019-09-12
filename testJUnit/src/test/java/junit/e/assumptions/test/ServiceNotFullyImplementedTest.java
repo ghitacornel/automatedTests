@@ -1,28 +1,31 @@
 package junit.e.assumptions.test;
 
-import junit.e.assumptions.ServiceE;
+import junit.e.assumptions.ServiceNotFullyImplemented;
 
 import org.junit.Assert;
 import org.junit.Assume;
 import org.junit.Test;
 
-public class ServiceTest {
+/**
+ * use assumptions for writing tests that will be run when certain external constraints are met<br>
+ * e.g. tests are executed under certain environment (linux/windows)<br>
+ * e.g. some tests must be executed only for some certain external configuration settings ( environment variables )
+ * while other tests must not be executed for same configuration settings
+ */
+public class ServiceNotFullyImplementedTest {
 
     @Test
     public void testMultiply() {
-
-        // We can use assumptions for writing tests that will be run
-        // when certain external constraints are met.
 
         // assumption fails => test is ignored
         // assumption passes => test is executed
         {
             try {
                 // just make dummy call to see if this method was implemented
-                new ServiceE().multiply(1, 1);
+                new ServiceNotFullyImplemented().multiply(1, 1);
             } catch (UnsupportedOperationException e) {
 
-                // this exception was raised => ignore this test
+                // if this exception was raised => ignore this test
                 Assume.assumeNoException(e);
 
             }
@@ -34,7 +37,7 @@ public class ServiceTest {
         // assumptions for enabling them.
         // a better mocking framework will be presented later.
 
-        Assert.assertEquals(6, new ServiceE().multiply(2, 3));
+        Assert.assertEquals(6, new ServiceNotFullyImplemented().multiply(2, 3));
 
     }
 }
