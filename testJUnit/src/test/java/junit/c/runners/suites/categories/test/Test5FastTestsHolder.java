@@ -6,8 +6,10 @@ import org.junit.runners.Suite;
 import org.junit.runners.Suite.SuiteClasses;
 
 @RunWith(Suite.class)
-@SuiteClasses({Test1FastRunningServiceTest1.class,
-        Test2FastRunningServiceTest2.class})
+@SuiteClasses({
+        Test1FastRunningServiceTest1.class,
+        Test2FastRunningServiceTest2.class
+})
 public class Test5FastTestsHolder {
 
     // class that acts as a holder.

@@ -1,6 +1,6 @@
 package junit.c.runners.suites.categories;
 
-public class ServiceC {
+public class ServiceWithMultipleTypesOfMethods {
 
     /**
      * assume fast to execute business
