@@ -1,6 +1,6 @@
 package junit.b.setup.test;
 
-import junit.b.setup.ServiceWithRunningContext;
+import junit.b.setup.ServiceWithRunningState;
 
 import org.junit.After;
 import org.junit.AfterClass;
@@ -14,13 +14,13 @@ import org.junit.Test;
  * different test methods<br>
  * JUnit comes with a flavor of context 'listeners'
  */
-public class ServiceTest extends AbstractTest {
+public class ServiceTest extends TestSetup {
 
     /**
      * we want to test on the same service instance across many test scenarios
      * due to hard to build test context
      */
-    private static ServiceWithRunningContext service;
+    private static ServiceWithRunningState service;
 
     /**
      * called once before all test defined in this class are executed<br>
@@ -34,7 +34,7 @@ public class ServiceTest extends AbstractTest {
         // since a service instance is hard to create => we will create one
         // instance of service + and we will reuse it across all tests performed
         // in this class
-        service = new ServiceWithRunningContext();
+        service = new ServiceWithRunningState();
 
     }
 
@@ -47,7 +47,7 @@ public class ServiceTest extends AbstractTest {
 
         // since one instance of service was used across all tests performed in
         // this class at the end of all tests we will have to destroy it
-        service.destroy();
+        service.destroyService();
 
         System.out.println("setup after all tests were executed");
 
@@ -61,7 +61,7 @@ public class ServiceTest extends AbstractTest {
 
         // since calls to service methods change its inner state we will have to
         // reset it before each test
-        service.reset();
+        service.resetState();
         System.out.println("set up before each test, reset context = "
                 + service);
 
@@ -78,7 +78,7 @@ public class ServiceTest extends AbstractTest {
         // them after each test
         System.out
                 .println("set up after each test, reset context = " + service);
-        service.reset();
+        service.resetState();
 
     }
 

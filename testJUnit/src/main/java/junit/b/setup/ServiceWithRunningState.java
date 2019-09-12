@@ -6,7 +6,7 @@ package junit.b.setup;
  *
  * @author CornelGhita
  */
-public class ServiceWithRunningContext {
+public class ServiceWithRunningState {
 
     /**
      * state across business service invocations is kept here
@@ -19,7 +19,7 @@ public class ServiceWithRunningContext {
      * class<br>
      * this constructor is intended only for demo
      */
-    public ServiceWithRunningContext() {
+    public ServiceWithRunningState() {
         state = 0;// very difficult to build state
         System.out.println(this + " created");
     }
@@ -50,7 +50,7 @@ public class ServiceWithRunningContext {
      * reset the service state<br>
      * if reset the service can be considered as a new one
      */
-    public void reset() {
+    public void resetState() {
         state = 0;
     }
 
@@ -59,7 +59,7 @@ public class ServiceWithRunningContext {
      * will close used database connections, file streams and other expensive
      * used resources .....
      */
-    public void destroy() {
+    public void destroyService() {
         System.out.println(this + " will be destroyed");
     }
 

@@ -5,7 +5,7 @@ import org.junit.AfterClass;
 import org.junit.Before;
 import org.junit.BeforeClass;
 
-public class AbstractTest {
+public abstract class TestSetup {
 
     @BeforeClass
     public static void beforeAllTestsAreExecuted() {
