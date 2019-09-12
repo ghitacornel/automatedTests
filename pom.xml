@@ -10,6 +10,7 @@
         <module>testJUnit</module>
         <module>testMockito</module>
         <module>testDBUnit</module>
+        <module>testUnitils</module>
     </modules>
 
     <properties>
