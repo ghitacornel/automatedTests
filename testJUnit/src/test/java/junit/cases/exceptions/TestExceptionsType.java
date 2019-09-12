@@ -2,7 +2,7 @@ package junit.cases.exceptions;
 
 import org.junit.Test;
 
-public class ComplexServiceTest4_Exceptions {
+public class TestExceptionsType {
 
     /**
      * good practice : if method throws exceptions for certain parameter values

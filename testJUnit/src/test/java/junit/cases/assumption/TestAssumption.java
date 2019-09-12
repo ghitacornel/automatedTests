@@ -10,7 +10,7 @@ import org.junit.Test;
  * e.g. some tests must be executed only for some certain external configuration settings ( environment variables )
  * while other tests must not be executed for same configuration settings
  */
-public class ServiceNotFullyImplementedTest {
+public class TestAssumption {
 
     @Test
     public void testMultiply() {

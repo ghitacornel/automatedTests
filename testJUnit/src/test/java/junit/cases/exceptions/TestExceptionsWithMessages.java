@@ -4,7 +4,7 @@ import org.junit.Rule;
 import org.junit.Test;
 import org.junit.rules.ExpectedException;
 
-public class ComplexServiceTest5_ExceptionsWithMessages {
+public class TestExceptionsWithMessages {
 
     /**
      * this is something 'special'<br>

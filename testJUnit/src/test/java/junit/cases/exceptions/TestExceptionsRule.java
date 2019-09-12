@@ -4,7 +4,7 @@ import org.junit.Rule;
 import org.junit.Test;
 import org.junit.rules.ExpectedException;
 
-public class ComplexServiceTest6_ExceptionsRule {
+public class TestExceptionsRule {
 
     /**
      * a rule for checking exceptions

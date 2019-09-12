@@ -8,7 +8,7 @@ import org.junit.rules.Timeout;
  * it is possible to set timeouts for tests<br>
  * tests with timeouts can be used to test algorithms for efficiency<br>
  */
-public class LongRunningServiceTest_Timeouts {
+public class TestTimeouts {
 
     /**
      * see JUnit documentation related to time {@link Rule} and {@link Timeout}
