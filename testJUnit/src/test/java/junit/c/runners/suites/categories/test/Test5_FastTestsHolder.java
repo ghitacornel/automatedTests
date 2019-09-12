@@ -7,10 +7,10 @@ import org.junit.runners.Suite.SuiteClasses;
 
 @RunWith(Suite.class)
 @SuiteClasses({
-        Test1FastRunningServiceTest1.class,
-        Test2FastRunningServiceTest2.class
+        Test1_FastRunningService.class,
+        Test2_FastRunningService.class
 })
-public class Test5FastTestsHolder {
+public class Test5_FastTestsHolder {
 
     // class that acts as a holder.
     // it binds fast tests together.
@@ -22,9 +22,9 @@ public class Test5FastTestsHolder {
     // though it doesn't declare test methods
 
     // this method will not be run
-    // odd enough
+    // XXX odd enough
     @Test
-    public void testAtLast() {
+    public void test_AllFastRunningService() {
 
     }
 

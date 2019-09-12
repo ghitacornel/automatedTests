@@ -6,10 +6,10 @@ import org.junit.runners.Suite.SuiteClasses;
 
 @RunWith(Suite.class)
 @SuiteClasses({
-        Test3SlowRunningServiceTest3.class,
-        Test4SlowRunningServiceTest4.class
+        Test3_SlowRunningService.class,
+        Test4_SlowRunningService.class
 })
-public class Test6SlowTestsHolder {
+public class Test6_SlowTestsHolder {
 
     // class that acts as a holder.
     // it binds slow tests together
