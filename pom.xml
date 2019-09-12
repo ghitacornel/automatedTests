@@ -11,6 +11,7 @@
         <module>testMockito</module>
         <module>testDBUnit</module>
         <module>testUnitils</module>
+        <module>testEasyMock</module>
     </modules>
 
     <properties>
