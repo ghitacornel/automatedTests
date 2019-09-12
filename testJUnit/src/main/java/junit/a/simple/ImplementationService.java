@@ -4,7 +4,7 @@ package junit.a.simple;
  * See that this service implements a contract(interface)<br>
  * We want to test that this service honors its contract<br>
  */
-public class ServiceA implements IService {
+public class ImplementationService implements InterfaceService {
 
     @Override
     public int sum(int a, int b) {
@@ -14,9 +14,9 @@ public class ServiceA implements IService {
 
     /**
      * private methods are not to be tested<br>
+     * private methods hide implementation details and are subject to change, but public methods must honor the contract<br>
      * we test that our public methods which implements a contract really honor
      * their contracts (in other words they implement what the interface says)<br>
-     * WHY WE TEST ONLY PUBLIC METHODS IS A DIFFERENT TOPIC NOT DISCUSSED NOW
      */
     private void internalStuff() {
     }

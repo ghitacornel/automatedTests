@@ -11,24 +11,22 @@ import org.junit.Test;
  * each test will run on its very own test class instance, not shared by other
  * tests<br>
  * Usually a test class will contain many related test methods
- * 
- * @author CornelGhita
- * 
+ * Remember Java Reflection !!!
  */
-public class ServiceTest2MultiTests {
+public class ImplementationServiceTest2MultipleTests {
 
-	/**
-	 * these 2 tests will show that JUnit will run each test method on a
-	 * different test class instance
-	 */
-	@Test
-	public void test1() {
-		System.out.println("running on " + this);
-	}
+    /**
+     * these 2 tests will show that JUnit will run each test method on a
+     * different test class instance
+     */
+    @Test
+    public void test1() {
+        System.out.println("running on " + this);
+    }
 
-	@Test
-	public void test2() {
-		System.out.println("running on " + this);
-	}
+    @Test
+    public void test2() {
+        System.out.println("running on " + this);
+    }
 
 }

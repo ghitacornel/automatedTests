@@ -4,7 +4,7 @@ package junit.a.simple;
  * This is a contract<br>
  * Our application must implement it
  */
-public interface IService {
+public interface InterfaceService {
 
     /**
      * @param a
