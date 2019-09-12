@@ -16,24 +16,22 @@ import org.junit.runners.Parameterized.Parameters;
  * when testing with lots of different input values and expectations you can use
  * {@link RunWith} {@link Parameterized}<br>
  * remember runners ?
- *
- * @author Cornel
  */
 @RunWith(Parameterized.class)
 public class ComplexServiceTest3_LotsOfSpecialValues {
 
     /**
      * input bean for each test
-     *
-     * @author CornelGhita
      */
-    public static class InputBean {
+    public static class InputModel {
+
         int a, b;
 
-        public InputBean(int a, int b) {
+        InputModel(int a, int b) {
             this.a = a;
             this.b = b;
         }
+
     }
 
     /**
@@ -41,15 +39,18 @@ public class ComplexServiceTest3_LotsOfSpecialValues {
      */
     @Parameters
     public static Collection<Object[]> data() {
-        return Arrays.asList(new Object[][]{{new InputBean(0, 1), -1},
-                {new InputBean(1, 0), -1}, {new InputBean(0, 0), -1}});
+        return Arrays.asList(new Object[][]{
+                {new InputModel(0, 1), -1},
+                {new InputModel(1, 0), -1},
+                {new InputModel(0, 0), -1}
+        });
     }
 
     // this filed will be injected for each test
     // it needs to be public, no worry since these are only tests
     // XXX don't know why they force you to keep it public
     @Parameter(value = 0)
-    public InputBean input;
+    public InputModel input;
 
     // this filed will be injected for each test
     // it needs to be public, no worry since these are only tests
@@ -65,8 +66,7 @@ public class ComplexServiceTest3_LotsOfSpecialValues {
      */
     @Test
     public void testBusinessSumSpecialValue() throws Exception {
-        Assert.assertEquals(output,
-                new ComplexService().complexBusinessMethod(input.a, input.b));
+        Assert.assertEquals(output, new ComplexService().complexBusinessMethod(input.a, input.b));
     }
 
 }
