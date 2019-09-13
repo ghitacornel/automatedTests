@@ -13,23 +13,25 @@ import java.nio.file.Paths;
 public class TestTemporaryFolder {
 
     @Rule
-    public TemporaryFolder temporaryFolder = new TemporaryFolder();
+    public TemporaryFolder temporaryFolderRule = new TemporaryFolder();
 
     @Test
     public void testWrite() throws IOException {
 
         // Create a temporary file.
-        File temporaryFile = temporaryFolder.newFile("temporaryFile.txt");
+        File temporaryFile = temporaryFolderRule.newFile("temporaryFile.txt");
 
         // Write something to it.
         new ServiceUsingAFile().writeToFile(temporaryFile);
 
-        // Read it from temp file
+        // Read it from file
         String content = new String(Files.readAllBytes(Paths.get(temporaryFile.getPath())));
 
         // Verify the content
         Assert.assertEquals("hello world", content);
 
         //Note: File is guaranteed to be deleted after the test finishes.
+        System.out.println("please check " + temporaryFile.getAbsolutePath());
+
     }
 }
