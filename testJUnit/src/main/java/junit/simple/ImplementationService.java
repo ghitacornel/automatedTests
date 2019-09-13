@@ -14,7 +14,8 @@ public class ImplementationService implements InterfaceService {
 
     /**
      * private methods are not to be tested<br>
-     * private methods hide implementation details and are subject to change, but public methods must honor the contract<br>
+     * private methods hide implementation details<br>
+     * private methods and are subject to change, but public methods must honor the contract<br>
      * we test that our public methods which implements a contract really honor
      * their contracts (in other words they implement what the interface says)<br>
      */
