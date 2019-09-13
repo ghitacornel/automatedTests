@@ -1,4 +1,4 @@
-package junit.b.setup.test;
+package junit.test.setup;
 
 import org.junit.After;
 import org.junit.AfterClass;
@@ -7,9 +7,13 @@ import org.junit.BeforeClass;
 
 public abstract class TestSetup {
 
+    /**
+     * called once before all tests defined in this class are executed<br>
+     * NOTE that this method has to be static
+     */
     @BeforeClass
     public static void beforeAllTestsAreExecuted() {
-        System.out.println("abstract setup before all tests are executed");
+        System.out.println(TestSetup.class.getCanonicalName() + " before all tests are executed");
     }
 
     /**
@@ -18,7 +22,7 @@ public abstract class TestSetup {
      */
     @AfterClass
     public static void afterAllTestsWereExecuted() {
-        System.out.println("abstract setup after all tests were executed");
+        System.out.println(TestSetup.class.getCanonicalName() + " after all tests were executed");
     }
 
     /**
@@ -26,7 +30,7 @@ public abstract class TestSetup {
      */
     @Before
     public void setupBeforeEachTest() {
-        System.out.println("abstract set up before each test");
+        System.out.println(this + " before each test");
     }
 
     /**
@@ -34,8 +38,7 @@ public abstract class TestSetup {
      */
     @After
     public void setupAfterEachTest() {
-        System.out.println("abstract set up after each test");
-
+        System.out.println(this + " after each test");
     }
 
 }
