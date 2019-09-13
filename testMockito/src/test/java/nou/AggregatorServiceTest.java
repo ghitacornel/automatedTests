@@ -3,10 +3,7 @@ package nou;
 import org.junit.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;
-import org.mockito.InOrder;
-import org.mockito.InjectMocks;
-import org.mockito.Mock;
-import org.mockito.Mockito;
+import org.mockito.*;
 import org.mockito.junit.MockitoJUnitRunner;
 
 // special runner must be used when using Mockito
@@ -89,9 +86,17 @@ public class AggregatorServiceTest {
                 InOrder order = Mockito.inOrder(mock1, mock2, mock3);
 
                 // verify mock interactions
+
+                // verify mock 1 interaction
                 order.verify(mock1).businessMethod1(inputData); // the actual parameter value is also tested
+
+                // verify mock 2 interaction
                 order.verify(mock2).businessMethod2(inputData);// the actual parameter value is also tested
-                order.verify(mock3).businessMethod3();
+
+                // verify mock 3 interaction
+                ArgumentCaptor<TemporaryData> argument = ArgumentCaptor.forClass(TemporaryData.class);
+                order.verify(mock3).businessMethod3(argument.capture());
+                Assert.assertEquals(3, argument.getValue().getW());
 
                 // verify no other mock interactions occurred
                 order.verifyNoMoreInteractions();

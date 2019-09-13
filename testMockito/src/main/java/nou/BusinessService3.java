@@ -5,6 +5,6 @@ package nou;
  */
 public interface BusinessService3 {
 
-    void businessMethod3();
+    void businessMethod3(TemporaryData temporaryData);
 
 }

@@ -21,7 +21,9 @@ public class AggregatorService {
         OutputData outputData = businessService2.businessMethod2(inputData);
 
         // use third service
-        businessService3.businessMethod3();
+        TemporaryData temporaryData = new TemporaryData();
+        temporaryData.setW(outputData.getY());
+        businessService3.businessMethod3(temporaryData);
 
         return outputData;
 
