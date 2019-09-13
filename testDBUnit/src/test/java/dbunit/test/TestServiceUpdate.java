@@ -13,17 +13,18 @@ import org.junit.Test;
 
 public class TestServiceUpdate extends TestsSetUp {
 
+    private static final String DATABASE_REQUIRED = "databaseRequiredByUpdate.xml";
+    private static final String DATABASE_EXPECTED = "databaseExpectedAfterUpdate.xml";
+
     @Before
     public void setupDatabaseToInitialState() throws Exception {
-        FlatXmlDataSet dataSet = new FlatXmlDataSetBuilder().build(TestServiceUpdate.class.getResourceAsStream("databaseRequiredByUpdate.xml"));
+        FlatXmlDataSet dataSet = new FlatXmlDataSetBuilder().build(TestServiceUpdate.class.getResourceAsStream(DATABASE_REQUIRED));
         DatabaseOperation.CLEAN_INSERT.execute(tester.getConnection(), dataSet);
     }
 
     /**
      * can test that update works by using a debugger and checking the actual
      * database state between different test phases
-     *
-     * @throws Exception
      */
     @Test
     public void testUpdate() throws Exception {
@@ -45,7 +46,7 @@ public class TestServiceUpdate extends TestsSetUp {
             ITable actualTable = databaseDataSet.getTable("testtable");
 
             // Load expected data from an XML dataset
-            IDataSet expectedDataSet = new FlatXmlDataSetBuilder().build(TestServiceDelete.class.getResourceAsStream("databaseExpectedAfterUpdate.xml"));
+            IDataSet expectedDataSet = new FlatXmlDataSetBuilder().build(TestServiceDelete.class.getResourceAsStream(DATABASE_EXPECTED));
             ITable expectedTable = expectedDataSet.getTable("testtable");
 
             // Assert actual database table match expected table
@@ -57,7 +58,7 @@ public class TestServiceUpdate extends TestsSetUp {
 
     @After
     public void tearDownDatabaseToInitialState() throws Exception {
-        FlatXmlDataSet dataSet = new FlatXmlDataSetBuilder().build(TestServiceUpdate.class.getResourceAsStream("databaseRequiredByUpdate.xml"));
+        FlatXmlDataSet dataSet = new FlatXmlDataSetBuilder().build(TestServiceUpdate.class.getResourceAsStream(DATABASE_REQUIRED));
         DatabaseOperation.TRUNCATE_TABLE.execute(tester.getConnection(), dataSet);
     }
 

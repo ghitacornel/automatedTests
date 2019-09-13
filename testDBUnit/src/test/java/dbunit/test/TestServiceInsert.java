@@ -1,5 +1,6 @@
 package dbunit.test;
 
+import dbunit.model.Bean;
 import org.dbunit.Assertion;
 import org.dbunit.dataset.IDataSet;
 import org.dbunit.dataset.ITable;
@@ -10,22 +11,20 @@ import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
-import dbunit.model.Bean;
-import dbunit.service.Service;
-
 public class TestServiceInsert extends TestsSetUp {
+
+    private static final String DATABASE_REQUIRED = "databaseRequiredByInsert.xml";
+    private static final String DATABASE_EXPECTED = "databaseExpectedAfterInsert.xml";
 
     @Before
     public void setupDatabaseToInitialState() throws Exception {
-        FlatXmlDataSet dataSet = new FlatXmlDataSetBuilder().build(TestServiceInsert.class.getResourceAsStream("databaseRequiredByInsert.xml"));
+        FlatXmlDataSet dataSet = new FlatXmlDataSetBuilder().build(TestServiceInsert.class.getResourceAsStream(DATABASE_REQUIRED));
         DatabaseOperation.TRUNCATE_TABLE.execute(tester.getConnection(), dataSet);
     }
 
     /**
      * can test that insert works by using a debugger and checking the actual
      * database state between different test phases
-     *
-     * @throws Exception
      */
     @Test
     public void testInsert() throws Exception {
@@ -49,7 +48,7 @@ public class TestServiceInsert extends TestsSetUp {
             ITable actualTable = databaseDataSet.getTable("testtable");
 
             // Load expected data from an XML dataset
-            IDataSet expectedDataSet = new FlatXmlDataSetBuilder().build(TestServiceInsert.class.getResourceAsStream("databaseExpectedAfterInsert.xml"));
+            IDataSet expectedDataSet = new FlatXmlDataSetBuilder().build(TestServiceInsert.class.getResourceAsStream(DATABASE_EXPECTED));
             ITable expectedTable = expectedDataSet.getTable("testtable");
 
             // Assert actual database table match expected table
@@ -61,7 +60,7 @@ public class TestServiceInsert extends TestsSetUp {
 
     @After
     public void tearDownDatabaseToInitialState() throws Exception {
-        FlatXmlDataSet dataSet = new FlatXmlDataSetBuilder().build(TestServiceInsert.class.getResourceAsStream("databaseRequiredByInsert.xml"));
+        FlatXmlDataSet dataSet = new FlatXmlDataSetBuilder().build(TestServiceInsert.class.getResourceAsStream(DATABASE_REQUIRED));
         DatabaseOperation.TRUNCATE_TABLE.execute(tester.getConnection(), dataSet);
     }
 

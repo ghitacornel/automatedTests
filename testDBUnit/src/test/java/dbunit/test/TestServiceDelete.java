@@ -1,5 +1,6 @@
 package dbunit.test;
 
+import dbunit.model.Bean;
 import org.dbunit.Assertion;
 import org.dbunit.dataset.IDataSet;
 import org.dbunit.dataset.ITable;
@@ -10,22 +11,20 @@ import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
-import dbunit.model.Bean;
-import dbunit.service.Service;
-
 public class TestServiceDelete extends TestsSetUp {
+
+    private static final String DATABASE_REQUIRED = "databaseRequiredByDelete.xml";
+    private static final String DATABASE_EXPECTED = "databaseExpectedAfterDelete.xml";
 
     @Before
     public void setupDatabaseToInitialState() throws Exception {
-        FlatXmlDataSet dataSet = new FlatXmlDataSetBuilder().build(TestServiceDelete.class.getResourceAsStream("databaseRequiredByDelete.xml"));
+        FlatXmlDataSet dataSet = new FlatXmlDataSetBuilder().build(TestServiceDelete.class.getResourceAsStream(DATABASE_REQUIRED));
         DatabaseOperation.TRUNCATE_TABLE.execute(tester.getConnection(), dataSet);
     }
 
     /**
      * can test that delete works by using a debugger and checking the actual
      * database state between different test phases
-     *
-     * @throws Exception
      */
     @Test
     public void testDelete() throws Exception {
@@ -45,7 +44,7 @@ public class TestServiceDelete extends TestsSetUp {
             ITable actualTable = databaseDataSet.getTable("testtable");
 
             // Load expected data from an XML dataset
-            IDataSet expectedDataSet = new FlatXmlDataSetBuilder().build(TestServiceDelete.class.getResourceAsStream("databaseExpectedAfterDelete.xml"));
+            IDataSet expectedDataSet = new FlatXmlDataSetBuilder().build(TestServiceDelete.class.getResourceAsStream(DATABASE_EXPECTED));
             ITable expectedTable = expectedDataSet.getTable("testtable");
 
             // Assert actual database table match expected table
@@ -57,7 +56,7 @@ public class TestServiceDelete extends TestsSetUp {
 
     @After
     public void tearDownDatabaseToInitialState() throws Exception {
-        FlatXmlDataSet dataSet = new FlatXmlDataSetBuilder().build(TestServiceDelete.class.getResourceAsStream("databaseExpectedAfterDelete.xml"));
+        FlatXmlDataSet dataSet = new FlatXmlDataSetBuilder().build(TestServiceDelete.class.getResourceAsStream(DATABASE_EXPECTED));
         DatabaseOperation.TRUNCATE_TABLE.execute(tester.getConnection(), dataSet);
     }
 
