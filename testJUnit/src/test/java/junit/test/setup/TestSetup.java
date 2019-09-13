@@ -30,21 +30,23 @@ public abstract class TestSetup {
     }
 
     /**
-     * called once before each test
+     * called once before each test<br>
+     * better mark it final in order of not to be overridden by mistake<br>
      * NOTE that this method is invoked in a test classes hierarchy context
      */
     @Before
-    public void setupBeforeEachTest() {
-        System.out.println(this + " before each test");
+    final public void setupBeforeEachTestParent() {
+        System.out.println(this + " before each test from parent");
     }
 
     /**
-     * called once after each test
+     * called once after each test<br>
+     * better mark it final in order of not to be overridden by mistake<br>
      * NOTE that this method is invoked in a test classes hierarchy context
      */
     @After
-    public void setupAfterEachTest() {
-        System.out.println(this + " after each test");
+    final public void setupAfterEachTestParent() {
+        System.out.println(this + " after each test from parent");
     }
 
 }
