@@ -184,9 +184,12 @@ public class AggregatorServiceTest {
 
             }
 
+            // throw exception
             throw e;
+
         }
 
+        // fail test in case no exception was raised
         Assert.fail("No exception was raised");
 
     }
