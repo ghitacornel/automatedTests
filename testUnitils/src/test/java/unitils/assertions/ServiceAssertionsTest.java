@@ -4,8 +4,6 @@ import org.junit.Assert;
 import org.junit.Test;
 import org.unitils.reflectionassert.ReflectionAssert;
 import org.unitils.reflectionassert.ReflectionComparatorMode;
-import unitils.model.User;
-import unitils.service.Service;
 
 import java.util.ArrayList;
 import java.util.Arrays;

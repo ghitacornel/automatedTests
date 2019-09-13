@@ -1,4 +1,4 @@
-package unitils.model;
+package unitils.assertions;
 
 /**
  * application model class<br>

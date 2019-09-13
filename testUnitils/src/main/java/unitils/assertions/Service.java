@@ -1,6 +1,4 @@
-package unitils.service;
-
-import unitils.model.User;
+package unitils.assertions;
 
 import java.util.ArrayList;
 import java.util.List;
