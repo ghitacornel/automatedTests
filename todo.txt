@@ -1,3 +1,4 @@
 assert j
 easymock
 mockito
+random beans
