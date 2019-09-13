@@ -20,10 +20,13 @@ public abstract class TestsSetUp {
     // needed only for assertions
     static DefaultDatabaseTester tester;
 
+    /**
+     * setup database connection, database initial state and tester
+     */
     @BeforeClass
     public static void setUp() throws Exception {
 
-        // set up connections.
+        // set up connection
         // usually a data source is better
         {
             Class.forName("org.hsqldb.jdbcDriver");
