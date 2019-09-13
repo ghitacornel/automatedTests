@@ -1,4 +1,4 @@
-package unitils.dao;
+package unitils.mock;
 
 
 public interface DAO {

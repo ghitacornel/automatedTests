@@ -7,8 +7,6 @@ import org.unitils.UnitilsJUnit4TestClassRunner;
 import org.unitils.easymock.annotation.RegularMock;
 import org.unitils.inject.annotation.InjectIntoByType;
 import org.unitils.inject.annotation.TestedObject;
-import unitils.dao.DAO;
-import unitils.service.ServiceWithDao;
 
 @RunWith(UnitilsJUnit4TestClassRunner.class)
 public class ServiceWithDaoMockTest {
