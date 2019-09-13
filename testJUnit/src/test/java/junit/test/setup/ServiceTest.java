@@ -44,7 +44,7 @@ public class ServiceTest extends TestSetup {
     @After
     public void setupAfterEachTest() {
         // destroy test context created for each test method
-        System.out.println(this + " set up after each test");
+        System.out.println(this + " tear down after each test");
 
     }
 

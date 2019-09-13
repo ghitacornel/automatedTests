@@ -10,6 +10,8 @@ public abstract class TestSetup {
     /**
      * called once before all tests defined in this class are executed<br>
      * NOTE that this method has to be static
+     * NOTE that this method is not invoked in a test classes hierarchy context
+     * NOTE OOP => static is not related to inheritance
      */
     @BeforeClass
     public static void beforeAllTestsAreExecuted() {
@@ -19,6 +21,8 @@ public abstract class TestSetup {
     /**
      * called once after all tests defined in this class were executed<br>
      * NOTE that this method has to be static
+     * NOTE that this method is not invoked in a test classes hierarchy context
+     * NOTE OOP => static is not related to inheritance
      */
     @AfterClass
     public static void afterAllTestsWereExecuted() {
@@ -27,6 +31,7 @@ public abstract class TestSetup {
 
     /**
      * called once before each test
+     * NOTE that this method is invoked in a test classes hierarchy context
      */
     @Before
     public void setupBeforeEachTest() {
@@ -35,6 +40,7 @@ public abstract class TestSetup {
 
     /**
      * called once after each test
+     * NOTE that this method is invoked in a test classes hierarchy context
      */
     @After
     public void setupAfterEachTest() {
