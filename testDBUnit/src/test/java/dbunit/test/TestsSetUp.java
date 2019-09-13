@@ -5,12 +5,14 @@ import org.dbunit.DefaultDatabaseTester;
 import org.dbunit.database.DatabaseConfig;
 import org.dbunit.database.DatabaseConnection;
 import org.dbunit.ext.hsqldb.HsqldbDataTypeFactory;
+import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
 import org.junit.BeforeClass;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
+import java.sql.SQLException;
 
 public abstract class TestsSetUp {
 
@@ -44,15 +46,12 @@ public abstract class TestsSetUp {
         {// create database schema
             databaseConnection.createStatement().execute("drop table if exists testtable;");
             databaseConnection.createStatement().execute("create table testtable(id int primary key, description varchar(50));");
-            databaseConnection.createStatement().execute("insert into testtable(id,description) values (1,'descriere1');");
-            databaseConnection.createStatement().execute("insert into testtable(id,description) values (2,'descriere2');");
-            databaseConnection.createStatement().execute("insert into testtable(id,description) values (3,null);");
         }
 
     }
 
     @AfterClass
-    public static void tearDown() throws Exception {
+    public static void tearDown() throws SQLException {
         if (databaseConnection != null) {
             databaseConnection.close();
         }
@@ -61,8 +60,19 @@ public abstract class TestsSetUp {
     protected Service service;
 
     @Before
-    public void setUpService() {
+    final public void setUpService() {
         service = new Service(databaseConnection);
     }
 
+    // for transactional tests
+    @Before
+    final public void setUpConnectionTransaction() throws SQLException {
+        databaseConnection.setAutoCommit(false);
+    }
+
+    // for transactional tests
+    @After
+    final public void tearDownConnectionTransaction() throws SQLException {
+        databaseConnection.rollback();
+    }
 }
