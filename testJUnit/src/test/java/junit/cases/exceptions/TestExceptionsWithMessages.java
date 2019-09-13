@@ -13,7 +13,7 @@ public class TestExceptionsWithMessages {
      * test completion or just provide setup support
      */
     @Rule
-    public ExpectedException expectedException = ExpectedException.none();
+    public ExpectedException expectedExceptionRule = ExpectedException.none();
 
     /**
      * test for exception type and exception message
@@ -24,12 +24,13 @@ public class TestExceptionsWithMessages {
     public void testCustomBusinessException() throws Exception {
 
         // define in the rule the expected exception type
-        expectedException.expect(CustomBusinessException.class);
+        expectedExceptionRule.expect(CustomBusinessException.class);
 
         // define in the rule the expected exception message
-        expectedException.expectMessage("custom business exception");
+        expectedExceptionRule.expectMessage("custom business exception");
 
         new ComplexService().complexBusinessMethod(-3, -4);
+
     }
 
 }
