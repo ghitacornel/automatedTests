@@ -4,7 +4,6 @@ import org.junit.Assert;
 import org.junit.Test;
 import org.unitils.UnitilsJUnit4;
 import org.unitils.inject.annotation.InjectIntoStaticByType;
-import unitils.service.ServiceWithInjections;
 
 /**
  * need to extend special class

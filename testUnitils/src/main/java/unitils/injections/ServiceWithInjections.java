@@ -1,4 +1,4 @@
-package unitils.service;
+package unitils.injections;
 
 public class ServiceWithInjections {
 

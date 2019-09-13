@@ -3,7 +3,6 @@ package unitils.injections;
 import org.junit.Assert;
 import org.junit.Test;
 import org.unitils.inject.util.InjectionUtils;
-import unitils.service.ServiceWithInjections;
 
 /**
  * no need to extend special class<br>

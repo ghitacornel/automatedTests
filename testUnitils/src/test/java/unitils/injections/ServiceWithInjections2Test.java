@@ -6,7 +6,6 @@ import org.junit.experimental.theories.suppliers.TestedOn;
 import org.unitils.UnitilsJUnit4;
 import org.unitils.inject.annotation.InjectIntoByType;
 import org.unitils.inject.annotation.TestedObject;
-import unitils.service.ServiceWithInjections;
 
 /**
  * need to extend special class
