@@ -1,4 +1,4 @@
-package junit.d.complex.test;
+package junit.test.complex;
 
 import junit.cases.exceptions.ComplexService;
 

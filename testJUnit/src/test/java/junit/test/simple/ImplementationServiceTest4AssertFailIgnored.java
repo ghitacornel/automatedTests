@@ -1,7 +1,6 @@
 package junit.test.simple;
 
 import junit.simple.ImplementationService;
-
 import org.junit.Assert;
 import org.junit.Ignore;
 import org.junit.Test;
@@ -40,8 +39,7 @@ public class ImplementationServiceTest4AssertFailIgnored {
 
     /**
      * you can mark a test as to be ignored<br>
-     * it is placed here to see that custom messages are displayed for these
-     * tests<br>
+     * it is placed here to see that custom messages are displayed for these tests<br>
      * to be used for incomplete or failed tests as a quick and DIRTY fix for
      * passing the continuous integration tests but don't forget to fix them
      * ASAP
