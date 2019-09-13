@@ -1,4 +1,4 @@
-package nou;
+package mockito;
 
 import org.junit.Assert;
 import org.junit.Test;

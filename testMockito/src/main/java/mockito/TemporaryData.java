@@ -1,12 +1,12 @@
-package nou;
+package mockito;
 
 import lombok.Getter;
 import lombok.Setter;
 
 @Getter
 @Setter
-public class InputData {
+public class TemporaryData {
 
-    private int x;
+    private int w;
 
 }

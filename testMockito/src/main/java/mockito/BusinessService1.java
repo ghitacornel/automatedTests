@@ -1,4 +1,4 @@
-package nou;
+package mockito;
 
 /**
  * Dependency for {@link AggregatorService}

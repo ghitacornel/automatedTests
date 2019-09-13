@@ -1,4 +1,4 @@
-package nou;
+package mockito;
 
 public class AggregatorService {
 
