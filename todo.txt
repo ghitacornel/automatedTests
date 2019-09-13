@@ -3,3 +3,5 @@ easymock
 mockito
 random beans
 flywaydb setup
+
+reflection equals no unitils+collections also
