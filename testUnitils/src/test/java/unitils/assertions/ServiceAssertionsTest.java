@@ -13,6 +13,8 @@ import java.util.List;
 
 public class ServiceAssertionsTest {
 
+    Service service = new Service();
+
     /**
      * this test will fail<br>
      * {@link User} does not implement equals
@@ -23,7 +25,7 @@ public class ServiceAssertionsTest {
         User expected = new User(1, "John", "Doe");
 
         // use business and transform model
-        User actual = new Service().getCurrentBusinessUser();
+        User actual = service.getCurrentBusinessUser();
 
         // test expectations
         Assert.assertEquals(expected, actual);
@@ -39,7 +41,7 @@ public class ServiceAssertionsTest {
         User expected = new User(1, "John", "Doe");
 
         // use business and transform model
-        User actual = new Service().getCurrentBusinessUser();
+        User actual = service.getCurrentBusinessUser();
 
         // test expectations
         Assert.assertEquals(expected.getId(), actual.getId());
@@ -57,7 +59,7 @@ public class ServiceAssertionsTest {
         User expected = new User(1, "John", "Doe");
 
         // use business and transform model
-        User actual = new Service().getCurrentBusinessUser();
+        User actual = service.getCurrentBusinessUser();
 
         // test expectations
         // very useful for complex model
@@ -83,19 +85,16 @@ public class ServiceAssertionsTest {
         expectedUsers.add(new User(2, "John2", "Doe2"));
 
         // use business and transform model
-        List<User> actualUsers = new Service()
-                .getCurrentBusinessUsers();
+        List<User> actualUsers = service.getCurrentBusinessUsers();
 
         // test expectations
         // use lenient order since order of elements is not important.
         // there are many variants of lenient.
-        ReflectionAssert.assertReflectionEquals(expectedUsers, actualUsers,
-                ReflectionComparatorMode.LENIENT_ORDER);
+        ReflectionAssert.assertReflectionEquals(expectedUsers, actualUsers, ReflectionComparatorMode.LENIENT_ORDER);
 
         // or some other odd stuff
         // here test only id property values from the collection
-        ReflectionAssert.assertPropertyLenientEquals("id",
-                Arrays.asList(1, 2, 3), actualUsers);
+        ReflectionAssert.assertPropertyLenientEquals("id", Arrays.asList(1, 2, 3), actualUsers);
 
     }
 }

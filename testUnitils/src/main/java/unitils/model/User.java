@@ -1,7 +1,8 @@
 package unitils.model;
 
 /**
- * application model class that does not implement equals method
+ * application model class<br>
+ * equals method is NOT implemented
  */
 public class User {
 
