@@ -37,7 +37,7 @@ public class Service3Test {
 	public void test5InsertWorkflow() throws Exception {
 
 		// now we really need to capture the model right before insert
-		Capture<Model> captureModel = new Capture<>();
+		Capture<Model> captureModel = Capture.newInstance();
 		{
 			EasyMock.expect(mockedDao.findById(1)).andReturn(null);
 			mockedDao.insert(EasyMock.capture(captureModel));
@@ -96,7 +96,7 @@ public class Service3Test {
 	public void test6UpdateWorkflow() throws Exception {
 
 		// now we really need to capture the model right before update
-		Capture<Model> captureModel = new Capture<>();
+		Capture<Model> captureModel = Capture.newInstance();
 		{
 			EasyMock.expect(mockedDao.findById(1)).andReturn(new Model());
 			mockedDao.update(EasyMock.capture(captureModel));
@@ -129,8 +129,8 @@ public class Service3Test {
 	public void test7InsertWithExceptionWorkflow() throws Exception {
 
 		// try to capture here all parameters send to mock calls
-		Capture<Integer> captureId = new Capture<>();
-		Capture<Model> captureModel = new Capture<>();
+		Capture<Integer> captureId = Capture.newInstance();
+		Capture<Model> captureModel = Capture.newInstance();
 		{
 			EasyMock.expect(mockedDao.findById(EasyMock.captureInt(captureId)))
 					.andReturn(null);
