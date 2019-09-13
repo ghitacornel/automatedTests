@@ -1,7 +1,7 @@
 package junit.test.simple;
 
-import junit.a.simple.InterfaceService;
-import junit.a.simple.ImplementationService;
+import junit.simple.InterfaceService;
+import junit.simple.ImplementationService;
 
 import org.junit.Assert;
 import org.junit.Test;

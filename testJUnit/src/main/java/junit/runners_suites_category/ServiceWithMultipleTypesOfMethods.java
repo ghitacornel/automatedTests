@@ -1,4 +1,4 @@
-package junit.c.runners.suites.categories;
+package junit.runners_suites_category;
 
 public class ServiceWithMultipleTypesOfMethods {
 

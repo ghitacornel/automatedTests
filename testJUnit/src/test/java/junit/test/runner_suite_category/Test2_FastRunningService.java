@@ -1,6 +1,6 @@
 package junit.test.runner_suite_category;
 
-import junit.c.runners.suites.categories.ServiceWithMultipleTypesOfMethods;
+import junit.runners_suites_category.ServiceWithMultipleTypesOfMethods;
 
 import org.junit.Test;
 import org.junit.experimental.categories.Category;

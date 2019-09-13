@@ -1,6 +1,6 @@
 package junit.test.simple;
 
-import junit.a.simple.ImplementationService;
+import junit.simple.ImplementationService;
 
 import org.junit.Assert;
 import org.junit.Ignore;

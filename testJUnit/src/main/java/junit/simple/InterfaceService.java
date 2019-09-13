@@ -1,4 +1,4 @@
-package junit.a.simple;
+package junit.simple;
 
 /**
  * This is a contract<br>

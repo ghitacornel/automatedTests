@@ -1,4 +1,4 @@
-package junit.a.simple;
+package junit.simple;
 
 /**
  * See that this service implements a contract(interface)<br>
