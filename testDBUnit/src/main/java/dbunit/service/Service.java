@@ -9,11 +9,9 @@ import java.sql.SQLException;
 
 /**
  * CRUD service to test over the database<br>
- * this service does not manage the database connection as this is expected to
- * be managed by a container<br>
- * Update service method will only reset model data to current date and time<br>
- *
- * @author Cornel
+ * this service does not manage the database connection<br>
+ * database connection is expected to be managed by a container<br>
+ * update service method will only reset model data to current date and time<br>
  */
 public class Service {
 

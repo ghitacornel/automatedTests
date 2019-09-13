@@ -26,7 +26,7 @@ public abstract class TestsSetUp {
         // set up connections.
         // usually a data source is better
         {
-            Class.forName("org.hsqldb.jdbcDriver").newInstance();
+            Class.forName("org.hsqldb.jdbcDriver");
             databaseConnection = DriverManager.getConnection("jdbc:hsqldb:mem:testdb", "", "");
         }
 
