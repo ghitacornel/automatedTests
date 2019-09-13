@@ -4,10 +4,10 @@ import unitils.dao.DAO;
 
 public class ServiceWithDao {
 
-	private DAO dao;
+    private DAO dao;
 
-	public void callDatabase() {
-		dao.callDatabase();
-	}
+    public void callDatabase() {
+        dao.callDatabase();
+    }
 
 }
