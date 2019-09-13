@@ -3,14 +3,17 @@ package unitils.injections;
 import org.junit.Assert;
 import org.junit.Test;
 import org.junit.experimental.theories.suppliers.TestedOn;
+import org.junit.runner.RunWith;
 import org.unitils.UnitilsJUnit4;
+import org.unitils.UnitilsJUnit4TestClassRunner;
 import org.unitils.inject.annotation.InjectIntoByType;
 import org.unitils.inject.annotation.TestedObject;
 
 /**
  * need to extend special class
  */
-public class ServiceWithInjections2Test extends UnitilsJUnit4 {
+@RunWith(UnitilsJUnit4TestClassRunner.class)
+public class ServiceWithInjections2Test {
 
     /**
      * this annotation will inject by type this value in this static field<br>

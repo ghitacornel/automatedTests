@@ -2,13 +2,15 @@ package unitils.injections;
 
 import org.junit.Assert;
 import org.junit.Test;
-import org.unitils.UnitilsJUnit4;
+import org.junit.runner.RunWith;
+import org.unitils.UnitilsJUnit4TestClassRunner;
 import org.unitils.inject.annotation.InjectIntoStaticByType;
 
 /**
  * need to extend special class
  */
-public class ServiceWithInjections3StaticTest extends UnitilsJUnit4 {
+@RunWith(UnitilsJUnit4TestClassRunner.class)
+public class ServiceWithInjections3StaticTest {
     /**
      * this annotation will inject by type this value in this static field<br>
      * it is possible also to use an injection by property name but injection by
