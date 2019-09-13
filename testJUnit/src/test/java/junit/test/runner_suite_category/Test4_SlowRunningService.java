@@ -1,21 +1,21 @@
-package junit.c.runners.suites.categories.test;
+package junit.test.runner_suite_category;
 
 import junit.c.runners.suites.categories.ServiceWithMultipleTypesOfMethods;
 
 import org.junit.Test;
 import org.junit.experimental.categories.Category;
 
-public class Test3_SlowRunningService {
+public class Test4_SlowRunningService {
 
     @Category(OddCategory.class)
     @Test
-    public void test1_SlowRunningFlow5() {
+    public void test1_SlowRunningFlow7() {
         new ServiceWithMultipleTypesOfMethods().slowRunningBusiness();
     }
 
     @Category(EvenCategory.class)
     @Test
-    public void test2_SlowRunningFlow6() {
+    public void test2_SlowRunningFlow8() {
         new ServiceWithMultipleTypesOfMethods().slowRunningBusiness();
     }
 

@@ -1,4 +1,4 @@
-package junit.c.runners.suites.categories.test;
+package junit.test.runner_suite_category;
 
 import junit.c.runners.suites.categories.ServiceWithMultipleTypesOfMethods;
 

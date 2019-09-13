@@ -1,4 +1,4 @@
-package junit.c.runners.suites.categories.test;
+package junit.test.runner_suite_category;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;

@@ -1,4 +1,4 @@
-package junit.a.simple.test;
+package junit.test.simple;
 
 import org.junit.Test;
 
