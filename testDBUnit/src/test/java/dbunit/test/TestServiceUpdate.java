@@ -1,5 +1,6 @@
 package dbunit.test;
 
+import dbunit.model.Bean;
 import org.dbunit.Assertion;
 import org.dbunit.dataset.IDataSet;
 import org.dbunit.dataset.ITable;
@@ -10,17 +11,7 @@ import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
-import dbunit.model.Bean;
-import dbunit.service.Service;
-
 public class TestServiceUpdate extends TestsSetUp {
-
-    private Service service;
-
-    @Before
-    public void setUpService() {
-        service = new Service(databaseConnection);
-    }
 
     @Before
     public void setupDatabaseToInitialState() throws Exception {

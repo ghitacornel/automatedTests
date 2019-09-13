@@ -1,10 +1,12 @@
 package dbunit.test;
 
+import dbunit.service.Service;
 import org.dbunit.DefaultDatabaseTester;
 import org.dbunit.database.DatabaseConfig;
 import org.dbunit.database.DatabaseConnection;
 import org.dbunit.ext.hsqldb.HsqldbDataTypeFactory;
 import org.junit.AfterClass;
+import org.junit.Before;
 import org.junit.BeforeClass;
 
 import java.sql.Connection;
@@ -51,6 +53,13 @@ public abstract class TestsSetUp {
         if (databaseConnection != null) {
             databaseConnection.close();
         }
+    }
+
+    protected Service service;
+
+    @Before
+    public void setUpService() {
+        service = new Service(databaseConnection);
     }
 
 }

@@ -15,13 +15,6 @@ import dbunit.service.Service;
 
 public class TestServiceInsert extends TestsSetUp {
 
-    private Service service;
-
-    @Before
-    public void setUpService() {
-        service = new Service(databaseConnection);
-    }
-
     @Before
     public void setupDatabaseToInitialState() throws Exception {
         FlatXmlDataSet dataSet = new FlatXmlDataSetBuilder().build(TestServiceInsert.class.getResourceAsStream("databaseRequiredByInsert.xml"));
