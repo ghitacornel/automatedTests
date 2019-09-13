@@ -15,6 +15,7 @@ public class AggregatorServiceTest {
 
     // this is the targeted test object
     // mocks must be provided and injected by Mockito in this targeted object
+    // all object dependencies must be mocked
     @InjectMocks
     AggregatorService aggregatorService = new AggregatorService();
 
@@ -25,6 +26,7 @@ public class AggregatorServiceTest {
 
     // this mock must be provided by Mockito
     // this mock must be injected by Mockito in the targeted object
+    // it does not matter this dependency is a concrete class
     @Mock
     BusinessService2 mock2;
 
@@ -81,6 +83,9 @@ public class AggregatorServiceTest {
             {
 
                 // verify mock interactions were executed in the expected order
+                // verifying mock interactions were executed in the expected order is optional in some cases
+                // verifying mock interactions were executed in the expected order is mandatory in some cases
+                // see UML sequence diagram
                 InOrder order = Mockito.inOrder(mock1, mock2, mock3);
 
                 // verify mock interactions
