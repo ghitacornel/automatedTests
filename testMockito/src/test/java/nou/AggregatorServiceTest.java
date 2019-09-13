@@ -101,4 +101,10 @@ public class AggregatorServiceTest {
         }
 
     }
+
+    // MOCKITO allows for test of multiple same mock interactions
+    // MOCKITO allow for mock reset when reusing mocks
+    // usual usage => do not reuse mocks across different test classes
+    // usual usage => do reuse mocks across different test methods in same class, but different parameter values
+
 }
