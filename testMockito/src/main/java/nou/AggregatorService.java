@@ -12,14 +12,18 @@ public class AggregatorService {
     // assume injected
     private BusinessService3 businessService3 = new BusinessService3Implementation();
 
-    public void businessMethod() {
+    public OutputData businessMethod(InputData inputData) {
 
-        // create test context
-        InputData inputData = new InputData();
+        // use first service
+        businessService1.businessMethod1(inputData);
 
-        businessService1.businessMethod1();
-        businessService2.businessMethod2();
+        // use second service
+        OutputData outputData = businessService2.businessMethod2(inputData);
+
+        // use third service
         businessService3.businessMethod3();
+
+        return outputData;
 
     }
 
