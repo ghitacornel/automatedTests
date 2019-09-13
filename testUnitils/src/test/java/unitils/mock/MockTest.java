@@ -9,7 +9,7 @@ import org.unitils.inject.annotation.InjectIntoByType;
 import org.unitils.inject.annotation.TestedObject;
 
 @RunWith(UnitilsJUnit4TestClassRunner.class)
-public class ServiceWithDaoMockTest {
+public class MockTest {
 
     @InjectIntoByType
     @RegularMock

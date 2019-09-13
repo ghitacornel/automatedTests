@@ -5,10 +5,9 @@ import org.junit.Test;
 import org.unitils.inject.util.InjectionUtils;
 
 /**
- * no need to extend special class<br>
- * for me is the simplest way to inject
+ * manual injection
  */
-public class ServiceWithInjections4SimpleTest {
+public class ManualInjectionsTest {
 
     private ServiceWithInjections service = new ServiceWithInjections();
 
@@ -23,7 +22,8 @@ public class ServiceWithInjections4SimpleTest {
         InjectionUtils.injectIntoStatic(11, ServiceWithInjections.class, "presetStaticValue");
         Assert.assertEquals(14, ServiceWithInjections.staticSum(3));
 
-        // and search the documentation for other kind of injections.
+        // TODO and search the documentation for other kind of injections.
+
     }
 
 }
