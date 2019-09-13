@@ -107,9 +107,8 @@ public class AggregatorServiceTest {
 
     }
 
-
     @Test(expected = RuntimeException.class)
-    public void testAggregatorServiceException() {
+    public void testAggregatorServiceWithException() {
 
         // STEP 1
 
