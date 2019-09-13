@@ -1,10 +1,11 @@
 package dbunit.service;
 
+import dbunit.model.Bean;
+
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
-
-import dbunit.model.Bean;
+import java.sql.SQLException;
 
 /**
  * CRUD service to test over the database<br>
@@ -23,19 +24,23 @@ public class Service {
     }
 
     public void insert(Bean bean) {
+        PreparedStatement statement = null;
         try {
-            PreparedStatement statement = connection.prepareStatement("insert into testtable(id,description) values (?,?)");
+            statement = connection.prepareStatement("insert into testtable(id,description) values (?,?)");
             statement.setLong(1, bean.getId());
             statement.setString(2, bean.getDescription());
             statement.executeUpdate();
         } catch (Exception e) {
             throw new RuntimeException(e);
+        } finally {
+            close(statement);
         }
     }
 
     public Bean findById(Long id) {
+        PreparedStatement statement = null;
         try {
-            PreparedStatement statement = connection.prepareStatement("select id,description from testtable where id=?");
+            statement = connection.prepareStatement("select id,description from testtable where id=?");
             statement.setLong(1, id);
             ResultSet resultSet = statement.executeQuery();
             if (resultSet.next()) {
@@ -45,32 +50,49 @@ public class Service {
                 resultSet.close();
                 return bean;
             } else {
-                resultSet.close();
                 return null;
             }
         } catch (Exception e) {
             throw new RuntimeException(e);
+        } finally {
+            close(statement);
         }
     }
 
     public void delete(Bean bean) {
+        PreparedStatement statement = null;
         try {
-            PreparedStatement statement = connection.prepareStatement("delete from testtable where id=?");
+            statement = connection.prepareStatement("delete from testtable where id=?");
             statement.setLong(1, bean.getId());
             statement.executeUpdate();
         } catch (Exception e) {
             throw new RuntimeException(e);
+        } finally {
+            close(statement);
         }
     }
 
     public void update(Bean bean) {
+        PreparedStatement statement = null;
         try {
-            PreparedStatement statement = connection.prepareStatement("update testtable set description = ? where id = ?");
+            statement = connection.prepareStatement("update testtable set description = ? where id = ?");
             statement.setString(1, bean.getDescription());
             statement.setLong(2, bean.getId());
             statement.executeUpdate();
         } catch (Exception e) {
             throw new RuntimeException(e);
+        } finally {
+            close(statement);
+        }
+    }
+
+    private static void close(PreparedStatement statement) {
+        if (statement != null) {
+            try {
+                statement.close();
+            } catch (SQLException e) {
+                throw new RuntimeException(e);
+            }
         }
     }
 
