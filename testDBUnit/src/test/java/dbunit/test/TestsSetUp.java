@@ -16,11 +16,11 @@ import java.sql.SQLException;
 
 public abstract class TestsSetUp {
 
-    // database connection is reused by each test
-    static Connection databaseConnection;
-
     // needed only for assertions
     static DefaultDatabaseTester tester;
+    // database connection is reused by each test
+    private static Connection databaseConnection;
+    Service service;
 
     /**
      * setup database connection, database initial state and tester
@@ -58,8 +58,6 @@ public abstract class TestsSetUp {
             databaseConnection.close();
         }
     }
-
-    protected Service service;
 
     @Before
     final public void setUpService() {

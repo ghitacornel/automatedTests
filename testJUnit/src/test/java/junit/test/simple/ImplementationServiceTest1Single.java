@@ -1,8 +1,7 @@
 package junit.test.simple;
 
-import junit.simple.InterfaceService;
 import junit.simple.ImplementationService;
-
+import junit.simple.InterfaceService;
 import org.junit.Assert;
 import org.junit.Test;
 
@@ -56,7 +55,7 @@ public class ImplementationServiceTest1Single {
             // create a test context for our test.
             // building it can be very hard sometimes.
             service = new ImplementationService();
-            parameter1 = 1;
+            parameter1 = 2;
             parameter2 = 2;
 
         }

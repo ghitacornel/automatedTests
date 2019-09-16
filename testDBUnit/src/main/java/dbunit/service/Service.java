@@ -21,6 +21,16 @@ public class Service {
         this.connection = connection;
     }
 
+    private static void close(PreparedStatement statement) {
+        if (statement != null) {
+            try {
+                statement.close();
+            } catch (SQLException e) {
+                throw new RuntimeException(e);
+            }
+        }
+    }
+
     public void insert(Bean bean) {
         PreparedStatement statement = null;
         try {
@@ -81,16 +91,6 @@ public class Service {
             throw new RuntimeException(e);
         } finally {
             close(statement);
-        }
-    }
-
-    private static void close(PreparedStatement statement) {
-        if (statement != null) {
-            try {
-                statement.close();
-            } catch (SQLException e) {
-                throw new RuntimeException(e);
-            }
         }
     }
 
