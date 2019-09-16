@@ -17,6 +17,7 @@
             <groupId>org.flywaydb</groupId>
             <artifactId>flyway-core</artifactId>
             <version>6.0.3</version>
+            <scope>test</scope>
         </dependency>
 
         <!-- in memory database -->
