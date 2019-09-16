@@ -3,9 +3,6 @@ package flyway;
 import org.flywaydb.core.Flyway;
 import org.junit.Before;
 
-import java.sql.Connection;
-import java.sql.DriverManager;
-
 public abstract class TestsSetUp {
 
     Flyway flyway;
@@ -23,8 +20,9 @@ public abstract class TestsSetUp {
         flyway = Flyway.
                 configure().
                 dataSource("jdbc:hsqldb:mem:testdb", "", "").
-                locations("patches").
-                baselineVersion("0").
+                locations("patches").// location of patch files
+                baselineVersion("0").// default is 1 and collides with the patch scripts staring version
+                outOfOrder(true).// allow for execution of new scripts added "in the middle of" others
                 load();
 
         flyway.clean();
