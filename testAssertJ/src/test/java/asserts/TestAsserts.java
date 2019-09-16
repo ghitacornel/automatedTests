@@ -83,6 +83,11 @@ public class TestAsserts {
                     .doesNotContainKeys(10)
                     .contains(entry(2, "a"));
 
+            List<String> list1 = Arrays.asList("1", "2", "3");
+            List<String> list2 = Arrays.asList("2", "1", "3");
+            assertThat(list1).containsAll(list2);
+            assertThat(list2).containsAll(list1);
+
         }
 
         {
