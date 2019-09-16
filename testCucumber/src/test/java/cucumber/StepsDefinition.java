@@ -3,13 +3,9 @@ package cucumber;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
-import io.cucumber.junit.Cucumber;
-import io.cucumber.junit.CucumberOptions;
 import model.Belly;
-import org.junit.runner.RunWith;
+import org.junit.Assert;
 
-@RunWith(Cucumber.class)
-@CucumberOptions(plugin = {"pretty"})
 public class StepsDefinition {
 
     Belly belly = new Belly();
@@ -27,6 +23,7 @@ public class StepsDefinition {
     @Then("^my belly should growl$")
     public void my_belly_should_growl() throws Exception {
         belly.growl();
+        Assert.assertEquals(42, belly.getCukes());
     }
 
 }
