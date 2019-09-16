@@ -12,6 +12,7 @@
         <module>testDBUnit</module>
         <module>testUnitils</module>
         <module>testEasyMock</module>
+        <module>testAssertJ</module>
     </modules>
 
     <properties>
