@@ -14,11 +14,11 @@ public class ManualInjectionsTest {
     @Test
     public void test() {
 
-        // simple inject
+        // simple manual inject
         InjectionUtils.injectInto(9, service, "presetInjectedValue");
         Assert.assertEquals(12, service.sum(3));
 
-        // static inject
+        // manual static inject
         InjectionUtils.injectIntoStatic(11, ServiceWithInjections.class, "presetStaticValue");
         Assert.assertEquals(14, ServiceWithInjections.staticSum(3));
 

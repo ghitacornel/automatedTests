@@ -9,9 +9,9 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-public class AssertionsTest {
+public class ReflectionAssertionsTest {
 
-    Service service = new Service();
+    private Service service = new Service();
 
     /**
      * this test will fail<br>
@@ -52,7 +52,7 @@ public class AssertionsTest {
      * a better solution is using Unitils reflection asserts
      */
     @Test
-    public void test3AssertionsUsingUnitilsReflection() {
+    public void test3AssertionsUsing_Reflection() {
 
         User expected = new User(1, "John", "Doe");
 
@@ -74,7 +74,7 @@ public class AssertionsTest {
     }
 
     @Test
-    public void test4AssertionsUsingUnitilsReflectionLenient() {
+    public void test4AssertionsUsing_Reflection_And_Lenient() {
 
         // expected users in no particular order
         List<User> expectedUsers = new ArrayList<>();
