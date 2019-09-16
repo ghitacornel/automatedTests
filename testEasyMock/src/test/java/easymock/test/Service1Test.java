@@ -9,7 +9,7 @@ import org.junit.Test;
 
 public class Service1Test {
 
-    Service service = new Service();
+    private Service service = new Service();
 
     /**
      * we'll need to mock a dao for our tests<br>
@@ -17,7 +17,7 @@ public class Service1Test {
      * in our example we will mock an interface though it's possible to mock
      * even concrete classes
      */
-    DAO mockedDao;
+    private DAO mockedDao;
 
     @Test
     public void test1findById() throws Exception {

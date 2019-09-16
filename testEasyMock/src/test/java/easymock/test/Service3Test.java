@@ -17,16 +17,14 @@ public class Service3Test {
     // see this nice annotation
     // easy mock will inject mocks into it
     @TestSubject
-    Service service = new Service();
+    private Service service = new Service();
 
     // this mock will be injected into the subject of the test
     @Mock
-    DAO mockedDao;
+    private DAO mockedDao;
 
     /**
      * try to test the insert work flow<br>
-     *
-     * @throws Exception
      */
     @Test
     public void test5InsertWorkflow() throws Exception {
@@ -84,8 +82,6 @@ public class Service3Test {
 
     /**
      * try to test the update work flow<br>
-     *
-     * @throws Exception
      */
     @Test
     public void test6UpdateWorkflow() throws Exception {
@@ -117,8 +113,6 @@ public class Service3Test {
 
     /**
      * try to test the insert work flow with exception raised by dao<br>
-     *
-     * @throws Exception
      */
     @Test(expected = Exception.class)
     public void test7InsertWithExceptionWorkflow() throws Exception {
@@ -169,8 +163,6 @@ public class Service3Test {
      * We can capture their usage and test them better.<br>
      * Otherwise easy mock will test automatically for us if the supplied
      * parameters are also those received by the mock during execution
-     *
-     * @throws Exception
      */
     @Test
     public void test8InsertWorkflowNoCaptures() throws Exception {

@@ -14,7 +14,7 @@ import org.junit.runners.MethodSorters;
 @FixMethodOrder(MethodSorters.NAME_ASCENDING)
 public class Service2Test {
 
-    Service service;
+    private Service service;
 
     /**
      * we'll need to mock a dao for our tests<br>
@@ -22,7 +22,7 @@ public class Service2Test {
      * in our example we will mock an interface though it's possible to mock
      * even concrete classes
      */
-    DAO mockedDao;
+    private DAO mockedDao;
 
     @Before
     public void before() {
