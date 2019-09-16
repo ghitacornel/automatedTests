@@ -17,7 +17,7 @@ public class TestFlyway extends TestsSetUp {
         List<Integer> ints = new ArrayList<>();
         List<String> strings = new ArrayList<>();
 
-        {
+        {// get data
             Connection connection = flyway.getConfiguration().getDataSource().getConnection();
             ResultSet resultSet = connection.createStatement().executeQuery("select * from testtable");
             while (resultSet.next()) {
