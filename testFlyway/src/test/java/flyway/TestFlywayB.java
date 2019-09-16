@@ -47,7 +47,7 @@ public class TestFlywayB extends TestsSetUp {
         }
 
         Assert.assertEquals(ints, Arrays.asList(1, 2, 3, 4));
-        Assert.assertEquals(strings, Arrays.asList("d1", "d2", null, "d4_other"));
+        Assert.assertEquals(strings, Arrays.asList("d1", "d2", null, "d4_for_B"));
 
     }
 }

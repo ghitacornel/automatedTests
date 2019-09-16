@@ -1,1 +1,1 @@
-insert into testtable(id,description) values (4,'d4_other');
+insert into testtable(id,description) values (4,'d4_for_B');
