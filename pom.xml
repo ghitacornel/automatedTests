@@ -41,12 +41,22 @@
             <scope>test</scope>
         </dependency>
 
+        <!-- java random bean generation library -->
         <dependency>
             <groupId>org.jeasy</groupId>
             <artifactId>easy-random-core</artifactId>
             <version>4.0.0</version>
             <scope>test</scope>
         </dependency>
+
+        <!-- another java random bean generation library -->
+        <dependency>
+            <groupId>com.github.javafaker</groupId>
+            <artifactId>javafaker</artifactId>
+            <version>1.0.2</version>
+            <scope>test</scope>
+        </dependency>
+
     </dependencies>
 
 </project>
