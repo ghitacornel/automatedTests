@@ -73,7 +73,7 @@ public class ImplementationServiceTest1Single {
             // let JUnit validate expectations using Assert framework
             // if assert fails then JUnit raises exception with proper message and mark the test as fail
 
-            // for now there is a single expectation
+            // for now there is a single expectation => test will fail , check reported message
             Assert.assertEquals(3, result);
 
         }
