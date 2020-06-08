@@ -60,7 +60,7 @@ public class TestAsserts {
 
             Dog fido = new Dog("Fido", 5.25);
             Dog fidosClone = new Dog("Fido", 5.25);
-            assertThat(fido).isEqualToComparingFieldByFieldRecursively(fidosClone);
+            assertThat(fido).usingRecursiveComparison().isEqualTo(fidosClone);
 
         }
 
