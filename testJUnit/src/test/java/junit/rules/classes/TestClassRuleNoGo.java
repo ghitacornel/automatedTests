@@ -6,7 +6,7 @@ import org.junit.Test;
 public class TestClassRuleNoGo {
 
     @ClassRule
-    public static CustomClassRule customClassRule = new CustomClassRule("do not proceed");
+    public static CustomClassRule rule = new CustomClassRule("do not proceed");
 
     @Test
     public void testGo() {

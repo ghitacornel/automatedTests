@@ -6,7 +6,7 @@ import org.junit.Test;
 public class TestClassRuleGo {
 
     @ClassRule
-    public static CustomClassRule customClassRule = new CustomClassRule("proceed");
+    public static CustomClassRule rule = new CustomClassRule("proceed");
 
     @Test
     public void testGo() {
