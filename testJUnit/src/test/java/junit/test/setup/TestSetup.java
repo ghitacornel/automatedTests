@@ -15,7 +15,7 @@ public abstract class TestSetup {
      */
     @BeforeClass
     public static void beforeAllTestsAreExecuted() {
-        System.out.println(TestSetup.class.getCanonicalName() + " before all tests are executed");
+        System.out.println(TestSetup.class.getCanonicalName() + " before all tests are executed from parent");
     }
 
     /**
@@ -26,7 +26,7 @@ public abstract class TestSetup {
      */
     @AfterClass
     public static void afterAllTestsWereExecuted() {
-        System.out.println(TestSetup.class.getCanonicalName() + " after all tests were executed");
+        System.out.println(TestSetup.class.getCanonicalName() + " after all tests were executed from parent");
     }
 
     /**
