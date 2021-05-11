@@ -66,15 +66,9 @@ public class TestLayersEnforcements {
 
     @Test
     public void testClassLayerAccess() {
-        noClasses().that().resideInAPackage("..repositories..")
-                .should().accessClassesThat().resideInAPackage("..repositories..").check(classes);
-        noClasses().that().resideInAPackage("..entities..")
-                .should().accessClassesThat().resideInAPackage("..repositories..").check(classes);
-        noClasses().that().resideInAPackage("..listeners..")
-                .should().accessClassesThat().resideInAPackage("..repositories..").check(classes);
+
         noClasses().that().resideInAPackage("..daos..")
                 .should().accessClassesThat().resideInAPackage("..ui..").check(classes);
-
         noClasses().that().resideInAPackage("..daos..")
                 .should().accessClassesThat().resideInAPackage("..services..").check(classes);
 
@@ -82,11 +76,42 @@ public class TestLayersEnforcements {
                 .should().accessClassesThat().resideInAPackage("..ui..").check(classes);
 
         noClasses().that().resideInAPackage("..controllers..")
-                .should().accessClassesThat().resideInAPackage("..controllers..").check(classes);
-        noClasses().that().resideInAPackage("..jsons..")
-                .should().accessClassesThat().resideInAPackage("..jsons..").check(classes);
-        noClasses().that().resideInAPackage("..jsons..")
-                .should().accessClassesThat().resideInAPackage("..controllers..").check(classes);
+                .should().accessClassesThat().resideInAPackage("..daos..").check(classes);
     }
+
+    @Test
+    public void testClassSameLayerAccess() {
+
+        {
+            noClasses().that().resideInAPackage("..repositories..")
+                    .should().accessClassesThat().resideInAPackage("..repositories..").check(classes);
+            noClasses().that().resideInAPackage("..entities..")
+                    .should().accessClassesThat().resideInAPackage("..repositories..").check(classes);
+
+            noClasses().that().resideInAPackage("..listeners..")
+                    .should().accessClassesThat().resideInAPackage("..repositories..").check(classes);
+            classes().that().resideInAPackage("..listeners..")
+                    .should().onlyBeAccessed().byClassesThat().resideInAPackage("..entities..");
+        }
+
+        {
+            noClasses().that().resideInAPackage("..controllers..")
+                    .should().accessClassesThat().resideInAPackage("..controllers..").check(classes);
+
+            noClasses().that().resideInAPackage("..jsons..")
+                    .should().accessClassesThat().resideInAPackage("..mappers..").check(classes);
+            noClasses().that().resideInAPackage("..jsons..")
+                    .should().accessClassesThat().resideInAPackage("..controllers..").check(classes);
+        }
+    }
+
+
+    @Test
+    public void testForbiddenUsage() {
+        noClasses().should().accessClassesThat().resideInAPackage("..java.lang.reflect..").check(classes);
+        noClasses().should().accessClassesThat().haveSimpleName("java.lang.ThreadLocal");
+
+    }
+
 
 }
