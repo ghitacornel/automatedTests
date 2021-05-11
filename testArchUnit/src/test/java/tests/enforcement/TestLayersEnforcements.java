@@ -10,6 +10,7 @@ import java.lang.reflect.Method;
 
 import static com.tngtech.archunit.lang.syntax.ArchRuleDefinition.classes;
 import static com.tngtech.archunit.lang.syntax.ArchRuleDefinition.noClasses;
+import static com.tngtech.archunit.library.Architectures.layeredArchitecture;
 
 public class TestLayersEnforcements {
 
@@ -112,9 +113,19 @@ public class TestLayersEnforcements {
     // DOES NOT WORK
     @Test
     public void testForbiddenUsage() {
-        noClasses().should().accessClassesThat().resideInAPackage("..java.lang.reflect..").check(classes);
-        noClasses().should().accessClassesThat().haveSimpleName("java.lang.ThreadLocal");
+        noClasses().should().dependOnClassesThat().resideInAPackage("java.lang.reflect..").check(classes);
     }
 
+    @Test
+    public void layer_dependencies_are_respected() {
+        layeredArchitecture()
+                .layer("Controllers").definedBy("layers.ui..")
+                .layer("Services").definedBy("layers.services..")
+                .layer("Persistence").definedBy("layers.daos..")
+                .whereLayer("Controllers").mayNotBeAccessedByAnyLayer()
+                .whereLayer("Services").mayOnlyBeAccessedByLayers("Controllers")
+                .whereLayer("Persistence").mayOnlyBeAccessedByLayers("Services")
+                .check(classes);
+    }
 
 }
