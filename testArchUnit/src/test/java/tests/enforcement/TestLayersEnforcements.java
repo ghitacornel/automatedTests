@@ -5,6 +5,8 @@ import com.tngtech.archunit.core.importer.ClassFileImporter;
 import org.junit.Test;
 import thirdpartydependencies.*;
 
+import java.lang.reflect.Method;
+
 import static com.tngtech.archunit.lang.syntax.ArchRuleDefinition.classes;
 import static com.tngtech.archunit.lang.syntax.ArchRuleDefinition.noClasses;
 
@@ -108,6 +110,9 @@ public class TestLayersEnforcements {
 
     @Test
     public void testForbiddenUsage() {
+        noClasses().that().belongToAnyOf()
+                .should().accessClassesThat().belongToAnyOf(Method.class).check(classes);
+
         noClasses().should().accessClassesThat().resideInAPackage("..java.lang.reflect..").check(classes);
         noClasses().should().accessClassesThat().haveSimpleName("java.lang.ThreadLocal");
 
