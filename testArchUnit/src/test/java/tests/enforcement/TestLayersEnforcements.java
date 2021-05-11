@@ -109,8 +109,6 @@ public class TestLayersEnforcements {
         }
     }
 
-
-    // DOES NOT WORK
     @Test
     public void testForbiddenUsage() {
         noClasses().should().dependOnClassesThat().resideInAPackage("java.lang.reflect..").check(classes);
