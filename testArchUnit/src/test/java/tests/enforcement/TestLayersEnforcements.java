@@ -66,6 +66,12 @@ public class TestLayersEnforcements {
 
     @Test
     public void testClassLayerAccess() {
+        noClasses().that().resideInAPackage("..repositories..")
+                .should().accessClassesThat().resideInAPackage("..repositories..").check(classes);
+        noClasses().that().resideInAPackage("..entities..")
+                .should().accessClassesThat().resideInAPackage("..repositories..").check(classes);
+        noClasses().that().resideInAPackage("..listeners..")
+                .should().accessClassesThat().resideInAPackage("..repositories..").check(classes);
         noClasses().that().resideInAPackage("..daos..")
                 .should().accessClassesThat().resideInAPackage("..ui..").check(classes);
 
@@ -75,6 +81,12 @@ public class TestLayersEnforcements {
         noClasses().that().resideInAPackage("..services..")
                 .should().accessClassesThat().resideInAPackage("..ui..").check(classes);
 
+        noClasses().that().resideInAPackage("..controllers..")
+                .should().accessClassesThat().resideInAPackage("..controllers..").check(classes);
+        noClasses().that().resideInAPackage("..jsons..")
+                .should().accessClassesThat().resideInAPackage("..jsons..").check(classes);
+        noClasses().that().resideInAPackage("..jsons..")
+                .should().accessClassesThat().resideInAPackage("..controllers..").check(classes);
     }
 
 }
