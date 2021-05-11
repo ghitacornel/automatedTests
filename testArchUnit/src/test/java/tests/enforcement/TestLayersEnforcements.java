@@ -126,4 +126,55 @@ public class TestLayersEnforcements {
                 .check(classes);
     }
 
+    @Test
+    public void services_should_not_access_controllers() {
+        noClasses().that().resideInAPackage("..services..")
+                .should().accessClassesThat().resideInAPackage("..controllers..").check(classes);
+    }
+
+    @Test
+    public void persistence_should_not_access_services() {
+        noClasses().that().resideInAPackage("..daos..")
+                .should().accessClassesThat().resideInAPackage("..services..").check(classes);
+    }
+
+    @Test
+    public void services_should_only_be_accessed_by_controllers_or_other_services() {
+        classes().that().resideInAPackage("..services..")
+                .should().onlyBeAccessed().byAnyPackage("..controllers..", "..services..").check(classes);
+    }
+
+    @Test
+    public void services_should_only_access_persistence_or_other_services() {
+        classes().that().resideInAPackage("..services..")
+                .should().onlyAccessClassesThat().resideInAnyPackage("..services..", "..daos..", "java..").check(classes);
+    }
+
+    // 'dependOn' catches a wider variety of violations, e.g. having fields of type, having method parameters of type, extending type ...
+
+    @Test
+    public void services_should_not_depend_on_controllers() {
+        noClasses().that().resideInAPackage("..services..")
+                .should().dependOnClassesThat().resideInAPackage("..controllers..").check(classes);
+    }
+
+    @Test
+    public void persistence_should_not_depend_on_services() {
+        noClasses().that().resideInAPackage("..daos..")
+                .should().dependOnClassesThat().resideInAPackage("..services..").check(classes);
+    }
+
+    @Test
+    public void services_should_only_be_depended_on_by_controllers_or_other_services() {
+        classes().that().resideInAPackage("..services..")
+                .should().onlyHaveDependentClassesThat().resideInAnyPackage("..controllers..", "..services..").check(classes);
+    }
+
+    @Test
+    public void services_should_only_depend_on_persistence_or_other_services() {
+        classes().that().resideInAPackage("..services..")
+                .should().onlyDependOnClassesThat().resideInAnyPackage("..services..", "..daos..", "java..", "javax..","thirdpartydependencies..")
+                .check(classes);
+    }
+
 }
