@@ -8,7 +8,7 @@ methods call other methods within the same class or across different classes/pac
 this will lead to complex contexts of working code leading to very complex contexts of test scenarios.
 
 Take for example beans defined in containers.
-Here a work flow is implemented across different business bean classes/methods/layers, beans
+Here a work flow is implemented across different layers bean classes/methods/layers, beans
 which are injected one into another and controlled by the container at different steps in the work flow.
 To test such a work flow entire real life contexts would be needed. Or not?
 

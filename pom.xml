@@ -16,6 +16,7 @@
         <module>testAssertJ</module>
         <module>testFlyway</module>
         <module>testCucumber</module>
+        <module>testArchUnit</module>
     </modules>
 
     <properties>

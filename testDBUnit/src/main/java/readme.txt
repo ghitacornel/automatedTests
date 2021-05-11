@@ -1,8 +1,8 @@
 DBUnit is an "extension" of JUnit intended for database targeted tests.
 DBUnit is able to verify database state before, during or after tested code is executed.
 DBUnit can be used for example in testing stored procedures (via JDBC calls) that change database state,
-making it useful testing part of application business implemented in these stored procedures.
-Sometimes application business can be so critical that even simple inserts are required to be tested. 
+making it useful testing part of application layers implemented in these stored procedures.
+Sometimes application layers can be so critical that even simple inserts are required to be tested.
 
 Matching data extracted form the database with data provided in XML files can be problematic.
 Data ordering, conversions, formats must be taken into account.

@@ -8,21 +8,29 @@
         <version>1</version>
     </parent>
     <modelVersion>4.0.0</modelVersion>
-    <artifactId>testCucumber</artifactId>
+    <artifactId>testArchUnit</artifactId>
 
     <dependencies>
+
+        <!-- Arch Unit -->
         <dependency>
-            <groupId>io.cucumber</groupId>
-            <artifactId>cucumber-java</artifactId>
-            <version>4.7.2</version>
+            <groupId>com.tngtech.archunit</groupId>
+            <artifactId>archunit</artifactId>
+            <version>0.18.0</version>
             <scope>test</scope>
         </dependency>
+
         <dependency>
-            <groupId>io.cucumber</groupId>
-            <artifactId>cucumber-junit</artifactId>
-            <version>4.7.2</version>
-            <scope>test</scope>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-api</artifactId>
+            <version>1.7.28</version>
         </dependency>
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-simple</artifactId>
+            <version>1.7.28</version>
+        </dependency>
+
     </dependencies>
 
 </project>
