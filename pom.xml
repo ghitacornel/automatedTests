@@ -17,6 +17,7 @@
         <module>testFlyway</module>
         <module>testCucumber</module>
         <module>testArchUnit</module>
+        <module>trainingUnitTests</module>
     </modules>
 
     <properties>
