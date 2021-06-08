@@ -118,7 +118,7 @@ public class TestLayersEnforcements {
                 .layer("Services").definedBy("layers.services..")
                 .layer("Persistence").definedBy("layers.daos..")
                 .whereLayer("Controllers").mayNotBeAccessedByAnyLayer()
-                .whereLayer("Services").mayOnlyBeAccessedByLayers("Controllers")
+                .whereLayer("Services").mayOnlyBeAccessedByLayers("Controllers", "Services")
                 .whereLayer("Persistence").mayOnlyBeAccessedByLayers("Services")
                 .check(classes);
     }
@@ -170,7 +170,7 @@ public class TestLayersEnforcements {
     @Test
     public void services_should_only_depend_on_persistence_or_other_services() {
         classes().that().resideInAPackage("..services..")
-                .should().onlyDependOnClassesThat().resideInAnyPackage("..services..", "..daos..", "java..", "javax..","thirdpartydependencies..")
+                .should().onlyDependOnClassesThat().resideInAnyPackage("..services..", "..daos..", "java..", "javax..", "thirdpartydependencies..")
                 .check(classes);
     }
 
