@@ -1,7 +1,7 @@
 package layers.daos.repositories;
 
-import thirdpartydependencies.daos.Repository;
-import thirdpartydependencies.daos.TemplateRepository;
+import thirdpartydependencies.daos.repositories.Repository;
+import thirdpartydependencies.daos.repositories.TemplateRepository;
 
 @Repository
 public class Entity2Repository implements TemplateRepository {

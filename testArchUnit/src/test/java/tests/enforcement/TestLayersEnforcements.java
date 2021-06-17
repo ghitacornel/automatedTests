@@ -3,7 +3,7 @@ package tests.enforcement;
 import com.tngtech.archunit.core.domain.JavaClasses;
 import com.tngtech.archunit.core.importer.ClassFileImporter;
 import org.junit.Test;
-import thirdpartydependencies.daos.Repository;
+import thirdpartydependencies.daos.repositories.Repository;
 import thirdpartydependencies.services.Component;
 import thirdpartydependencies.services.Service;
 import thirdpartydependencies.services.UtilityMarker;
