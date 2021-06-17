@@ -103,62 +103,62 @@ public class TestLayersEnforcements {
     public void layer_dependencies_are_respected() {
         layeredArchitecture()
                 .layer("Controllers").definedBy("layers.ui..")
-                .layer("Services").definedBy("layers.services..")
+                .layer("Business").definedBy("layers.business..")
                 .layer("Persistence").definedBy("layers.daos..")
                 .whereLayer("Controllers").mayNotBeAccessedByAnyLayer()
-                .whereLayer("Services").mayOnlyBeAccessedByLayers("Controllers", "Services")
-                .whereLayer("Persistence").mayOnlyBeAccessedByLayers("Services")
+                .whereLayer("Business").mayOnlyBeAccessedByLayers("Controllers", "Business")
+                .whereLayer("Persistence").mayOnlyBeAccessedByLayers("Business")
                 .check(classes);
     }
 
     @Test
     public void services_should_not_access_controllers() {
-        noClasses().that().resideInAPackage("..services..")
+        noClasses().that().resideInAPackage("..business..")
                 .should().accessClassesThat().resideInAPackage("..controllers..").check(classes);
     }
 
     @Test
     public void persistence_should_not_access_services() {
         noClasses().that().resideInAPackage("..daos..")
-                .should().accessClassesThat().resideInAPackage("..services..").check(classes);
+                .should().accessClassesThat().resideInAPackage("..business..").check(classes);
     }
 
     @Test
     public void services_should_only_be_accessed_by_controllers_or_other_services() {
-        classes().that().resideInAPackage("..services..")
-                .should().onlyBeAccessed().byAnyPackage("..controllers..", "..services..").check(classes);
+        classes().that().resideInAPackage("..business..")
+                .should().onlyBeAccessed().byAnyPackage("..controllers..", "..business..").check(classes);
     }
 
     @Test
     public void services_should_only_access_persistence_or_other_services() {
-        classes().that().resideInAPackage("..services..")
-                .should().onlyAccessClassesThat().resideInAnyPackage("..services..", "..daos..", "java..").check(classes);
+        classes().that().resideInAPackage("..business..")
+                .should().onlyAccessClassesThat().resideInAnyPackage("..business..", "..daos..", "java..").check(classes);
     }
 
     // 'dependOn' catches a wider variety of violations, e.g. having fields of type, having method parameters of type, extending type ...
 
     @Test
     public void services_should_not_depend_on_controllers() {
-        noClasses().that().resideInAPackage("..services..")
+        noClasses().that().resideInAPackage("..business..")
                 .should().dependOnClassesThat().resideInAPackage("..controllers..").check(classes);
     }
 
     @Test
     public void persistence_should_not_depend_on_services() {
         noClasses().that().resideInAPackage("..daos..")
-                .should().dependOnClassesThat().resideInAPackage("..services..").check(classes);
+                .should().dependOnClassesThat().resideInAPackage("..business..").check(classes);
     }
 
     @Test
     public void services_should_only_be_depended_on_by_controllers_or_other_services() {
-        classes().that().resideInAPackage("..services..")
-                .should().onlyHaveDependentClassesThat().resideInAnyPackage("..controllers..", "..services..").check(classes);
+        classes().that().resideInAPackage("..business..")
+                .should().onlyHaveDependentClassesThat().resideInAnyPackage("..controllers..", "..business..").check(classes);
     }
 
     @Test
     public void services_should_only_depend_on_persistence_or_other_services() {
-        classes().that().resideInAPackage("..services..")
-                .should().onlyDependOnClassesThat().resideInAnyPackage("..services..", "..daos..", "java..", "javax..", "thirdpartydependencies..")
+        classes().that().resideInAPackage("..business..")
+                .should().onlyDependOnClassesThat().resideInAnyPackage("..business..", "..daos..", "java..", "javax..", "thirdpartydependencies..")
                 .check(classes);
     }
 

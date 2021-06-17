@@ -1,4 +1,4 @@
-package tests.layers.services;
+package tests.layers.business.services;
 
 import com.tngtech.archunit.core.domain.JavaClasses;
 import com.tngtech.archunit.core.importer.ClassFileImporter;
