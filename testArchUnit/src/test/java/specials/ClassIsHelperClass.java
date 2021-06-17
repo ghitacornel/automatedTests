@@ -8,20 +8,23 @@ import thirdpartydependencies.business.Utility;
 
 import java.util.Optional;
 
-public class ClassIsUtilityClass extends ArchCondition<JavaClass> {
+public class ClassIsHelperClass extends ArchCondition<JavaClass> {
 
-    public ClassIsUtilityClass() {
-        super("is utility class");
+    public ClassIsHelperClass() {
+        super("is helper class");
     }
 
     @Override
     public void check(JavaClass item, ConditionEvents events) {
 
+        if (!item.getName().endsWith("Helper"))
+            events.add(new SimpleConditionEvent(null, false, "helper class name does not end in Helper"));
+
         if (!item.isAnnotatedWith(Utility.class))
-            events.add(new SimpleConditionEvent(null, false, "utility class not annotated with @Utility"));
+            events.add(new SimpleConditionEvent(null, false, "helper class not annotated with @Utility"));
 
         if (!item.getModifiers().contains(JavaModifier.FINAL))
-            events.add(new SimpleConditionEvent(null, false, "utility class is not final"));
+            events.add(new SimpleConditionEvent(null, false, "helper class is not final"));
 
         Optional<JavaConstructor> constructor = item.getConstructors()
                 .stream()
