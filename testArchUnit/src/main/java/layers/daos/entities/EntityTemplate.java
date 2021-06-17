@@ -1,6 +1,6 @@
 package layers.daos.entities;
 
-import thirdpartydependencies.daos.MappedSuperclass;
+import thirdpartydependencies.daos.entities.MappedSuperclass;
 
 @MappedSuperclass
 public abstract class EntityTemplate {

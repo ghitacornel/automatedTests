@@ -1,7 +1,7 @@
 package layers.daos.entities;
 
-import thirdpartydependencies.daos.Entity;
-import thirdpartydependencies.daos.Table;
+import thirdpartydependencies.daos.entities.Entity;
+import thirdpartydependencies.daos.entities.Table;
 
 @Entity
 @Table
