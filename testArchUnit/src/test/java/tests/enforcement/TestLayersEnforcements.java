@@ -59,9 +59,9 @@ public class TestLayersEnforcements {
         noClasses().that().resideInAPackage("..daos..")
                 .should().accessClassesThat().resideInAPackage("..ui..").check(classes);
         noClasses().that().resideInAPackage("..daos..")
-                .should().accessClassesThat().resideInAPackage("..services..").check(classes);
+                .should().accessClassesThat().resideInAPackage("..business..").check(classes);
 
-        noClasses().that().resideInAPackage("..services..")
+        noClasses().that().resideInAPackage("..business..")
                 .should().accessClassesThat().resideInAPackage("..ui..").check(classes);
 
         noClasses().that().resideInAPackage("..controllers..")
@@ -70,18 +70,6 @@ public class TestLayersEnforcements {
 
     @Test
     public void testClassSameLayerAccess() {
-
-        {
-            noClasses().that().resideInAPackage("..repositories..")
-                    .should().accessClassesThat().resideInAPackage("..repositories..").check(classes);
-            noClasses().that().resideInAPackage("..entities..")
-                    .should().accessClassesThat().resideInAPackage("..repositories..").check(classes);
-
-            noClasses().that().resideInAPackage("..listeners..")
-                    .should().accessClassesThat().resideInAPackage("..repositories..").check(classes);
-            classes().that().resideInAPackage("..listeners..")
-                    .should().onlyBeAccessed().byClassesThat().resideInAPackage("..entities..");
-        }
 
         {
             noClasses().that().resideInAPackage("..controllers..")
