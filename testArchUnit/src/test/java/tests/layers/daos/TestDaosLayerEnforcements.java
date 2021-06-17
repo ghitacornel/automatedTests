@@ -11,7 +11,7 @@ import thirdpartydependencies.daos.repositories.Repository;
 import static com.tngtech.archunit.lang.syntax.ArchRuleDefinition.classes;
 import static com.tngtech.archunit.lang.syntax.ArchRuleDefinition.noClasses;
 
-public class TestLayerEnforcements {
+public class TestDaosLayerEnforcements {
 
     JavaClasses classes = new ClassFileImporter().importPackages("daos");
 

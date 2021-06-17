@@ -12,7 +12,7 @@ import thirdpartydependencies.ui.RestController;
 import static com.tngtech.archunit.lang.syntax.ArchRuleDefinition.classes;
 import static com.tngtech.archunit.lang.syntax.ArchRuleDefinition.noClasses;
 
-public class TestLayerEnforcements {
+public class TestUiLayerEnforcements {
 
     JavaClasses classes = new ClassFileImporter().importPackages("ui");
 

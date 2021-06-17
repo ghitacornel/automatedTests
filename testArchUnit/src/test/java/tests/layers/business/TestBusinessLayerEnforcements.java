@@ -11,7 +11,7 @@ import thirdpartydependencies.configurations.Configuration;
 import static com.tngtech.archunit.lang.syntax.ArchRuleDefinition.classes;
 import static com.tngtech.archunit.lang.syntax.ArchRuleDefinition.noClasses;
 
-public class TestLayerEnforcements {
+public class TestBusinessLayerEnforcements {
 
     JavaClasses classes = new ClassFileImporter().importPackages("business");
 
