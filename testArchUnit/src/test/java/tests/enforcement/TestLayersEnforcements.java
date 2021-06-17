@@ -37,13 +37,6 @@ public class TestLayersEnforcements {
                 .should().haveSimpleNameEndingWith("Service")
                 .check(classes);
 
-        classes().that().resideInAPackage("..repositories..")
-                .should().haveSimpleNameEndingWith("Repository")
-                .check(classes);
-        classes().that().resideInAPackage("..listeners..")
-                .should().haveSimpleNameEndingWith("Listener")
-                .check(classes);
-
         classes().that().resideInAPackage("..configurations..")
                 .should().haveSimpleNameEndingWith("Configuration")
                 .check(classes);
@@ -58,10 +51,6 @@ public class TestLayersEnforcements {
         classes().that().areAnnotatedWith(Service.class)
                 .should().haveSimpleNameEndingWith("Service")
                 .check(classes);
-        classes().that().areAnnotatedWith(Repository.class)
-                .should().haveSimpleNameEndingWith("Repository")
-                .check(classes);
-
         noClasses().that().areAnnotatedWith(Component.class)
                 .should().haveSimpleNameEndingWith("Controller")
                 .andShould().haveSimpleNameEndingWith("Service")
