@@ -47,9 +47,6 @@ public class TestLayersEnforcements {
         classes().that().areAnnotatedWith(RestController.class)
                 .should().haveSimpleNameEndingWith("Controller")
                 .check(classes);
-        classes().that().areAnnotatedWith(Service.class)
-                .should().haveSimpleNameEndingWith("Service")
-                .check(classes);
         noClasses().that().areAnnotatedWith(Component.class)
                 .should().haveSimpleNameEndingWith("Controller")
                 .andShould().haveSimpleNameEndingWith("Service")
