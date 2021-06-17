@@ -3,7 +3,7 @@ package tests.layers.business;
 import com.tngtech.archunit.core.domain.JavaClasses;
 import com.tngtech.archunit.core.importer.ClassFileImporter;
 import org.junit.Test;
-import thirdpartydependencies.business.Component;
+import thirdpartydependencies.business.components.Component;
 import thirdpartydependencies.business.services.Service;
 import thirdpartydependencies.business.Utility;
 import thirdpartydependencies.configurations.Configuration;

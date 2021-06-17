@@ -11,7 +11,7 @@ import static com.tngtech.archunit.lang.syntax.ArchRuleDefinition.methods;
 
 public class TestServices {
 
-    JavaClasses classes = new ClassFileImporter().importPackages("layers.business");
+    JavaClasses classes = new ClassFileImporter().importPackages("layers.business.services");
 
     @Test
     public void testClasses() {
