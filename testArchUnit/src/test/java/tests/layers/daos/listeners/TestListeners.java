@@ -4,6 +4,7 @@ import com.tngtech.archunit.core.domain.JavaClasses;
 import com.tngtech.archunit.core.importer.ClassFileImporter;
 import layers.daos.entities.EntityTemplate;
 import org.junit.Test;
+import specials.ClassHasExactlyOnePublicNoArgumentsConstructor;
 import specials.MethodHasExactlyOneParameter;
 import specials.ClassHasOnePublicNoArgumentsConstructor;
 
@@ -19,7 +20,7 @@ public class TestListeners {
         classes()
                 .should().bePublic()
                 .andShould().haveSimpleNameEndingWith("Listener")
-                .andShould(new ClassHasOnePublicNoArgumentsConstructor())
+                .andShould(new ClassHasExactlyOnePublicNoArgumentsConstructor())
                 .check(classes);
     }
 
