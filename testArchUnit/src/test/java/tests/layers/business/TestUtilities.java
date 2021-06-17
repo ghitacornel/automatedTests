@@ -7,6 +7,7 @@ import specials.ClassIsUtilityClass;
 import thirdpartydependencies.business.components.Component;
 import thirdpartydependencies.business.services.Service;
 import thirdpartydependencies.business.Utility;
+import thirdpartydependencies.configurations.Configuration;
 
 import static com.tngtech.archunit.lang.syntax.ArchRuleDefinition.classes;
 
@@ -21,6 +22,7 @@ public class TestUtilities {
                 .should().haveSimpleNameEndingWith("Utils")
                 .andShould().notBeAnnotatedWith(Service.class)
                 .andShould().notBeAnnotatedWith(Component.class)
+                .andShould().notBeAnnotatedWith(Configuration.class)
                 .andShould(new ClassIsUtilityClass())
                 .check(classes);
     }

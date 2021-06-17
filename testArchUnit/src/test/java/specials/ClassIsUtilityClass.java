@@ -19,7 +19,7 @@ public class ClassIsUtilityClass extends ArchCondition<JavaClass> {
         if (!item.getModifiers().contains(JavaModifier.FINAL))
             events.add(new SimpleConditionEvent(null, false, "utility class is not final"));
 
-        Optional<JavaConstructor> constructor = item.getAllConstructors()
+        Optional<JavaConstructor> constructor = item.getConstructors()
                 .stream()
                 .filter(JavaConstructor::isConstructor)
                 .filter(javaConstructor -> javaConstructor.getModifiers().contains(JavaModifier.PRIVATE))
@@ -30,7 +30,8 @@ public class ClassIsUtilityClass extends ArchCondition<JavaClass> {
 
         Optional<JavaField> field = item.getFields().stream()
                 .filter(javaField -> !javaField.getModifiers().contains(JavaModifier.STATIC))
-                .filter(javaField -> javaField.getModifiers().contains(JavaModifier.FINAL)).findFirst();
+                .filter(javaField -> javaField.getModifiers().contains(JavaModifier.FINAL))
+                .findFirst();
         field.ifPresent(javaField -> events.add(new SimpleConditionEvent(null, false, "found non static non final field " + javaField.getFullName())));
 
         Optional<JavaMethod> method = item.getMethods().stream()

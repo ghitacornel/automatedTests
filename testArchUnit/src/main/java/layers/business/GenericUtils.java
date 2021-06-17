@@ -3,9 +3,9 @@ package layers.business;
 import thirdpartydependencies.business.Utility;
 
 @Utility
-final class UtilityUtils {
+final class GenericUtils {
 
-    private UtilityUtils() {
+    private GenericUtils() {
 
     }
 
