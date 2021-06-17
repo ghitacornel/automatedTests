@@ -1,4 +1,4 @@
-package tests.layers.daos.enforcements;
+package tests.layers.daos;
 
 import com.tngtech.archunit.core.domain.JavaClasses;
 import com.tngtech.archunit.core.importer.ClassFileImporter;
