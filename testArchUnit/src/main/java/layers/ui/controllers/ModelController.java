@@ -1,6 +1,6 @@
 package layers.ui.controllers;
 
-import thirdpartydependencies.*;
+import thirdpartydependencies.ui.*;
 
 @RestController
 @Tag

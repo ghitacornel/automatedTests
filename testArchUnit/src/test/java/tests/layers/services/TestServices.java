@@ -3,9 +3,9 @@ package tests.layers.services;
 import com.tngtech.archunit.core.domain.JavaClasses;
 import com.tngtech.archunit.core.importer.ClassFileImporter;
 import org.junit.Test;
-import thirdpartydependencies.Component;
-import thirdpartydependencies.Service;
-import thirdpartydependencies.UtilityMarker;
+import thirdpartydependencies.services.Component;
+import thirdpartydependencies.services.Service;
+import thirdpartydependencies.services.UtilityMarker;
 
 import static com.tngtech.archunit.lang.syntax.ArchRuleDefinition.classes;
 

@@ -3,7 +3,6 @@ package tests.layers.services.model;
 import com.tngtech.archunit.core.domain.JavaClasses;
 import com.tngtech.archunit.core.importer.ClassFileImporter;
 import org.junit.Test;
-import thirdpartydependencies.Service;
 
 import java.io.Serializable;
 

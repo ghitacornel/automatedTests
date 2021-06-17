@@ -1,6 +1,6 @@
 package layers.configurations;
 
-import thirdpartydependencies.Configuration;
+import thirdpartydependencies.services.Configuration;
 
 @Configuration
 public class CustomConfiguration {

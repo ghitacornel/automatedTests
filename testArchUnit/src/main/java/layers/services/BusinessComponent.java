@@ -1,6 +1,6 @@
 package layers.services;
 
-import thirdpartydependencies.Component;
+import thirdpartydependencies.services.Component;
 
 @Component
 public class BusinessComponent {

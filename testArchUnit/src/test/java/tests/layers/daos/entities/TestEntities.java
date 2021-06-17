@@ -5,9 +5,9 @@ import com.tngtech.archunit.core.domain.JavaModifier;
 import com.tngtech.archunit.core.importer.ClassFileImporter;
 import org.junit.Test;
 import specials.ClassHasOnePublicNoArgumentsConstructor;
-import thirdpartydependencies.Entity;
-import thirdpartydependencies.MappedSuperclass;
-import thirdpartydependencies.Table;
+import thirdpartydependencies.daos.Entity;
+import thirdpartydependencies.daos.MappedSuperclass;
+import thirdpartydependencies.daos.Table;
 
 import static com.tngtech.archunit.lang.syntax.ArchRuleDefinition.classes;
 

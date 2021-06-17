@@ -5,7 +5,7 @@ import com.tngtech.archunit.core.importer.ClassFileImporter;
 import org.junit.Test;
 import specials.MethodHasAtLeastOneParameter;
 import specials.MethodHasExactlyOneParameter;
-import thirdpartydependencies.*;
+import thirdpartydependencies.ui.*;
 
 import static com.tngtech.archunit.lang.syntax.ArchRuleDefinition.classes;
 import static com.tngtech.archunit.lang.syntax.ArchRuleDefinition.methods;

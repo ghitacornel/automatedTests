@@ -1,6 +1,6 @@
 package layers.services;
 
-import thirdpartydependencies.UtilityMarker;
+import thirdpartydependencies.services.UtilityMarker;
 
 @UtilityMarker
 final class UtilityUtils {

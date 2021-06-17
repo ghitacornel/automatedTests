@@ -3,8 +3,8 @@ package tests.layers.daos.repositories;
 import com.tngtech.archunit.core.domain.JavaClasses;
 import com.tngtech.archunit.core.importer.ClassFileImporter;
 import org.junit.Test;
-import thirdpartydependencies.Repository;
-import thirdpartydependencies.TemplateRepository;
+import thirdpartydependencies.daos.Repository;
+import thirdpartydependencies.daos.TemplateRepository;
 
 import static com.tngtech.archunit.lang.syntax.ArchRuleDefinition.classes;
 
