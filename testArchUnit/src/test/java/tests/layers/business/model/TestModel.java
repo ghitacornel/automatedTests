@@ -10,7 +10,7 @@ import static com.tngtech.archunit.lang.syntax.ArchRuleDefinition.classes;
 
 public class TestModel {
 
-    JavaClasses classes = new ClassFileImporter().importPackages("layers.services.model");
+    JavaClasses classes = new ClassFileImporter().importPackages("layers.business.model");
 
     @Test
     public void testClasses() {
