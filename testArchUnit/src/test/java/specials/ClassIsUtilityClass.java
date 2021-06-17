@@ -32,15 +32,15 @@ public class ClassIsUtilityClass extends ArchCondition<JavaClass> {
         if (constructor.isEmpty())
             events.add(new SimpleConditionEvent(null, false, "expected 1 private no argument constructor"));
 
-        Optional<JavaField> field = item.getFields().stream()
+        item.getFields().stream()
                 .filter(o -> !o.getModifiers().contains(JavaModifier.STATIC))
                 .filter(o -> o.getModifiers().contains(JavaModifier.FINAL))
-                .findFirst();
-        field.ifPresent(javaField -> events.add(new SimpleConditionEvent(null, false, "found non static non final field " + javaField.getFullName())));
+                .findFirst()
+                .ifPresent(javaField -> events.add(new SimpleConditionEvent(null, false, "found non static non final field " + javaField.getFullName())));
 
-        Optional<JavaMethod> method = item.getMethods().stream()
+        item.getMethods().stream()
                 .filter(o -> !o.getModifiers().contains(JavaModifier.STATIC))
-                .findFirst();
-        method.ifPresent(javaMethod -> events.add(new SimpleConditionEvent(null, false, "found non static method " + javaMethod.getFullName())));
+                .findFirst()
+                .ifPresent(javaMethod -> events.add(new SimpleConditionEvent(null, false, "found non static method " + javaMethod.getFullName())));
     }
 }
