@@ -46,31 +46,31 @@ public class TestLayerEnforcements {
     public void testClassSameLayerAccess() {
 
         noClasses().that().resideInAPackage("..repositories..")
-                .should().accessClassesThat().resideInAPackage("..repositories..")
+                .should().dependOnClassesThat().resideInAPackage("..repositories..")
                 .check(classes);
         noClasses().that().resideInAPackage("..repositories..")
-                .should().accessClassesThat().resideInAPackage("..converters..")
+                .should().dependOnClassesThat().resideInAPackage("..converters..")
                 .check(classes);
         noClasses().that().resideInAPackage("..repositories..")
-                .should().accessClassesThat().resideInAPackage("..listeners..")
+                .should().dependOnClassesThat().resideInAPackage("..listeners..")
                 .check(classes);
 
         noClasses().that().resideInAPackage("..entities..")
-                .should().accessClassesThat().resideInAPackage("..repositories..")
+                .should().dependOnClassesThat().resideInAPackage("..repositories..")
                 .check(classes);
 
         noClasses().that().resideInAPackage("..listeners..")
-                .should().accessClassesThat().resideInAPackage("..listeners..")
+                .should().dependOnClassesThat().resideInAPackage("..listeners..")
                 .check(classes);
         noClasses().that().resideInAPackage("..listeners..")
-                .should().accessClassesThat().resideInAPackage("..converters..")
+                .should().dependOnClassesThat().resideInAPackage("..converters..")
                 .check(classes);
         noClasses().that().resideInAPackage("..listeners..")
-                .should().accessClassesThat().resideInAPackage("..repositories..")
+                .should().dependOnClassesThat().resideInAPackage("..repositories..")
                 .check(classes);
 
         noClasses().that().resideInAPackage("..converters..")
-                .should().accessClassesThat().resideInAPackage("..entities..")
+                .should().dependOnClassesThat().resideInAPackage("..entities..")
                 .check(classes);
 
         classes().that().resideInAPackage("..listeners..")

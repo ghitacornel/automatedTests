@@ -36,9 +36,9 @@ public class TestLayerEnforcements {
     public void testClassSameLayerAccess() {
 
         noClasses().that().resideInAPackage("..model..")
-                .should().accessClassesThat().resideInAPackage("..services..").check(classes);
+                .should().dependOnClassesThat().resideInAPackage("..services..").check(classes);
         noClasses().that().resideInAPackage("..utility..")
-                .should().accessClassesThat().resideInAPackage("..services..").check(classes);
+                .should().dependOnClassesThat().resideInAPackage("..services..").check(classes);
 
         classes().that().resideInAPackage("..utility..")
                 .should().onlyBeAccessed().byClassesThat().resideInAPackage("..services..");
