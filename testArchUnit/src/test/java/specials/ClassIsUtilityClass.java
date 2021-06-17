@@ -22,20 +22,20 @@ public class ClassIsUtilityClass extends ArchCondition<JavaClass> {
         Optional<JavaConstructor> constructor = item.getConstructors()
                 .stream()
                 .filter(JavaConstructor::isConstructor)
-                .filter(javaConstructor -> javaConstructor.getModifiers().contains(JavaModifier.PRIVATE))
-                .filter(javaConstructor -> javaConstructor.getRawParameterTypes().isEmpty())
+                .filter(o -> o.getModifiers().contains(JavaModifier.PRIVATE))
+                .filter(o -> o.getRawParameterTypes().isEmpty())
                 .findFirst();
         if (constructor.isEmpty())
             events.add(new SimpleConditionEvent(null, false, "expected 1 private no argument constructor"));
 
         Optional<JavaField> field = item.getFields().stream()
-                .filter(javaField -> !javaField.getModifiers().contains(JavaModifier.STATIC))
-                .filter(javaField -> javaField.getModifiers().contains(JavaModifier.FINAL))
+                .filter(o -> !o.getModifiers().contains(JavaModifier.STATIC))
+                .filter(o -> o.getModifiers().contains(JavaModifier.FINAL))
                 .findFirst();
         field.ifPresent(javaField -> events.add(new SimpleConditionEvent(null, false, "found non static non final field " + javaField.getFullName())));
 
         Optional<JavaMethod> method = item.getMethods().stream()
-                .filter(javaField -> !javaField.getModifiers().contains(JavaModifier.STATIC))
+                .filter(o -> !o.getModifiers().contains(JavaModifier.STATIC))
                 .findFirst();
         method.ifPresent(javaMethod -> events.add(new SimpleConditionEvent(null, false, "found non static method " + javaMethod.getFullName())));
     }
