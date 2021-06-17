@@ -100,11 +100,6 @@ public class TestLayersEnforcements {
     }
 
     @Test
-    public void testForbiddenUsage() {
-        noClasses().should().dependOnClassesThat().resideInAPackage("java.lang.reflect..").check(classes);
-    }
-
-    @Test
     public void layer_dependencies_are_respected() {
         layeredArchitecture()
                 .layer("Controllers").definedBy("layers.ui..")
