@@ -1,16 +1,13 @@
 package layers.daos.listeners;
 
-import layers.daos.entities.EntityTemplate;
+import layers.daos.entities.Person;
 
 public class EntityListener {
 
     public EntityListener() {
     }
 
-    public EntityListener(int x) {
-    }
-
-    public void prePersist(EntityTemplate entity) {
+    public void prePersist(Person entity) {
 
     }
 

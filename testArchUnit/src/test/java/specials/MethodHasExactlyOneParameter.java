@@ -23,7 +23,7 @@ public class MethodHasExactlyOneParameter extends ArchCondition<JavaMethod> {
     public void check(JavaMethod item, ConditionEvents events) {
         if (item.getRawParameterTypes().size() != 1)
             events.add(new SimpleConditionEvent(null, false, "expected exactly 1 parameter"));
-        if (!item.getRawParameterTypes().get(0).isAssignableFrom(clazz))
+        if (!item.getRawParameterTypes().get(0).isAssignableTo(clazz))
             events.add(new SimpleConditionEvent(null, false, "expected exactly 1 parameter of type " + clazz));
     }
 }
