@@ -17,7 +17,7 @@ public class ClassHasOnePublicNoArgumentsConstructor extends ArchCondition<JavaC
 
     @Override
     public void check(JavaClass item, ConditionEvents events) {
-        Optional<JavaConstructor> constructor = item.getAllConstructors()
+        Optional<JavaConstructor> constructor = item.getConstructors()
                 .stream()
                 .filter(JavaConstructor::isConstructor)
                 .filter(javaConstructor -> javaConstructor.getModifiers().contains(JavaModifier.PUBLIC))

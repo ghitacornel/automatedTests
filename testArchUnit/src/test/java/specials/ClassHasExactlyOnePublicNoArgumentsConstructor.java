@@ -17,10 +17,10 @@ public class ClassHasExactlyOnePublicNoArgumentsConstructor extends ArchConditio
 
     @Override
     public void check(JavaClass item, ConditionEvents events) {
-        if (item.getAllConstructors().size() != 1)
+        if (item.getConstructors().size() != 1)
             events.add(new SimpleConditionEvent(null, false, "expected exactly 1 constructor"));
 
-        Optional<JavaConstructor> constructor = item.getAllConstructors()
+        Optional<JavaConstructor> constructor = item.getConstructors()
                 .stream()
                 .filter(JavaConstructor::isConstructor)
                 .filter(javaConstructor -> javaConstructor.getModifiers().contains(JavaModifier.PUBLIC))
