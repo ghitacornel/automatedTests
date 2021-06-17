@@ -28,6 +28,10 @@ public class TestEntities {
                 .should().beAnnotatedWith(Table.class)
                 .andShould(new ClassHasOnePublicNoArgumentsConstructor())
                 .check(classes);
+        classes().that().areAnnotatedWith(Table.class)
+                .should().beAnnotatedWith(Entity.class)
+                .andShould(new ClassHasOnePublicNoArgumentsConstructor())
+                .check(classes);
         classes().that().areAnnotatedWith(MappedSuperclass.class)
                 .should().haveModifier(JavaModifier.ABSTRACT)
                 .check(classes);
