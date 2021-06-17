@@ -8,18 +8,29 @@ public class ModelController {
 
     @Operation
     @GetMapping
-    public Object getSomething() {
+    public Object get() {
         return null;
     }
 
     @Operation
-    @DeleteMapping
-    public void deleteSomething(Integer something) {
+    @PostMapping
+    public String post(String something) {
+        return "";
     }
 
     @Operation
     @PutMapping
-    public void addSomething(String something) {
+    public void put(String something) {
+    }
+
+    @Operation
+    @PatchMapping
+    public void patch(String something) {
+    }
+
+    @Operation
+    @DeleteMapping
+    public void delete(Integer something) {
     }
 
 }

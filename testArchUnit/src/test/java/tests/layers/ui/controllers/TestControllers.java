@@ -40,20 +40,38 @@ public class TestControllers {
     }
 
     @Test
-    public void testDeleteMethods() {
-        methods().that().areAnnotatedWith(DeleteMapping.class)
-                .should().haveNameStartingWith("delete")
-                .andShould().haveRawReturnType(void.class)
-                .andShould(new MethodHasExactlyOneParameter(Integer.class))
+    public void testPostMethods() {
+        methods().that().areAnnotatedWith(PostMapping.class)
+                .should().haveNameStartingWith("post")
+                .andShould().haveRawReturnType(Object.class)
+                .andShould(new MethodHasAtLeastOneParameter())
                 .check(classes);
     }
 
     @Test
     public void testPutMethods() {
         methods().that().areAnnotatedWith(PutMapping.class)
-                .should().haveNameStartingWith("add")
+                .should().haveNameStartingWith("put")
                 .andShould().haveRawReturnType(void.class)
                 .andShould(new MethodHasAtLeastOneParameter())
+                .check(classes);
+    }
+
+    @Test
+    public void testPatchMethods() {
+        methods().that().areAnnotatedWith(PatchMapping.class)
+                .should().haveNameStartingWith("patch")
+                .andShould().haveRawReturnType(void.class)
+                .andShould(new MethodHasAtLeastOneParameter())
+                .check(classes);
+    }
+
+    @Test
+    public void testDeleteMethods() {
+        methods().that().areAnnotatedWith(DeleteMapping.class)
+                .should().haveNameStartingWith("delete")
+                .andShould().haveRawReturnType(void.class)
+                .andShould(new MethodHasExactlyOneParameter(Integer.class))
                 .check(classes);
     }
 
