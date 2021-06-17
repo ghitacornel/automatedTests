@@ -46,29 +46,39 @@ public class TestLayerEnforcements {
     public void testClassSameLayerAccess() {
 
         noClasses().that().resideInAPackage("..repositories..")
-                .should().accessClassesThat().resideInAPackage("..repositories..").check(classes);
+                .should().accessClassesThat().resideInAPackage("..repositories..")
+                .check(classes);
         noClasses().that().resideInAPackage("..repositories..")
-                .should().accessClassesThat().resideInAPackage("..converters..").check(classes);
+                .should().accessClassesThat().resideInAPackage("..converters..")
+                .check(classes);
         noClasses().that().resideInAPackage("..repositories..")
-                .should().accessClassesThat().resideInAPackage("..listeners..").check(classes);
+                .should().accessClassesThat().resideInAPackage("..listeners..")
+                .check(classes);
 
         noClasses().that().resideInAPackage("..entities..")
-                .should().accessClassesThat().resideInAPackage("..repositories..").check(classes);
+                .should().accessClassesThat().resideInAPackage("..repositories..")
+                .check(classes);
 
         noClasses().that().resideInAPackage("..listeners..")
-                .should().accessClassesThat().resideInAPackage("..listeners..").check(classes);
+                .should().accessClassesThat().resideInAPackage("..listeners..")
+                .check(classes);
         noClasses().that().resideInAPackage("..listeners..")
-                .should().accessClassesThat().resideInAPackage("..converters..").check(classes);
+                .should().accessClassesThat().resideInAPackage("..converters..")
+                .check(classes);
         noClasses().that().resideInAPackage("..listeners..")
-                .should().accessClassesThat().resideInAPackage("..repositories..").check(classes);
+                .should().accessClassesThat().resideInAPackage("..repositories..")
+                .check(classes);
 
         noClasses().that().resideInAPackage("..converters..")
-                .should().accessClassesThat().resideInAPackage("..entities..").check(classes);
+                .should().accessClassesThat().resideInAPackage("..entities..")
+                .check(classes);
 
         classes().that().resideInAPackage("..listeners..")
-                .should().onlyBeAccessed().byClassesThat().resideInAPackage("..entities..").check(classes);
+                .should().onlyBeAccessed().byClassesThat().resideInAPackage("..entities..")
+                .check(classes);
         classes().that().resideInAPackage("..converters..")
-                .should().onlyBeAccessed().byClassesThat().resideInAPackage("..entities..").check(classes);
+                .should().onlyBeAccessed().byClassesThat().resideInAPackage("..entities..")
+                .check(classes);
 
     }
 
