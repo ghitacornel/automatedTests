@@ -4,6 +4,8 @@ import com.tngtech.archunit.core.domain.JavaClasses;
 import com.tngtech.archunit.core.importer.ClassFileImporter;
 import org.junit.Test;
 import thirdpartydependencies.daos.converters.Converter;
+import thirdpartydependencies.daos.entities.Entity;
+import thirdpartydependencies.daos.entities.MappedSuperclass;
 import thirdpartydependencies.daos.repositories.Repository;
 
 import static com.tngtech.archunit.lang.syntax.ArchRuleDefinition.classes;
@@ -55,7 +57,10 @@ public class TestLayerEnforcements {
                 .should().dependOnClassesThat().resideInAPackage("..listeners..")
                 .check(classes);
 
-        noClasses().that().resideInAPackage("..entities..")
+        noClasses().that().areAnnotatedWith(Entity.class)
+                .should().dependOnClassesThat().resideInAPackage("..repositories..")
+                .check(classes);
+        noClasses().that().areAnnotatedWith(MappedSuperclass.class)
                 .should().dependOnClassesThat().resideInAPackage("..repositories..")
                 .check(classes);
 
@@ -69,15 +74,20 @@ public class TestLayerEnforcements {
                 .should().dependOnClassesThat().resideInAPackage("..repositories..")
                 .check(classes);
 
-        noClasses().that().resideInAPackage("..converters..")
-                .should().dependOnClassesThat().resideInAPackage("..entities..")
+        noClasses().that().areAnnotatedWith(Converter.class)
+                .should().dependOnClassesThat().areAnnotatedWith(Entity.class)
+                .check(classes);
+        noClasses().that().areAnnotatedWith(Converter.class)
+                .should().dependOnClassesThat().areAnnotatedWith(MappedSuperclass.class)
                 .check(classes);
 
         classes().that().resideInAPackage("..listeners..")
-                .should().onlyBeAccessed().byClassesThat().resideInAPackage("..entities..")
+                .should().onlyBeAccessed().byClassesThat().areAnnotatedWith(Entity.class)
+                .orShould().onlyBeAccessed().byClassesThat().areAnnotatedWith(MappedSuperclass.class)
                 .check(classes);
-        classes().that().resideInAPackage("..converters..")
-                .should().onlyBeAccessed().byClassesThat().resideInAPackage("..entities..")
+        classes().that().areAnnotatedWith(Converter.class)
+                .should().onlyBeAccessed().byClassesThat().areAnnotatedWith(Entity.class)
+                .orShould().onlyBeAccessed().byClassesThat().areAnnotatedWith(MappedSuperclass.class)
                 .check(classes);
 
     }
