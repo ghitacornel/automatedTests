@@ -3,6 +3,7 @@ package tests.layers.daos;
 import com.tngtech.archunit.core.domain.JavaClasses;
 import com.tngtech.archunit.core.importer.ClassFileImporter;
 import org.junit.Test;
+import thirdpartydependencies.daos.converters.Converter;
 import thirdpartydependencies.daos.repositories.Repository;
 
 import static com.tngtech.archunit.lang.syntax.ArchRuleDefinition.classes;
@@ -23,6 +24,10 @@ public class TestLayerEnforcements {
                 .should().haveSimpleNameEndingWith("Listener")
                 .check(classes);
 
+        classes().that().resideInAPackage("..converters..")
+                .should().haveSimpleNameEndingWith("Converter")
+                .check(classes);
+
     }
 
     @Test
@@ -32,6 +37,9 @@ public class TestLayerEnforcements {
                 .should().haveSimpleNameEndingWith("Repository")
                 .check(classes);
 
+        classes().that().areAnnotatedWith(Converter.class)
+                .should().haveSimpleNameEndingWith("Converter")
+                .check(classes);
     }
 
     @Test
@@ -39,15 +47,27 @@ public class TestLayerEnforcements {
 
         noClasses().that().resideInAPackage("..repositories..")
                 .should().accessClassesThat().resideInAPackage("..repositories..").check(classes);
+        noClasses().that().resideInAPackage("..repositories..")
+                .should().accessClassesThat().resideInAPackage("..converters..").check(classes);
+        noClasses().that().resideInAPackage("..repositories..")
+                .should().accessClassesThat().resideInAPackage("..listeners..").check(classes);
+
         noClasses().that().resideInAPackage("..entities..")
                 .should().accessClassesThat().resideInAPackage("..repositories..").check(classes);
 
         noClasses().that().resideInAPackage("..listeners..")
                 .should().accessClassesThat().resideInAPackage("..listeners..").check(classes);
         noClasses().that().resideInAPackage("..listeners..")
+                .should().accessClassesThat().resideInAPackage("..converters..").check(classes);
+        noClasses().that().resideInAPackage("..listeners..")
                 .should().accessClassesThat().resideInAPackage("..repositories..").check(classes);
 
+        noClasses().that().resideInAPackage("..converters..")
+                .should().accessClassesThat().resideInAPackage("..entities..").check(classes);
+
         classes().that().resideInAPackage("..listeners..")
+                .should().onlyBeAccessed().byClassesThat().resideInAPackage("..entities..");
+        classes().that().resideInAPackage("..converters..")
                 .should().onlyBeAccessed().byClassesThat().resideInAPackage("..entities..");
 
     }
