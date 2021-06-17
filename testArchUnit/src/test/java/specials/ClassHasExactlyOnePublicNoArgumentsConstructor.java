@@ -23,8 +23,8 @@ public class ClassHasExactlyOnePublicNoArgumentsConstructor extends ArchConditio
         Optional<JavaConstructor> constructor = item.getConstructors()
                 .stream()
                 .filter(JavaConstructor::isConstructor)
-                .filter(javaConstructor -> javaConstructor.getModifiers().contains(JavaModifier.PUBLIC))
-                .filter(javaConstructor -> javaConstructor.getRawParameterTypes().isEmpty())
+                .filter(o -> o.getModifiers().contains(JavaModifier.PUBLIC))
+                .filter(o -> o.getRawParameterTypes().isEmpty())
                 .findFirst();
 
         if (constructor.isEmpty())
