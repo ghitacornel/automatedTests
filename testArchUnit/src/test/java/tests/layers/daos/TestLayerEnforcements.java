@@ -66,9 +66,9 @@ public class TestLayerEnforcements {
                 .should().accessClassesThat().resideInAPackage("..entities..").check(classes);
 
         classes().that().resideInAPackage("..listeners..")
-                .should().onlyBeAccessed().byClassesThat().resideInAPackage("..entities..");
+                .should().onlyBeAccessed().byClassesThat().resideInAPackage("..entities..").check(classes);
         classes().that().resideInAPackage("..converters..")
-                .should().onlyBeAccessed().byClassesThat().resideInAPackage("..entities..");
+                .should().onlyBeAccessed().byClassesThat().resideInAPackage("..entities..").check(classes);
 
     }
 
