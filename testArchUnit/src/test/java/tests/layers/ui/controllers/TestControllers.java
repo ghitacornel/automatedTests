@@ -43,7 +43,8 @@ public class TestControllers {
     public void testPostMethods() {
         methods().that().areAnnotatedWith(PostMapping.class)
                 .should().haveNameStartingWith("post")
-                .andShould().haveRawReturnType(Object.class)
+                .andShould().notHaveRawReturnType(void.class)
+                .andShould().notHaveRawReturnType(Void.class)
                 .andShould(new MethodHasAtLeastOneParameter())
                 .check(classes);
     }
