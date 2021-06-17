@@ -64,20 +64,6 @@ public class TestLayersEnforcements {
     }
 
     @Test
-    public void testClassSameLayerAccess() {
-
-        {
-            noClasses().that().resideInAPackage("..controllers..")
-                    .should().accessClassesThat().resideInAPackage("..controllers..").check(classes);
-
-            noClasses().that().resideInAPackage("..jsons..")
-                    .should().accessClassesThat().resideInAPackage("..mappers..").check(classes);
-            noClasses().that().resideInAPackage("..jsons..")
-                    .should().accessClassesThat().resideInAPackage("..controllers..").check(classes);
-        }
-    }
-
-    @Test
     public void layer_dependencies_are_respected() {
         layeredArchitecture()
                 .layer("Controllers").definedBy("layers.ui..")
