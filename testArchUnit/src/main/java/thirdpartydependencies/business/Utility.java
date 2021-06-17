@@ -1,4 +1,4 @@
 package thirdpartydependencies.business;
 
-public @interface Configuration {
+public @interface Utility {
 }

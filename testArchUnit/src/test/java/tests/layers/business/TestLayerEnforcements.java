@@ -4,9 +4,8 @@ import com.tngtech.archunit.core.domain.JavaClasses;
 import com.tngtech.archunit.core.importer.ClassFileImporter;
 import org.junit.Test;
 import thirdpartydependencies.business.Component;
-import thirdpartydependencies.business.Service;
-import thirdpartydependencies.business.UtilityMarker;
-import thirdpartydependencies.daos.repositories.Repository;
+import thirdpartydependencies.business.service.Service;
+import thirdpartydependencies.business.Utility;
 
 import static com.tngtech.archunit.lang.syntax.ArchRuleDefinition.classes;
 import static com.tngtech.archunit.lang.syntax.ArchRuleDefinition.noClasses;
@@ -45,7 +44,7 @@ public class TestLayerEnforcements {
                 .should().onlyBeAccessed().byClassesThat().resideInAPackage("..services..");
         classes().that().areAnnotatedWith(Component.class)
                 .should().onlyBeAccessed().byClassesThat().areAnnotatedWith(Component.class)
-                .orShould().onlyBeAccessed().byClassesThat().areAnnotatedWith(UtilityMarker.class)
+                .orShould().onlyBeAccessed().byClassesThat().areAnnotatedWith(Utility.class)
                 .orShould().onlyBeAccessed().byClassesThat().areAnnotatedWith(Service.class);
 
     }

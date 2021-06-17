@@ -4,8 +4,8 @@ import com.tngtech.archunit.core.domain.JavaClasses;
 import com.tngtech.archunit.core.importer.ClassFileImporter;
 import org.junit.Test;
 import thirdpartydependencies.business.Component;
-import thirdpartydependencies.business.Service;
-import thirdpartydependencies.business.UtilityMarker;
+import thirdpartydependencies.business.service.Service;
+import thirdpartydependencies.business.Utility;
 
 import static com.tngtech.archunit.lang.syntax.ArchRuleDefinition.classes;
 
@@ -20,7 +20,7 @@ public class TestServices {
                 .and()
                 .areNotAnnotatedWith(Component.class)
                 .and()
-                .areNotAnnotatedWith(UtilityMarker.class)
+                .areNotAnnotatedWith(Utility.class)
                 .should().bePublic()
                 .andShould().haveSimpleNameEndingWith("Service")
                 .andShould().beAnnotatedWith(Service.class)
