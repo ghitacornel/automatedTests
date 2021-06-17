@@ -13,17 +13,16 @@ import static com.tngtech.archunit.lang.syntax.ArchRuleDefinition.classes;
 
 public class TestUtilities {
 
-    JavaClasses classes = new ClassFileImporter().importPackages("layers.services");
+    JavaClasses classes = new ClassFileImporter().importPackages("layers.business");
 
     @Test
     public void testClasses() {
         classes().that()
                 .areAnnotatedWith(Utility.class)
-                .should().haveSimpleNameEndingWith("Utils")
+                .should(new ClassIsUtilityClass())
                 .andShould().notBeAnnotatedWith(Service.class)
                 .andShould().notBeAnnotatedWith(Component.class)
                 .andShould().notBeAnnotatedWith(Configuration.class)
-                .andShould(new ClassIsUtilityClass())
                 .check(classes);
     }
 

@@ -4,6 +4,7 @@ import com.tngtech.archunit.core.domain.*;
 import com.tngtech.archunit.lang.ArchCondition;
 import com.tngtech.archunit.lang.ConditionEvents;
 import com.tngtech.archunit.lang.SimpleConditionEvent;
+import thirdpartydependencies.business.Utility;
 
 import java.util.Optional;
 
@@ -15,6 +16,12 @@ public class ClassIsUtilityClass extends ArchCondition<JavaClass> {
 
     @Override
     public void check(JavaClass item, ConditionEvents events) {
+
+        if (!item.getName().endsWith("Utils"))
+            events.add(new SimpleConditionEvent(null, false, "utility class name does not end in Utility"));
+
+        if (!item.isAnnotatedWith(Utility.class))
+            events.add(new SimpleConditionEvent(null, false, "utility class not annotated with @Utility"));
 
         if (!item.getModifiers().contains(JavaModifier.FINAL))
             events.add(new SimpleConditionEvent(null, false, "utility class is not final"));
