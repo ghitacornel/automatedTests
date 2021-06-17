@@ -23,6 +23,7 @@ public class TestConverters {
                 .should().bePublic()
                 .andShould().beAnnotatedWith(Converter.class)
                 .andShould().implement(AttributeConverter.class)
+                .andShould().haveSimpleNameEndingWith("Converter")
                 .andShould(new ClassHasOnePublicNoArgumentsConstructor())
                 .check(classes);
     }
