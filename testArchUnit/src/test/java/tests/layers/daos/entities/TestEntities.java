@@ -19,7 +19,9 @@ public class TestEntities {
     public void testClasses() {
         classes()
                 .should().bePublic()
-                .andShould().beAnnotatedWith(Entity.class)
+                .check(classes);
+        classes()
+                .should().beAnnotatedWith(Entity.class)
                 .orShould().beAnnotatedWith(MappedSuperclass.class)
                 .check(classes);
         classes().that().areAnnotatedWith(Entity.class)
