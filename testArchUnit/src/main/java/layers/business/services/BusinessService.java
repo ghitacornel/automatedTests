@@ -1,6 +1,6 @@
 package layers.business.services;
 
-import thirdpartydependencies.services.Service;
+import thirdpartydependencies.business.Service;
 
 @Service
 public class BusinessService {

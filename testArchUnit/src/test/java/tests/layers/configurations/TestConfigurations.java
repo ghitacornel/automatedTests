@@ -3,7 +3,7 @@ package tests.layers.configurations;
 import com.tngtech.archunit.core.domain.JavaClasses;
 import com.tngtech.archunit.core.importer.ClassFileImporter;
 import org.junit.Test;
-import thirdpartydependencies.services.Configuration;
+import thirdpartydependencies.business.Configuration;
 
 import static com.tngtech.archunit.lang.syntax.ArchRuleDefinition.classes;
 

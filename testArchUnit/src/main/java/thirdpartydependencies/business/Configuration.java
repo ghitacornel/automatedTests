@@ -1,4 +1,4 @@
-package thirdpartydependencies.services;
+package thirdpartydependencies.business;
 
 // configuration class
 public @interface Configuration {
