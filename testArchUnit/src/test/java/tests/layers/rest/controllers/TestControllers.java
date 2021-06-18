@@ -23,7 +23,6 @@ public class TestControllers {
                 .should().bePublic()
                 .andShould().haveSimpleNameEndingWith("Controller")
                 .andShould().beAnnotatedWith(RestController.class)
-                .andShould().beAnnotatedWith(Tag.class)
                 .check(classes);
     }
 
@@ -31,7 +30,6 @@ public class TestControllers {
     public void testAllMethods() {
         methods()
                 .should().bePublic()
-                .andShould().beAnnotatedWith(Operation.class)
                 .check(classes);
     }
 
