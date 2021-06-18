@@ -42,7 +42,7 @@ public class TestBusinessLayerEnforcements {
                 .orShould().dependOnClassesThat().areAnnotatedWith(Configuration.class)
                 .check(classes);
 
-        noClasses().that().resideInAPackage("..utility..")
+        noClasses().that().resideInAPackage(Config.CONFIGURATION)
                 .should().dependOnClassesThat().resideInAPackage(Config.SERVICES)
                 .andShould().onlyBeAccessed().byClassesThat().resideInAPackage(Config.SERVICES)
                 .check(classes);
