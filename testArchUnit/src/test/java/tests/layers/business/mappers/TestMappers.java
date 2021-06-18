@@ -9,7 +9,7 @@ import static com.tngtech.archunit.lang.syntax.ArchRuleDefinition.classes;
 
 public class TestMappers {
 
-    JavaClasses classes = new ClassFileImporter().importPackages(Config.MAPPERS);
+    JavaClasses classes = new ClassFileImporter().importPackages(Config.BUSINESS_MAPPERS);
 
     @Test
     public void testClasses() {

@@ -9,7 +9,7 @@ import static com.tngtech.archunit.lang.syntax.ArchRuleDefinition.classes;
 
 public class TestJsons {
 
-    JavaClasses classes = new ClassFileImporter().importPackages(Config.REST_JSONS);
+    JavaClasses classes = new ClassFileImporter().importPackages(Config.BUSINESS_JSON);
 
     @Test
     public void testClasses() {

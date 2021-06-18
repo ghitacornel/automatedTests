@@ -15,11 +15,10 @@ public interface Config {
     String BUSINESS_MODEL = BUSINESS + ".model";
     String BUSINESS_SERVICES = BUSINESS + ".services";
     String BUSINESS_CONFIGURATION = BUSINESS + ".configs";
+    String BUSINESS_JSON = BUSINESS + ".jsons";
+    String BUSINESS_MAPPERS = BUSINESS + ".mappers";
 
     String REST = ROOT + ".rest";
     String REST_CONTROLLERS = REST + ".controllers";
-    String REST_JSONS = REST + ".jsons";
-
-    String MAPPERS = REST + ".mappers";
 
 }
