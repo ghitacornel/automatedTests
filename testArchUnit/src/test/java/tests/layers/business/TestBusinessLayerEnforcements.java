@@ -44,7 +44,12 @@ public class TestBusinessLayerEnforcements {
 
         noClasses().that().resideInAPackage(Config.CONFIGURATION)
                 .should().dependOnClassesThat().resideInAPackage(Config.SERVICES)
-                .andShould().onlyBeAccessed().byClassesThat().resideInAPackage(Config.SERVICES)
+                .orShould().dependOnClassesThat().resideInAPackage(Config.COMPONENTS)
+                .check(classes);
+
+        noClasses().that().resideInAPackage(Config.CONFIGURATION)
+                .should().onlyBeAccessed().byClassesThat().resideInAPackage(Config.SERVICES)
+                .orShould().onlyBeAccessed().byClassesThat().resideInAPackage(Config.COMPONENTS)
                 .check(classes);
 
         classes().that().areAnnotatedWith(Component.class)
