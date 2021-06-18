@@ -4,6 +4,7 @@ import com.tngtech.archunit.core.domain.JavaClasses;
 import com.tngtech.archunit.core.domain.JavaModifier;
 import com.tngtech.archunit.core.importer.ClassFileImporter;
 import layers.Config;
+import layers.persistence.entities.EntityTemplate;
 import org.junit.Test;
 import specials.ClassHasOnePublicNoArgumentsConstructor;
 import thirdpartydependencies.daos.entities.Entity;
@@ -21,20 +22,28 @@ public class TestEntities {
         classes()
                 .should().bePublic()
                 .check(classes);
+
         classes()
                 .should().beAnnotatedWith(Entity.class)
                 .orShould().beAnnotatedWith(MappedSuperclass.class)
                 .check(classes);
+
         classes().that().areAnnotatedWith(Entity.class)
                 .should().beAnnotatedWith(Table.class)
-                .andShould(new ClassHasOnePublicNoArgumentsConstructor())
                 .check(classes);
         classes().that().areAnnotatedWith(Table.class)
                 .should().beAnnotatedWith(Entity.class)
-                .andShould(new ClassHasOnePublicNoArgumentsConstructor())
                 .check(classes);
+
+        classes().that().areAnnotatedWith(Entity.class)
+                .should(new ClassHasOnePublicNoArgumentsConstructor())
+                .andShould().beTopLevelClasses()
+                .andShould().beAssignableTo(EntityTemplate.class)
+                .check(classes);
+
         classes().that().areAnnotatedWith(MappedSuperclass.class)
                 .should().haveModifier(JavaModifier.ABSTRACT)
+                .andShould().beTopLevelClasses()
                 .check(classes);
     }
 
