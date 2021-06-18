@@ -37,6 +37,7 @@ public class TestBusinessLayerEnforcements {
     public void testClassSameLayerAccess() {
 
         noClasses().that().resideInAPackage(Config.BUSINESS_MODEL)
+                .or().resideInAPackage(Config.REST_JSONS)
                 .should().dependOnClassesThat().areAnnotatedWith(Service.class)
                 .orShould().dependOnClassesThat().areAnnotatedWith(Configuration.class)
                 .check(classes);

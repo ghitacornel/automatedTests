@@ -1,4 +1,4 @@
-package tests.layers.rest.mappers;
+package tests.layers.business.mappers;
 
 import com.tngtech.archunit.core.domain.JavaClasses;
 import com.tngtech.archunit.core.importer.ClassFileImporter;

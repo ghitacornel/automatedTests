@@ -1,4 +1,4 @@
-package tests.layers.rest.jsons;
+package tests.layers.business.jsons;
 
 import com.tngtech.archunit.core.domain.JavaClasses;
 import com.tngtech.archunit.core.importer.ClassFileImporter;

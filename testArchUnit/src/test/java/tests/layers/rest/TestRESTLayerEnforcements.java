@@ -15,19 +15,9 @@ public class TestRESTLayerEnforcements {
 
     @Test
     public void testNamingConventionsByPackageName() {
-
-        classes().that().resideInAPackage(Config.REST_JSONS)
-                .should().haveSimpleNameEndingWith("Json")
-                .check(classes);
-
-        classes().that().resideInAPackage(Config.MAPPERS)
-                .should().haveSimpleNameEndingWith("Mapper")
-                .check(classes);
-
         classes().that().resideInAPackage(Config.REST_CONTROLLERS)
                 .should().haveSimpleNameEndingWith("Controller")
                 .check(classes);
-
     }
 
     @Test
@@ -41,16 +31,6 @@ public class TestRESTLayerEnforcements {
 
     @Test
     public void testClassSameLayerAccess() {
-
-        noClasses().that().resideInAPackage(Config.REST_JSONS)
-                .should().dependOnClassesThat().resideInAPackage(Config.REST_CONTROLLERS)
-                .orShould().dependOnClassesThat().resideInAPackage(Config.MAPPERS)
-                .check(classes);
-
-        noClasses().that().resideInAPackage(Config.MAPPERS)
-                .should().dependOnClassesThat().resideInAPackage(Config.REST_CONTROLLERS)
-                .orShould().dependOnClassesThat().areAnnotatedWith(RestController.class)
-                .check(classes);
 
         noClasses().that().resideInAPackage(Config.REST_CONTROLLERS)
                 .or().areAnnotatedWith(RestController.class)
