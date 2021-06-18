@@ -44,23 +44,17 @@ public class TestRESTLayerEnforcements {
 
         noClasses().that().resideInAPackage(Config.JSONS)
                 .should().dependOnClassesThat().resideInAPackage(Config.CONTROLLERS)
-                .check(classes);
-        noClasses().that().resideInAPackage(Config.JSONS)
-                .should().dependOnClassesThat().resideInAPackage(Config.MAPPERS)
+                .orShould().dependOnClassesThat().resideInAPackage(Config.MAPPERS)
                 .check(classes);
 
         noClasses().that().resideInAPackage(Config.MAPPERS)
                 .should().dependOnClassesThat().resideInAPackage(Config.CONTROLLERS)
-                .check(classes);
-        noClasses().that().resideInAPackage(Config.MAPPERS)
-                .should().dependOnClassesThat().areAnnotatedWith(RestController.class)
+                .orShould().dependOnClassesThat().areAnnotatedWith(RestController.class)
                 .check(classes);
 
         noClasses().that().resideInAPackage(Config.CONTROLLERS)
                 .should().dependOnClassesThat().resideInAPackage(Config.CONTROLLERS)
-                .check(classes);
-        noClasses().that().areAnnotatedWith(RestController.class)
-                .should().dependOnClassesThat().areAnnotatedWith(RestController.class)
+                .orShould().dependOnClassesThat().areAnnotatedWith(RestController.class)
                 .check(classes);
 
     }
