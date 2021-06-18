@@ -2,6 +2,7 @@ package tests.enforcement;
 
 import com.tngtech.archunit.core.domain.JavaClasses;
 import com.tngtech.archunit.core.importer.ClassFileImporter;
+import layers.Config;
 import org.junit.Test;
 import thirdpartydependencies.business.services.Service;
 import thirdpartydependencies.business.services.Transactional;
@@ -10,7 +11,7 @@ import static com.tngtech.archunit.lang.syntax.ArchRuleDefinition.*;
 
 public class TestForbiddenUsage {
 
-    JavaClasses classes = new ClassFileImporter().importPackages("layers");
+    JavaClasses classes = new ClassFileImporter().importPackages(Config.ROOT);
 
     @Test
     public void testReflection() {
