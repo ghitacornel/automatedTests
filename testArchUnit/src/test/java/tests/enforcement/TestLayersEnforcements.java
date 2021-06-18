@@ -21,7 +21,7 @@ public class TestLayersEnforcements {
     @Test
     public void testNamingConventionsByPackageName() {
 
-        classes().that().resideInAPackage("..configurations..")
+        classes().that().resideInAPackage(Config.CONFIGURATION)
                 .should().haveSimpleNameEndingWith("Configuration")
                 .check(classes);
 
@@ -42,7 +42,6 @@ public class TestLayersEnforcements {
         classes().that().areAnnotatedWith(Repository.class)
                 .should().haveSimpleNameEndingWith("Repository")
                 .check(classes);
-
         classes().that().areAnnotatedWith(Component.class)
                 .should().haveSimpleNameEndingWith("Component")
                 .check(classes);
@@ -51,78 +50,78 @@ public class TestLayersEnforcements {
     @Test
     public void testClassLayerAccess() {
 
-        noClasses().that().resideInAPackage("..persistence..")
-                .should().accessClassesThat().resideInAPackage("..ui..").check(classes);
-        noClasses().that().resideInAPackage("..persistence..")
-                .should().accessClassesThat().resideInAPackage("..business..").check(classes);
+        noClasses().that().resideInAPackage(Config.PERSISTENCE)
+                .should().accessClassesThat().resideInAPackage(Config.REST).check(classes);
+        noClasses().that().resideInAPackage(Config.PERSISTENCE)
+                .should().accessClassesThat().resideInAPackage(Config.BUSINESS).check(classes);
 
-        noClasses().that().resideInAPackage("..business..")
-                .should().accessClassesThat().resideInAPackage("..ui..").check(classes);
+        noClasses().that().resideInAPackage(Config.BUSINESS)
+                .should().accessClassesThat().resideInAPackage(Config.REST).check(classes);
 
-        noClasses().that().resideInAPackage("..controllers..")
-                .should().accessClassesThat().resideInAPackage("..persistence..").check(classes);
+        noClasses().that().resideInAPackage(Config.BUSINESS)
+                .should().accessClassesThat().resideInAPackage(Config.PERSISTENCE).check(classes);
     }
 
     @Test
     public void layer_dependencies_are_respected() {
         layeredArchitecture()
-                .layer("Controllers").definedBy("layers.ui..")
-                .layer("Business").definedBy("layers.business..")
-                .layer("Persistence").definedBy("layers.persistence..")
-                .whereLayer("Controllers").mayNotBeAccessedByAnyLayer()
-                .whereLayer("Business").mayOnlyBeAccessedByLayers("Controllers", "Business")
+                .layer("Rest").definedBy(Config.REST+"..")
+                .layer("Business").definedBy(Config.BUSINESS+"..")
+                .layer("Persistence").definedBy(Config.PERSISTENCE+"..")
+                .whereLayer("Rest").mayNotBeAccessedByAnyLayer()
+                .whereLayer("Business").mayOnlyBeAccessedByLayers("Rest", "Business")
                 .whereLayer("Persistence").mayOnlyBeAccessedByLayers("Business")
                 .check(classes);
     }
 
     @Test
     public void services_should_not_access_controllers() {
-        noClasses().that().resideInAPackage("..business..")
-                .should().accessClassesThat().resideInAPackage("..controllers..").check(classes);
+        noClasses().that().resideInAPackage(Config.BUSINESS)
+                .should().accessClassesThat().resideInAPackage(Config.CONTROLLERS).check(classes);
     }
 
     @Test
     public void persistence_should_not_access_services() {
-        noClasses().that().resideInAPackage("..persistence..")
-                .should().accessClassesThat().resideInAPackage("..business..").check(classes);
+        noClasses().that().resideInAPackage(Config.PERSISTENCE)
+                .should().accessClassesThat().resideInAPackage(Config.BUSINESS).check(classes);
     }
 
     @Test
     public void services_should_only_be_accessed_by_controllers_or_other_services() {
-        classes().that().resideInAPackage("..business..")
-                .should().onlyBeAccessed().byAnyPackage("..controllers..", "..business..").check(classes);
+        classes().that().resideInAPackage(Config.BUSINESS)
+                .should().onlyBeAccessed().byAnyPackage(Config.CONTROLLERS, Config.BUSINESS).check(classes);
     }
 
     @Test
     public void services_should_only_access_persistence_or_other_services() {
-        classes().that().resideInAPackage("..business..")
-                .should().onlyAccessClassesThat().resideInAnyPackage("..business..", "..persistence..", "java..").check(classes);
+        classes().that().resideInAPackage(Config.BUSINESS)
+                .should().onlyAccessClassesThat().resideInAnyPackage(Config.BUSINESS, Config.PERSISTENCE, "java..").check(classes);
     }
 
     // 'dependOn' catches a wider variety of violations, e.g. having fields of type, having method parameters of type, extending type ...
 
     @Test
     public void services_should_not_depend_on_controllers() {
-        noClasses().that().resideInAPackage("..business..")
-                .should().dependOnClassesThat().resideInAPackage("..controllers..").check(classes);
+        noClasses().that().resideInAPackage(Config.BUSINESS)
+                .should().dependOnClassesThat().resideInAPackage(Config.CONTROLLERS).check(classes);
     }
 
     @Test
     public void persistence_should_not_depend_on_services() {
-        noClasses().that().resideInAPackage("..persistence..")
-                .should().dependOnClassesThat().resideInAPackage("..business..").check(classes);
+        noClasses().that().resideInAPackage(Config.PERSISTENCE)
+                .should().dependOnClassesThat().resideInAPackage(Config.BUSINESS).check(classes);
     }
 
     @Test
     public void services_should_only_be_depended_on_by_controllers_or_other_services() {
-        classes().that().resideInAPackage("..business..")
-                .should().onlyHaveDependentClassesThat().resideInAnyPackage("..controllers..", "..business..").check(classes);
+        classes().that().resideInAPackage(Config.BUSINESS)
+                .should().onlyHaveDependentClassesThat().resideInAnyPackage(Config.CONTROLLERS, Config.BUSINESS).check(classes);
     }
 
     @Test
     public void services_should_only_depend_on_persistence_or_other_services() {
-        classes().that().resideInAPackage("..business..")
-                .should().onlyDependOnClassesThat().resideInAnyPackage("..business..", "..daos..", "java..", "javax..", "thirdpartydependencies..")
+        classes().that().resideInAPackage(Config.BUSINESS)
+                .should().onlyDependOnClassesThat().resideInAnyPackage(Config.BUSINESS, Config.PERSISTENCE, "java..", "javax..", "thirdpartydependencies..")
                 .check(classes);
     }
 
