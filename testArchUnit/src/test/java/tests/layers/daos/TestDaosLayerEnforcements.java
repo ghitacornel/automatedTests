@@ -14,20 +14,20 @@ import static com.tngtech.archunit.lang.syntax.ArchRuleDefinition.noClasses;
 
 public class TestDaosLayerEnforcements {
 
-    JavaClasses classes = new ClassFileImporter().importPackages(Config.persistence);
+    JavaClasses classes = new ClassFileImporter().importPackages(Config.PERSISTENCE);
 
     @Test
     public void testNamingConventionsByPackageName() {
 
-        classes().that().resideInAPackage(Config.repositories)
+        classes().that().resideInAPackage(Config.REPOSITORIES)
                 .should().haveSimpleNameEndingWith("Repository")
                 .check(classes);
 
-        classes().that().resideInAPackage(Config.listeners)
+        classes().that().resideInAPackage(Config.LISTENERS)
                 .should().haveSimpleNameEndingWith("Listener")
                 .check(classes);
 
-        classes().that().resideInAPackage(Config.converters)
+        classes().that().resideInAPackage(Config.CONVERTERS)
                 .should().haveSimpleNameEndingWith("Converter")
                 .check(classes);
 
@@ -48,31 +48,31 @@ public class TestDaosLayerEnforcements {
     @Test
     public void testClassSameLayerAccess() {
 
-        noClasses().that().resideInAPackage(Config.repositories)
-                .should().dependOnClassesThat().resideInAPackage(Config.repositories)
+        noClasses().that().resideInAPackage(Config.REPOSITORIES)
+                .should().dependOnClassesThat().resideInAPackage(Config.REPOSITORIES)
                 .check(classes);
-        noClasses().that().resideInAPackage(Config.repositories)
-                .should().dependOnClassesThat().resideInAPackage(Config.converters)
+        noClasses().that().resideInAPackage(Config.REPOSITORIES)
+                .should().dependOnClassesThat().resideInAPackage(Config.CONVERTERS)
                 .check(classes);
-        noClasses().that().resideInAPackage(Config.repositories)
-                .should().dependOnClassesThat().resideInAPackage(Config.listeners)
+        noClasses().that().resideInAPackage(Config.REPOSITORIES)
+                .should().dependOnClassesThat().resideInAPackage(Config.LISTENERS)
                 .check(classes);
 
         noClasses().that().areAnnotatedWith(Entity.class)
-                .should().dependOnClassesThat().resideInAPackage(Config.repositories)
+                .should().dependOnClassesThat().resideInAPackage(Config.REPOSITORIES)
                 .check(classes);
         noClasses().that().areAnnotatedWith(MappedSuperclass.class)
-                .should().dependOnClassesThat().resideInAPackage(Config.repositories)
+                .should().dependOnClassesThat().resideInAPackage(Config.REPOSITORIES)
                 .check(classes);
 
-        noClasses().that().resideInAPackage(Config.listeners)
-                .should().dependOnClassesThat().resideInAPackage(Config.listeners)
+        noClasses().that().resideInAPackage(Config.LISTENERS)
+                .should().dependOnClassesThat().resideInAPackage(Config.LISTENERS)
                 .check(classes);
-        noClasses().that().resideInAPackage(Config.listeners)
-                .should().dependOnClassesThat().resideInAPackage(Config.converters)
+        noClasses().that().resideInAPackage(Config.LISTENERS)
+                .should().dependOnClassesThat().resideInAPackage(Config.CONVERTERS)
                 .check(classes);
-        noClasses().that().resideInAPackage(Config.listeners)
-                .should().dependOnClassesThat().resideInAPackage(Config.repositories)
+        noClasses().that().resideInAPackage(Config.LISTENERS)
+                .should().dependOnClassesThat().resideInAPackage(Config.REPOSITORIES)
                 .check(classes);
 
         noClasses().that().areAnnotatedWith(Converter.class)
@@ -82,7 +82,7 @@ public class TestDaosLayerEnforcements {
                 .should().dependOnClassesThat().areAnnotatedWith(MappedSuperclass.class)
                 .check(classes);
 
-        classes().that().resideInAPackage(Config.listeners)
+        classes().that().resideInAPackage(Config.LISTENERS)
                 .should().onlyBeAccessed().byClassesThat().areAnnotatedWith(Entity.class)
                 .orShould().onlyBeAccessed().byClassesThat().areAnnotatedWith(MappedSuperclass.class)
                 .check(classes);
