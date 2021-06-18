@@ -1,4 +1,4 @@
-package layers.daos.entities;
+package layers.persistence.entities;
 
 import thirdpartydependencies.daos.entities.Entity;
 import thirdpartydependencies.daos.entities.Table;

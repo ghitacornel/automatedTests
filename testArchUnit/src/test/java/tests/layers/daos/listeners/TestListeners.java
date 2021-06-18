@@ -3,11 +3,10 @@ package tests.layers.daos.listeners;
 import com.tngtech.archunit.core.domain.JavaClasses;
 import com.tngtech.archunit.core.importer.ClassFileImporter;
 import layers.Config;
-import layers.daos.entities.EntityTemplate;
+import layers.persistence.entities.EntityTemplate;
 import org.junit.Test;
 import specials.ClassHasExactlyOnePublicNoArgumentsConstructor;
 import specials.MethodHasExactlyOneParameter;
-import specials.ClassHasOnePublicNoArgumentsConstructor;
 import thirdpartydependencies.daos.listeners.*;
 
 import static com.tngtech.archunit.lang.syntax.ArchRuleDefinition.classes;

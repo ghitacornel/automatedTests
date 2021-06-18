@@ -4,7 +4,7 @@ public interface Config {
 
     String ROOT = "layers";
 
-    String PERSISTENCE = ROOT + ".daos";
+    String PERSISTENCE = ROOT + ".persistence";
     String ENTITIES = PERSISTENCE + ".entities";
     String CONVERTERS = PERSISTENCE + ".converters";
     String LISTENERS = PERSISTENCE + ".listeners";

@@ -2,9 +2,9 @@ package tests.enforcement;
 
 import com.tngtech.archunit.core.domain.JavaClasses;
 import com.tngtech.archunit.core.importer.ClassFileImporter;
+import layers.Config;
 import org.junit.Test;
 import thirdpartydependencies.business.components.Component;
-import thirdpartydependencies.business.Utility;
 import thirdpartydependencies.business.services.Service;
 import thirdpartydependencies.configurations.Configuration;
 import thirdpartydependencies.daos.repositories.Repository;
@@ -16,7 +16,7 @@ import static com.tngtech.archunit.library.Architectures.layeredArchitecture;
 
 public class TestLayersEnforcements {
 
-    JavaClasses classes = new ClassFileImporter().importPackages("layers");
+    JavaClasses classes = new ClassFileImporter().importPackages(Config.ROOT);
 
     @Test
     public void testNamingConventionsByPackageName() {
@@ -51,16 +51,16 @@ public class TestLayersEnforcements {
     @Test
     public void testClassLayerAccess() {
 
-        noClasses().that().resideInAPackage("..daos..")
+        noClasses().that().resideInAPackage("..persistence..")
                 .should().accessClassesThat().resideInAPackage("..ui..").check(classes);
-        noClasses().that().resideInAPackage("..daos..")
+        noClasses().that().resideInAPackage("..persistence..")
                 .should().accessClassesThat().resideInAPackage("..business..").check(classes);
 
         noClasses().that().resideInAPackage("..business..")
                 .should().accessClassesThat().resideInAPackage("..ui..").check(classes);
 
         noClasses().that().resideInAPackage("..controllers..")
-                .should().accessClassesThat().resideInAPackage("..daos..").check(classes);
+                .should().accessClassesThat().resideInAPackage("..persistence..").check(classes);
     }
 
     @Test
@@ -68,7 +68,7 @@ public class TestLayersEnforcements {
         layeredArchitecture()
                 .layer("Controllers").definedBy("layers.ui..")
                 .layer("Business").definedBy("layers.business..")
-                .layer("Persistence").definedBy("layers.daos..")
+                .layer("Persistence").definedBy("layers.persistence..")
                 .whereLayer("Controllers").mayNotBeAccessedByAnyLayer()
                 .whereLayer("Business").mayOnlyBeAccessedByLayers("Controllers", "Business")
                 .whereLayer("Persistence").mayOnlyBeAccessedByLayers("Business")
@@ -83,7 +83,7 @@ public class TestLayersEnforcements {
 
     @Test
     public void persistence_should_not_access_services() {
-        noClasses().that().resideInAPackage("..daos..")
+        noClasses().that().resideInAPackage("..persistence..")
                 .should().accessClassesThat().resideInAPackage("..business..").check(classes);
     }
 
@@ -96,7 +96,7 @@ public class TestLayersEnforcements {
     @Test
     public void services_should_only_access_persistence_or_other_services() {
         classes().that().resideInAPackage("..business..")
-                .should().onlyAccessClassesThat().resideInAnyPackage("..business..", "..daos..", "java..").check(classes);
+                .should().onlyAccessClassesThat().resideInAnyPackage("..business..", "..persistence..", "java..").check(classes);
     }
 
     // 'dependOn' catches a wider variety of violations, e.g. having fields of type, having method parameters of type, extending type ...
@@ -109,7 +109,7 @@ public class TestLayersEnforcements {
 
     @Test
     public void persistence_should_not_depend_on_services() {
-        noClasses().that().resideInAPackage("..daos..")
+        noClasses().that().resideInAPackage("..persistence..")
                 .should().dependOnClassesThat().resideInAPackage("..business..").check(classes);
     }
 

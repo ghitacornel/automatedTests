@@ -1,4 +1,4 @@
-package layers.daos.converters;
+package layers.persistence.converters;
 
 import thirdpartydependencies.daos.converters.AttributeConverter;
 import thirdpartydependencies.daos.converters.Converter;

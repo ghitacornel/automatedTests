@@ -1,6 +1,6 @@
-package layers.daos.listeners;
+package layers.persistence.listeners;
 
-import layers.daos.entities.Person;
+import layers.persistence.entities.Person;
 import thirdpartydependencies.daos.listeners.*;
 
 public class EntityListener {
