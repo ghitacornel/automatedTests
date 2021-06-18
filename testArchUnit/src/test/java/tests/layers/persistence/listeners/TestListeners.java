@@ -14,7 +14,7 @@ import static com.tngtech.archunit.lang.syntax.ArchRuleDefinition.methods;
 
 public class TestListeners {
 
-    JavaClasses classes = new ClassFileImporter().importPackages(Config.LISTENERS);
+    JavaClasses classes = new ClassFileImporter().importPackages(Config.PERSISTENCE_LISTENERS);
 
     @Test
     public void testClasses() {

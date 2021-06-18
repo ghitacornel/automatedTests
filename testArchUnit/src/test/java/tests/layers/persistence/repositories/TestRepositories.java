@@ -11,7 +11,7 @@ import static com.tngtech.archunit.lang.syntax.ArchRuleDefinition.classes;
 
 public class TestRepositories {
 
-    JavaClasses classes = new ClassFileImporter().importPackages(Config.REPOSITORIES);
+    JavaClasses classes = new ClassFileImporter().importPackages(Config.PERSISTENCE_REPOSITORIES);
 
     @Test
     public void testClasses() {

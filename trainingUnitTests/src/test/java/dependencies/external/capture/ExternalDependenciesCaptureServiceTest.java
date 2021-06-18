@@ -1,8 +1,5 @@
 package dependencies.external.capture;
 
-import dependencies.external.ClassWithExternalDependency1;
-import dependencies.external.ClassWithExternalDependency2;
-import dependencies.external.ExternalDependenciesService;
 import org.junit.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;

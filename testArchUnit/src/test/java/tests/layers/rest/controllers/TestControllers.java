@@ -7,15 +7,13 @@ import org.junit.Test;
 import specials.MethodHasAtLeastOneParameter;
 import specials.MethodHasExactlyOneParameter;
 import thirdpartydependencies.rest.*;
-import thirdpartydependencies.rest.swagger.Operation;
-import thirdpartydependencies.rest.swagger.Tag;
 
 import static com.tngtech.archunit.lang.syntax.ArchRuleDefinition.classes;
 import static com.tngtech.archunit.lang.syntax.ArchRuleDefinition.methods;
 
 public class TestControllers {
 
-    JavaClasses classes = new ClassFileImporter().importPackages(Config.CONTROLLERS);
+    JavaClasses classes = new ClassFileImporter().importPackages(Config.REST_CONTROLLERS);
 
     @Test
     public void testClasses() {

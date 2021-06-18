@@ -4,16 +4,13 @@ import com.tngtech.archunit.core.domain.JavaClasses;
 import com.tngtech.archunit.core.importer.ClassFileImporter;
 import layers.Config;
 import org.junit.Test;
-import thirdpartydependencies.business.components.Component;
-import thirdpartydependencies.business.services.Transactional;
 import thirdpartydependencies.configurations.Configuration;
 
 import static com.tngtech.archunit.lang.syntax.ArchRuleDefinition.classes;
-import static com.tngtech.archunit.lang.syntax.ArchRuleDefinition.noMethods;
 
 public class TestConfigs {
 
-    JavaClasses classes = new ClassFileImporter().importPackages(Config.CONFIGURATION);
+    JavaClasses classes = new ClassFileImporter().importPackages(Config.BUSINESS_CONFIGURATION);
 
     @Test
     public void testClasses() {

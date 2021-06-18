@@ -21,7 +21,7 @@ public class TestLayersEnforcements {
     @Test
     public void testNamingConventionsByPackageName() {
 
-        classes().that().resideInAPackage(Config.CONFIGURATION)
+        classes().that().resideInAPackage(Config.BUSINESS_CONFIGURATION)
                 .should().haveSimpleNameEndingWith("Configuration")
                 .check(classes);
 
@@ -77,7 +77,7 @@ public class TestLayersEnforcements {
     @Test
     public void services_should_not_access_controllers() {
         noClasses().that().resideInAPackage(Config.BUSINESS)
-                .should().accessClassesThat().resideInAPackage(Config.CONTROLLERS).check(classes);
+                .should().accessClassesThat().resideInAPackage(Config.REST_CONTROLLERS).check(classes);
     }
 
     @Test
@@ -89,7 +89,7 @@ public class TestLayersEnforcements {
     @Test
     public void services_should_only_be_accessed_by_controllers_or_other_services() {
         classes().that().resideInAPackage(Config.BUSINESS)
-                .should().onlyBeAccessed().byAnyPackage(Config.CONTROLLERS, Config.BUSINESS).check(classes);
+                .should().onlyBeAccessed().byAnyPackage(Config.REST_CONTROLLERS, Config.BUSINESS).check(classes);
     }
 
     @Test
@@ -103,7 +103,7 @@ public class TestLayersEnforcements {
     @Test
     public void services_should_not_depend_on_controllers() {
         noClasses().that().resideInAPackage(Config.BUSINESS)
-                .should().dependOnClassesThat().resideInAPackage(Config.CONTROLLERS).check(classes);
+                .should().dependOnClassesThat().resideInAPackage(Config.REST_CONTROLLERS).check(classes);
     }
 
     @Test
@@ -115,7 +115,7 @@ public class TestLayersEnforcements {
     @Test
     public void services_should_only_be_depended_on_by_controllers_or_other_services() {
         classes().that().resideInAPackage(Config.BUSINESS)
-                .should().onlyHaveDependentClassesThat().resideInAnyPackage(Config.CONTROLLERS, Config.BUSINESS).check(classes);
+                .should().onlyHaveDependentClassesThat().resideInAnyPackage(Config.REST_CONTROLLERS, Config.BUSINESS).check(classes);
     }
 
     @Test

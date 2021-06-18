@@ -5,20 +5,21 @@ public interface Config {
     String ROOT = "layers";
 
     String PERSISTENCE = ROOT + ".persistence";
-    String ENTITIES = PERSISTENCE + ".entities";
-    String CONVERTERS = PERSISTENCE + ".converters";
-    String LISTENERS = PERSISTENCE + ".listeners";
-    String REPOSITORIES = PERSISTENCE + ".repositories";
+    String PERSISTENCE_ENTITIES = PERSISTENCE + ".entities";
+    String PERSISTENCE_CONVERTERS = PERSISTENCE + ".converters";
+    String PERSISTENCE_LISTENERS = PERSISTENCE + ".listeners";
+    String PERSISTENCE_REPOSITORIES = PERSISTENCE + ".repositories";
 
     String BUSINESS = ROOT + ".business";
-    String COMPONENTS = BUSINESS + ".components";
-    String MODEL = BUSINESS + ".model";
-    String SERVICES = BUSINESS + ".services";
-    String CONFIGURATION = BUSINESS + ".configs";
+    String BUSINESS_COMPONENTS = BUSINESS + ".components";
+    String BUSINESS_MODEL = BUSINESS + ".model";
+    String BUSINESS_SERVICES = BUSINESS + ".services";
+    String BUSINESS_CONFIGURATION = BUSINESS + ".configs";
 
     String REST = ROOT + ".rest";
-    String CONTROLLERS = REST + ".controllers";
-    String JSONS = REST + ".jsons";
+    String REST_CONTROLLERS = REST + ".controllers";
+    String REST_JSONS = REST + ".jsons";
+
     String MAPPERS = REST + ".mappers";
 
 }

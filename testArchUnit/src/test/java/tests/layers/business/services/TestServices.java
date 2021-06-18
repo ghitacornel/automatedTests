@@ -12,7 +12,7 @@ import static com.tngtech.archunit.lang.syntax.ArchRuleDefinition.methods;
 
 public class TestServices {
 
-    JavaClasses classes = new ClassFileImporter().importPackages(Config.SERVICES);
+    JavaClasses classes = new ClassFileImporter().importPackages(Config.BUSINESS_SERVICES);
 
     @Test
     public void testClasses() {

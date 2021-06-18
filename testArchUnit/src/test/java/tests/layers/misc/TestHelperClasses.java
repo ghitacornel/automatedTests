@@ -5,12 +5,8 @@ import com.tngtech.archunit.core.importer.ClassFileImporter;
 import layers.Config;
 import org.junit.Test;
 import specials.ClassIsHelperClass;
-import specials.ClassIsUtilityClass;
-import thirdpartydependencies.business.Utility;
-import thirdpartydependencies.business.services.Service;
-import thirdpartydependencies.business.services.Transactional;
 
-import static com.tngtech.archunit.lang.syntax.ArchRuleDefinition.*;
+import static com.tngtech.archunit.lang.syntax.ArchRuleDefinition.classes;
 
 public class TestHelperClasses {
 

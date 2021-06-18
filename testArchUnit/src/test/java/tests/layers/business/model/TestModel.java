@@ -13,7 +13,7 @@ import static com.tngtech.archunit.lang.syntax.ArchRuleDefinition.noMethods;
 
 public class TestModel {
 
-    JavaClasses classes = new ClassFileImporter().importPackages(Config.MODEL);
+    JavaClasses classes = new ClassFileImporter().importPackages(Config.BUSINESS_MODEL);
 
     @Test
     public void testClasses() {

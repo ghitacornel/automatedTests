@@ -2,7 +2,6 @@ package tests.enforcement;
 
 import com.tngtech.archunit.core.domain.JavaClasses;
 import com.tngtech.archunit.core.importer.ClassFileImporter;
-import com.tngtech.archunit.lang.syntax.ArchRuleDefinition;
 import org.junit.Test;
 import thirdpartydependencies.business.services.Service;
 import thirdpartydependencies.business.services.Transactional;

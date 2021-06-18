@@ -15,7 +15,7 @@ import static com.tngtech.archunit.lang.syntax.ArchRuleDefinition.classes;
 
 public class TestEntities {
 
-    JavaClasses classes = new ClassFileImporter().importPackages(Config.ENTITIES);
+    JavaClasses classes = new ClassFileImporter().importPackages(Config.PERSISTENCE_ENTITIES);
 
     @Test
     public void testClasses() {

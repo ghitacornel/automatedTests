@@ -12,7 +12,7 @@ import static com.tngtech.archunit.lang.syntax.ArchRuleDefinition.classes;
 
 public class TestConverters {
 
-    JavaClasses classes = new ClassFileImporter().importPackages(Config.CONVERTERS);
+    JavaClasses classes = new ClassFileImporter().importPackages(Config.PERSISTENCE_CONVERTERS);
 
     @Test
     public void testClasses() {

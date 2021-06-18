@@ -36,20 +36,20 @@ public class TestBusinessLayerEnforcements {
     @Test
     public void testClassSameLayerAccess() {
 
-        noClasses().that().resideInAPackage(Config.MODEL)
+        noClasses().that().resideInAPackage(Config.BUSINESS_MODEL)
                 .should().dependOnClassesThat().areAnnotatedWith(Service.class)
                 .orShould().dependOnClassesThat().areAnnotatedWith(Configuration.class)
                 .check(classes);
 
-        noClasses().that().resideInAPackage(Config.CONFIGURATION)
+        noClasses().that().resideInAPackage(Config.BUSINESS_CONFIGURATION)
                 .or().areAnnotatedWith(Configuration.class)
-                .should().dependOnClassesThat().resideInAPackage(Config.SERVICES)
-                .orShould().dependOnClassesThat().resideInAPackage(Config.COMPONENTS)
+                .should().dependOnClassesThat().resideInAPackage(Config.BUSINESS_SERVICES)
+                .orShould().dependOnClassesThat().resideInAPackage(Config.BUSINESS_COMPONENTS)
                 .check(classes);
 
-        noClasses().that().resideInAPackage(Config.CONFIGURATION)
-                .should().onlyBeAccessed().byClassesThat().resideInAPackage(Config.SERVICES)
-                .orShould().onlyBeAccessed().byClassesThat().resideInAPackage(Config.COMPONENTS)
+        noClasses().that().resideInAPackage(Config.BUSINESS_CONFIGURATION)
+                .should().onlyBeAccessed().byClassesThat().resideInAPackage(Config.BUSINESS_SERVICES)
+                .orShould().onlyBeAccessed().byClassesThat().resideInAPackage(Config.BUSINESS_COMPONENTS)
                 .check(classes);
 
         classes().that().areAnnotatedWith(Component.class)
