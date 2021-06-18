@@ -26,6 +26,9 @@ public class ClassIsHelperClass extends ArchCondition<JavaClass> {
         if (!item.getModifiers().contains(JavaModifier.FINAL))
             events.add(new SimpleConditionEvent(null, false, "helper class is not final"));
 
+        if (!item.isTopLevelClass())
+            events.add(new SimpleConditionEvent(null, false, "helper class is not top level class"));
+
         Optional<JavaConstructor> constructor = item.getConstructors()
                 .stream()
                 .filter(JavaConstructor::isConstructor)
