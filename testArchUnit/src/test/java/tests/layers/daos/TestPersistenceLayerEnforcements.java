@@ -12,7 +12,7 @@ import thirdpartydependencies.daos.repositories.Repository;
 import static com.tngtech.archunit.lang.syntax.ArchRuleDefinition.classes;
 import static com.tngtech.archunit.lang.syntax.ArchRuleDefinition.noClasses;
 
-public class TestDaosLayerEnforcements {
+public class TestPersistenceLayerEnforcements {
 
     JavaClasses classes = new ClassFileImporter().importPackages(Config.PERSISTENCE);
 
