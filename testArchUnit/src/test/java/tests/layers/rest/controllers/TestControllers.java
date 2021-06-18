@@ -2,6 +2,7 @@ package tests.layers.rest.controllers;
 
 import com.tngtech.archunit.core.domain.JavaClasses;
 import com.tngtech.archunit.core.importer.ClassFileImporter;
+import layers.Config;
 import org.junit.Test;
 import specials.MethodHasAtLeastOneParameter;
 import specials.MethodHasExactlyOneParameter;
@@ -12,7 +13,7 @@ import static com.tngtech.archunit.lang.syntax.ArchRuleDefinition.methods;
 
 public class TestControllers {
 
-    JavaClasses classes = new ClassFileImporter().importPackages("layers.ui.controllers");
+    JavaClasses classes = new ClassFileImporter().importPackages(Config.CONTROLLERS);
 
     @Test
     public void testClasses() {

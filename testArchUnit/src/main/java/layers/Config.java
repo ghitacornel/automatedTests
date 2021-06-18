@@ -16,7 +16,7 @@ public interface Config {
     String SERVICES = BUSINESS + ".services";
     String CONFIGURATION = BUSINESS + ".configs";
 
-    String REST = ROOT + ".ui";
+    String REST = ROOT + ".rest";
     String CONTROLLERS = REST + ".controllers";
     String JSONS = REST + ".jsons";
     String MAPPERS = REST + ".mappers";
