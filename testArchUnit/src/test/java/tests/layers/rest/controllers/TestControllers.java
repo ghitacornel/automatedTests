@@ -7,6 +7,8 @@ import org.junit.Test;
 import specials.MethodHasAtLeastOneParameter;
 import specials.MethodHasExactlyOneParameter;
 import thirdpartydependencies.rest.*;
+import thirdpartydependencies.rest.swagger.Operation;
+import thirdpartydependencies.rest.swagger.Tag;
 
 import static com.tngtech.archunit.lang.syntax.ArchRuleDefinition.classes;
 import static com.tngtech.archunit.lang.syntax.ArchRuleDefinition.methods;

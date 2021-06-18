@@ -1,4 +1,4 @@
-package layers.ui.mappers;
+package layers.rest.mappers;
 
 public class ModelJsonEntityMapper {
 }

@@ -1,6 +1,8 @@
-package layers.ui.controllers;
+package layers.rest.controllers;
 
 import thirdpartydependencies.rest.*;
+import thirdpartydependencies.rest.swagger.Operation;
+import thirdpartydependencies.rest.swagger.Tag;
 
 @RestController
 @Tag
