@@ -58,34 +58,33 @@ public class TestPersistenceLayerEnforcements {
                 .should().dependOnClassesThat().resideInAPackage(Config.LISTENERS)
                 .check(classes);
 
-        noClasses().that().areAnnotatedWith(Entity.class)
-                .should().dependOnClassesThat().resideInAPackage(Config.REPOSITORIES)
-                .check(classes);
-        noClasses().that().areAnnotatedWith(MappedSuperclass.class)
+        noClasses().that().areAnnotatedWith(Entity.class).or().areAnnotatedWith(MappedSuperclass.class)
                 .should().dependOnClassesThat().resideInAPackage(Config.REPOSITORIES)
                 .check(classes);
 
         noClasses().that().resideInAPackage(Config.LISTENERS)
                 .should().dependOnClassesThat().resideInAPackage(Config.LISTENERS)
+                .orShould().dependOnClassesThat().resideInAPackage(Config.CONVERTERS)
+                .orShould().dependOnClassesThat().resideInAPackage(Config.REPOSITORIES)
                 .check(classes);
-        noClasses().that().resideInAPackage(Config.LISTENERS)
-                .should().dependOnClassesThat().resideInAPackage(Config.CONVERTERS)
-                .check(classes);
-        noClasses().that().resideInAPackage(Config.LISTENERS)
-                .should().dependOnClassesThat().resideInAPackage(Config.REPOSITORIES)
+
+        noClasses().that().resideInAPackage(Config.CONVERTERS)
+                .should().dependOnClassesThat().resideInAPackage(Config.LISTENERS)
+                .orShould().dependOnClassesThat().resideInAPackage(Config.CONVERTERS)
+                .orShould().dependOnClassesThat().resideInAPackage(Config.REPOSITORIES)
+                .orShould().dependOnClassesThat().resideInAPackage(Config.ENTITIES)
                 .check(classes);
 
         noClasses().that().areAnnotatedWith(Converter.class)
                 .should().dependOnClassesThat().areAnnotatedWith(Entity.class)
-                .check(classes);
-        noClasses().that().areAnnotatedWith(Converter.class)
-                .should().dependOnClassesThat().areAnnotatedWith(MappedSuperclass.class)
+                .orShould().dependOnClassesThat().areAnnotatedWith(MappedSuperclass.class)
                 .check(classes);
 
         classes().that().resideInAPackage(Config.LISTENERS)
                 .should().onlyBeAccessed().byClassesThat().areAnnotatedWith(Entity.class)
                 .orShould().onlyBeAccessed().byClassesThat().areAnnotatedWith(MappedSuperclass.class)
                 .check(classes);
+
         classes().that().areAnnotatedWith(Converter.class)
                 .should().onlyBeAccessed().byClassesThat().areAnnotatedWith(Entity.class)
                 .orShould().onlyBeAccessed().byClassesThat().areAnnotatedWith(MappedSuperclass.class)
