@@ -40,6 +40,8 @@ public class TestBusinessLayerEnforcements {
                 .or().resideInAPackage(Config.BUSINESS_JSON)
                 .should().dependOnClassesThat().areAnnotatedWith(Service.class)
                 .orShould().dependOnClassesThat().areAnnotatedWith(Configuration.class)
+                .orShould().dependOnClassesThat().areAnnotatedWith(Component.class)
+                .orShould().dependOnClassesThat().areAnnotatedWith(Utility.class)
                 .check(classes);
 
         noClasses().that().resideInAPackage(Config.BUSINESS_CONFIGURATION)
@@ -48,14 +50,13 @@ public class TestBusinessLayerEnforcements {
                 .orShould().dependOnClassesThat().resideInAPackage(Config.BUSINESS_COMPONENTS)
                 .check(classes);
 
-        noClasses().that().resideInAPackage(Config.BUSINESS_CONFIGURATION)
+        classes().that().resideInAPackage(Config.BUSINESS_CONFIGURATION)
                 .should().onlyBeAccessed().byClassesThat().resideInAPackage(Config.BUSINESS_SERVICES)
                 .orShould().onlyBeAccessed().byClassesThat().resideInAPackage(Config.BUSINESS_COMPONENTS)
                 .check(classes);
 
         classes().that().areAnnotatedWith(Component.class)
                 .should().onlyBeAccessed().byClassesThat().areAnnotatedWith(Component.class)
-                .orShould().onlyBeAccessed().byClassesThat().areAnnotatedWith(Utility.class)
                 .orShould().onlyBeAccessed().byClassesThat().areAnnotatedWith(Service.class);
 
     }
