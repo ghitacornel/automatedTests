@@ -1,4 +1,4 @@
-package tests.layers.daos.entities;
+package tests.layers.persistence.entities;
 
 import com.tngtech.archunit.core.domain.JavaClasses;
 import com.tngtech.archunit.core.domain.JavaModifier;

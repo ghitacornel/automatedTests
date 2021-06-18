@@ -1,16 +1,12 @@
-package tests.layers.daos.converters;
+package tests.layers.persistence.converters;
 
 import com.tngtech.archunit.core.domain.JavaClasses;
-import com.tngtech.archunit.core.domain.JavaModifier;
 import com.tngtech.archunit.core.importer.ClassFileImporter;
 import layers.Config;
 import org.junit.Test;
 import specials.ClassHasOnePublicNoArgumentsConstructor;
 import thirdpartydependencies.daos.converters.AttributeConverter;
 import thirdpartydependencies.daos.converters.Converter;
-import thirdpartydependencies.daos.entities.Entity;
-import thirdpartydependencies.daos.entities.MappedSuperclass;
-import thirdpartydependencies.daos.entities.Table;
 
 import static com.tngtech.archunit.lang.syntax.ArchRuleDefinition.classes;
 

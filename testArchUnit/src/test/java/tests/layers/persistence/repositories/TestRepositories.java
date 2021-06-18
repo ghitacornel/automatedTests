@@ -1,4 +1,4 @@
-package tests.layers.daos.repositories;
+package tests.layers.persistence.repositories;
 
 import com.tngtech.archunit.core.domain.JavaClasses;
 import com.tngtech.archunit.core.importer.ClassFileImporter;
