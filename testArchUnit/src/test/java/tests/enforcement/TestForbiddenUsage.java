@@ -4,10 +4,8 @@ import com.tngtech.archunit.core.domain.JavaClasses;
 import com.tngtech.archunit.core.importer.ClassFileImporter;
 import layers.Config;
 import org.junit.Test;
-import thirdpartydependencies.business.services.Service;
-import thirdpartydependencies.business.services.Transactional;
 
-import static com.tngtech.archunit.lang.syntax.ArchRuleDefinition.*;
+import static com.tngtech.archunit.lang.syntax.ArchRuleDefinition.noClasses;
 
 public class TestForbiddenUsage {
 
@@ -25,15 +23,4 @@ public class TestForbiddenUsage {
                 .check(classes);
     }
 
-    @Test
-    public void testTransactional() {
-        noMethods()
-                .that().areDeclaredInClassesThat().areNotAnnotatedWith(Service.class)
-                .should().beAnnotatedWith(Transactional.class)
-                .check(classes);
-        classes()
-                .that().areAnnotatedWith(Transactional.class)
-                .should().beAnnotatedWith(Service.class)
-                .check(classes);
-    }
 }
