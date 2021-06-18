@@ -16,9 +16,9 @@ public class TestServices {
 
     @Test
     public void testClasses() {
-        classes().that()
-                .areAnnotatedWith(Service.class)
+        classes().that().areAnnotatedWith(Service.class)
                 .should().bePublic()
+                .andShould().beTopLevelClasses()
                 .andShould().haveSimpleNameEndingWith("Service")
                 .check(classes);
     }

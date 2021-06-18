@@ -18,6 +18,7 @@ public class TestConverters {
     public void testClasses() {
         classes()
                 .should().bePublic()
+                .andShould().beTopLevelClasses()
                 .andShould().beAnnotatedWith(Converter.class)
                 .andShould().implement(AttributeConverter.class)
                 .andShould().haveSimpleNameEndingWith("Converter")

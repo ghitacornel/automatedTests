@@ -18,6 +18,7 @@ public class TestRepositories {
 
         classes()
                 .should().bePublic()
+                .andShould().beTopLevelClasses()
                 .andShould().haveSimpleNameEndingWith("Repository")
                 .check(classes);
 

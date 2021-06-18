@@ -15,9 +15,9 @@ public class TestComponents {
 
     @Test
     public void testClasses() {
-        classes().that()
-                .areAnnotatedWith(Component.class)
+        classes().that().areAnnotatedWith(Component.class)
                 .should().bePublic()
+                .andShould().beTopLevelClasses()
                 .andShould().haveSimpleNameEndingWith("Component")
                 .check(classes);
     }

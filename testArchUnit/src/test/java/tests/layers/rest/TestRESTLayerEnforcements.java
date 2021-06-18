@@ -53,6 +53,7 @@ public class TestRESTLayerEnforcements {
                 .check(classes);
 
         noClasses().that().resideInAPackage(Config.CONTROLLERS)
+                .or().areAnnotatedWith(RestController.class)
                 .should().dependOnClassesThat().resideInAPackage(Config.CONTROLLERS)
                 .orShould().dependOnClassesThat().areAnnotatedWith(RestController.class)
                 .check(classes);

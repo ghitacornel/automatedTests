@@ -17,8 +17,8 @@ public class TestModel {
 
     @Test
     public void testClasses() {
-        classes()
-                .should().bePublic()
+        classes().should().bePublic()
+                .andShould().beTopLevelClasses()
                 .andShould().implement(Serializable.class)
                 .check(classes);
     }

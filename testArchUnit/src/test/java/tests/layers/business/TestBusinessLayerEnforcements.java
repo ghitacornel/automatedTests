@@ -18,20 +18,19 @@ public class TestBusinessLayerEnforcements {
 
     @Test
     public void testNamingConventionsByPackageName() {
-
     }
 
     @Test
     public void testNamingConventionsByAnnotation() {
-
         classes().that().areAnnotatedWith(Service.class)
                 .should().haveSimpleNameEndingWith("Service")
                 .check(classes);
-
         classes().that().areAnnotatedWith(Component.class)
                 .should().haveSimpleNameEndingWith("Component")
                 .check(classes);
-
+        classes().that().areAnnotatedWith(Configuration.class)
+                .should().haveSimpleNameEndingWith("Configuration")
+                .check(classes);
     }
 
     @Test
@@ -43,6 +42,7 @@ public class TestBusinessLayerEnforcements {
                 .check(classes);
 
         noClasses().that().resideInAPackage(Config.CONFIGURATION)
+                .or().areAnnotatedWith(Configuration.class)
                 .should().dependOnClassesThat().resideInAPackage(Config.SERVICES)
                 .orShould().dependOnClassesThat().resideInAPackage(Config.COMPONENTS)
                 .check(classes);

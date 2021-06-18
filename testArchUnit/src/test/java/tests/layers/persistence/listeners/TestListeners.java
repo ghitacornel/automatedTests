@@ -20,6 +20,7 @@ public class TestListeners {
     public void testClasses() {
         classes()
                 .should().bePublic()
+                .andShould().beTopLevelClasses()
                 .andShould().haveSimpleNameEndingWith("Listener")
                 .andShould(new ClassHasExactlyOnePublicNoArgumentsConstructor())
                 .check(classes);

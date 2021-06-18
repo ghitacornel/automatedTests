@@ -20,6 +20,7 @@ public class TestConfigs {
         classes().that()
                 .areAnnotatedWith(Configuration.class)
                 .should().bePublic()
+                .andShould().beTopLevelClasses()
                 .andShould().haveSimpleNameEndingWith("Configuration")
                 .check(classes);
     }

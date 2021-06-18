@@ -50,12 +50,8 @@ public class TestPersistenceLayerEnforcements {
 
         noClasses().that().resideInAPackage(Config.REPOSITORIES)
                 .should().dependOnClassesThat().resideInAPackage(Config.REPOSITORIES)
-                .check(classes);
-        noClasses().that().resideInAPackage(Config.REPOSITORIES)
-                .should().dependOnClassesThat().resideInAPackage(Config.CONVERTERS)
-                .check(classes);
-        noClasses().that().resideInAPackage(Config.REPOSITORIES)
-                .should().dependOnClassesThat().resideInAPackage(Config.LISTENERS)
+                .orShould().dependOnClassesThat().resideInAPackage(Config.CONVERTERS)
+                .orShould().dependOnClassesThat().resideInAPackage(Config.LISTENERS)
                 .check(classes);
 
         noClasses().that().areAnnotatedWith(Entity.class).or().areAnnotatedWith(MappedSuperclass.class)
@@ -69,14 +65,12 @@ public class TestPersistenceLayerEnforcements {
                 .check(classes);
 
         noClasses().that().resideInAPackage(Config.CONVERTERS)
+                .or().areAnnotatedWith(Converter.class)
                 .should().dependOnClassesThat().resideInAPackage(Config.LISTENERS)
                 .orShould().dependOnClassesThat().resideInAPackage(Config.CONVERTERS)
                 .orShould().dependOnClassesThat().resideInAPackage(Config.REPOSITORIES)
                 .orShould().dependOnClassesThat().resideInAPackage(Config.ENTITIES)
-                .check(classes);
-
-        noClasses().that().areAnnotatedWith(Converter.class)
-                .should().dependOnClassesThat().areAnnotatedWith(Entity.class)
+                .orShould().dependOnClassesThat().areAnnotatedWith(Entity.class)
                 .orShould().dependOnClassesThat().areAnnotatedWith(MappedSuperclass.class)
                 .check(classes);
 
