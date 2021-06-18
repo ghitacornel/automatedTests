@@ -1,13 +1,9 @@
-package tests.layers.ui;
+package tests.layers.rest;
 
 import com.tngtech.archunit.core.domain.JavaClasses;
 import com.tngtech.archunit.core.importer.ClassFileImporter;
 import org.junit.Test;
-import thirdpartydependencies.daos.converters.Converter;
-import thirdpartydependencies.daos.entities.Entity;
-import thirdpartydependencies.daos.entities.MappedSuperclass;
-import thirdpartydependencies.daos.repositories.Repository;
-import thirdpartydependencies.ui.RestController;
+import thirdpartydependencies.rest.RestController;
 
 import static com.tngtech.archunit.lang.syntax.ArchRuleDefinition.classes;
 import static com.tngtech.archunit.lang.syntax.ArchRuleDefinition.noClasses;

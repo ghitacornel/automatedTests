@@ -1,4 +1,4 @@
-package thirdpartydependencies.ui;
+package thirdpartydependencies.rest;
 
 public @interface DeleteMapping {
 }

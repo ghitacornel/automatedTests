@@ -1,4 +1,4 @@
-package tests.layers.ui.jsons;
+package tests.layers.rest.mappers;
 
 import com.tngtech.archunit.core.domain.JavaClasses;
 import com.tngtech.archunit.core.importer.ClassFileImporter;
@@ -6,15 +6,15 @@ import org.junit.Test;
 
 import static com.tngtech.archunit.lang.syntax.ArchRuleDefinition.classes;
 
-public class TestJsons {
+public class TestMappers {
 
-    JavaClasses classes = new ClassFileImporter().importPackages("layers.ui.jsons");
+    JavaClasses classes = new ClassFileImporter().importPackages("layers.ui.mappers");
 
     @Test
     public void testClasses() {
         classes()
                 .should().bePublic()
-                .andShould().haveSimpleNameEndingWith("Json")
+                .andShould().haveSimpleNameEndingWith("Mapper")
                 .check(classes);
     }
 

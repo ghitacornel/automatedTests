@@ -8,7 +8,7 @@ import thirdpartydependencies.business.components.Component;
 import thirdpartydependencies.business.services.Service;
 import thirdpartydependencies.configurations.Configuration;
 import thirdpartydependencies.daos.repositories.Repository;
-import thirdpartydependencies.ui.RestController;
+import thirdpartydependencies.rest.RestController;
 
 import static com.tngtech.archunit.lang.syntax.ArchRuleDefinition.classes;
 import static com.tngtech.archunit.lang.syntax.ArchRuleDefinition.noClasses;
