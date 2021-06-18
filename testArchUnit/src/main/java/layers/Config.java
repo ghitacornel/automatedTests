@@ -10,7 +10,13 @@ public interface Config {
     String LISTENERS = PERSISTENCE + ".listeners";
     String REPOSITORIES = PERSISTENCE + ".repositories";
 
-    String business = ROOT + ".business";
+    String BUSINESS = ROOT + ".business";
+    String COMPONENTS = BUSINESS + ".components";
+    String MODEL = BUSINESS + ".model";
+    String SERVICES = BUSINESS + ".services";
+    String CONFIGURATION = BUSINESS + ".configs";
+
+
     String controller = ROOT + ".ui";
 
 }

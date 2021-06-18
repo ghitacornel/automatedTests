@@ -2,6 +2,7 @@ package tests.layers.business;
 
 import com.tngtech.archunit.core.domain.JavaClasses;
 import com.tngtech.archunit.core.importer.ClassFileImporter;
+import layers.Config;
 import org.junit.Test;
 import thirdpartydependencies.business.components.Component;
 import thirdpartydependencies.business.services.Service;
@@ -13,7 +14,7 @@ import static com.tngtech.archunit.lang.syntax.ArchRuleDefinition.noClasses;
 
 public class TestBusinessLayerEnforcements {
 
-    JavaClasses classes = new ClassFileImporter().importPackages("business");
+    JavaClasses classes = new ClassFileImporter().importPackages(Config.BUSINESS);
 
     @Test
     public void testNamingConventionsByPackageName() {
@@ -36,18 +37,14 @@ public class TestBusinessLayerEnforcements {
     @Test
     public void testClassSameLayerAccess() {
 
-        noClasses().that().resideInAPackage("..model..")
+        noClasses().that().resideInAPackage(Config.MODEL)
                 .should().dependOnClassesThat().areAnnotatedWith(Service.class)
-                .check(classes);
-        noClasses().that().resideInAPackage("..model..")
-                .should().dependOnClassesThat().areAnnotatedWith(Configuration.class)
+                .orShould().dependOnClassesThat().areAnnotatedWith(Configuration.class)
                 .check(classes);
 
         noClasses().that().resideInAPackage("..utility..")
-                .should().dependOnClassesThat().resideInAPackage("..services..")
-                .check(classes);
-        classes().that().resideInAPackage("..utility..")
-                .should().onlyBeAccessed().byClassesThat().resideInAPackage("..services..")
+                .should().dependOnClassesThat().resideInAPackage(Config.SERVICES)
+                .andShould().onlyBeAccessed().byClassesThat().resideInAPackage(Config.SERVICES)
                 .check(classes);
 
         classes().that().areAnnotatedWith(Component.class)
