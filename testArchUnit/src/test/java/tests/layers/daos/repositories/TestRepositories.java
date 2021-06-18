@@ -2,6 +2,7 @@ package tests.layers.daos.repositories;
 
 import com.tngtech.archunit.core.domain.JavaClasses;
 import com.tngtech.archunit.core.importer.ClassFileImporter;
+import layers.Config;
 import org.junit.Test;
 import thirdpartydependencies.daos.repositories.Repository;
 import thirdpartydependencies.daos.repositories.TemplateRepository;
@@ -10,7 +11,7 @@ import static com.tngtech.archunit.lang.syntax.ArchRuleDefinition.classes;
 
 public class TestRepositories {
 
-    JavaClasses classes = new ClassFileImporter().importPackages("layers.daos.repositories");
+    JavaClasses classes = new ClassFileImporter().importPackages(Config.REPOSITORIES);
 
     @Test
     public void testClasses() {

@@ -2,6 +2,7 @@ package tests.layers.daos.listeners;
 
 import com.tngtech.archunit.core.domain.JavaClasses;
 import com.tngtech.archunit.core.importer.ClassFileImporter;
+import layers.Config;
 import layers.daos.entities.EntityTemplate;
 import org.junit.Test;
 import specials.ClassHasExactlyOnePublicNoArgumentsConstructor;
@@ -14,7 +15,7 @@ import static com.tngtech.archunit.lang.syntax.ArchRuleDefinition.methods;
 
 public class TestListeners {
 
-    JavaClasses classes = new ClassFileImporter().importPackages("layers.daos.listeners");
+    JavaClasses classes = new ClassFileImporter().importPackages(Config.LISTENERS);
 
     @Test
     public void testClasses() {

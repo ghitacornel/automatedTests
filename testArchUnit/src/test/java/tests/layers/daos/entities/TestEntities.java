@@ -3,6 +3,7 @@ package tests.layers.daos.entities;
 import com.tngtech.archunit.core.domain.JavaClasses;
 import com.tngtech.archunit.core.domain.JavaModifier;
 import com.tngtech.archunit.core.importer.ClassFileImporter;
+import layers.Config;
 import org.junit.Test;
 import specials.ClassHasOnePublicNoArgumentsConstructor;
 import thirdpartydependencies.daos.entities.Entity;
@@ -13,7 +14,7 @@ import static com.tngtech.archunit.lang.syntax.ArchRuleDefinition.classes;
 
 public class TestEntities {
 
-    JavaClasses classes = new ClassFileImporter().importPackages("layers.daos.entities");
+    JavaClasses classes = new ClassFileImporter().importPackages(Config.ENTITIES);
 
     @Test
     public void testClasses() {

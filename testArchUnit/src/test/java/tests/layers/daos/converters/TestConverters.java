@@ -3,6 +3,7 @@ package tests.layers.daos.converters;
 import com.tngtech.archunit.core.domain.JavaClasses;
 import com.tngtech.archunit.core.domain.JavaModifier;
 import com.tngtech.archunit.core.importer.ClassFileImporter;
+import layers.Config;
 import org.junit.Test;
 import specials.ClassHasOnePublicNoArgumentsConstructor;
 import thirdpartydependencies.daos.converters.AttributeConverter;
@@ -15,7 +16,7 @@ import static com.tngtech.archunit.lang.syntax.ArchRuleDefinition.classes;
 
 public class TestConverters {
 
-    JavaClasses classes = new ClassFileImporter().importPackages("layers.daos.converters");
+    JavaClasses classes = new ClassFileImporter().importPackages(Config.CONVERTERS);
 
     @Test
     public void testClasses() {
