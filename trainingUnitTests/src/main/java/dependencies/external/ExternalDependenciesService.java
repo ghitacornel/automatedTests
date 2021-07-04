@@ -1,17 +1,18 @@
 package dependencies.external;
 
+// hint => @Service
 public class ExternalDependenciesService {
 
-    // hint => @Autowired by container
-    private ClassWithExternalDependency1 classWithExternalDependency1;
+    // hint => @Autowired of field by container
+    private ClassWithExternalDependency1 dependency1;
 
-    // hint => @Autowired by container
-    private ClassWithExternalDependency2 classWithExternalDependency2;
+    // hint => @Autowired of field by container
+    private ClassWithExternalDependency2 dependency2;
 
     public int complexBusiness(int x, int y) {
-        classWithExternalDependency1.validate(x, y);
+        dependency1.validate(x, y);
         if (x < 10 || y < 10) {
-            return classWithExternalDependency2.calculateSpecific(x, y);
+            return dependency2.calculateSpecific(x, y);
         }
         return x + y;
     }

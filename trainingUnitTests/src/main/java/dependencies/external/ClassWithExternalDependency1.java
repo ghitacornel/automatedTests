@@ -1,5 +1,6 @@
 package dependencies.external;
 
+// hint => @Service
 public class ClassWithExternalDependency1 {
 
     public void validate(int x, int y) {
