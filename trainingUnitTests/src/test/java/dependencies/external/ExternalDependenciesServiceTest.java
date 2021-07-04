@@ -16,10 +16,10 @@ public class ExternalDependenciesServiceTest {
     ExternalDependenciesService service = new ExternalDependenciesService();
 
     @Mock
-    ClassWithExternalDependency1 mock1;
+    ExternalDependency1 mock1;
 
     @Mock
-    ClassWithExternalDependency2 mock2;
+    ExternalDependency2 mock2;
 
     @Test
     public void testHappyPath() {
