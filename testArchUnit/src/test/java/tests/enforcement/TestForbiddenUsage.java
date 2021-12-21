@@ -12,13 +12,13 @@ public class TestForbiddenUsage {
     JavaClasses classes = new ClassFileImporter().importPackages(Config.ROOT);
 
     @Test
-    public void testReflection() {
+    public void testReflectionUsageIsForbidden() {
         noClasses().should().dependOnClassesThat().resideInAPackage("java.lang.reflect..")
                 .check(classes);
     }
 
     @Test
-    public void testThreadLocal() {
+    public void testThreadLocalUsageIsForbidden() {
         noClasses().should().dependOnClassesThat().areAssignableTo(ThreadLocal.class)
                 .check(classes);
     }
