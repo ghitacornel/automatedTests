@@ -1,0 +1,1 @@
+project with different technologies used for automated tests
