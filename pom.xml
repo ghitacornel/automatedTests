@@ -18,6 +18,7 @@
         <module>testCucumber</module>
         <module>testArchUnit</module>
         <module>trainingUnitTests</module>
+        <module>powermock</module>
     </modules>
 
     <properties>
