@@ -13,7 +13,8 @@ public class MethodHasAtLeastOneParameter extends ArchCondition<JavaMethod> {
 
     @Override
     public void check(JavaMethod item, ConditionEvents events) {
-        if (item.getRawParameterTypes().isEmpty())
+        if (item.getRawParameterTypes().isEmpty()) {
             events.add(new SimpleConditionEvent(null, false, "expected at least 1 parameter"));
+        }
     }
 }

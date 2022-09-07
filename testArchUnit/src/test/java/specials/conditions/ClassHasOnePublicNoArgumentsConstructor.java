@@ -7,8 +7,6 @@ import com.tngtech.archunit.lang.ArchCondition;
 import com.tngtech.archunit.lang.ConditionEvents;
 import com.tngtech.archunit.lang.SimpleConditionEvent;
 
-import java.util.Optional;
-
 public class ClassHasOnePublicNoArgumentsConstructor extends ArchCondition<JavaClass> {
 
     public ClassHasOnePublicNoArgumentsConstructor() {
@@ -17,13 +15,13 @@ public class ClassHasOnePublicNoArgumentsConstructor extends ArchCondition<JavaC
 
     @Override
     public void check(JavaClass item, ConditionEvents events) {
-        Optional<JavaConstructor> constructor = item.getConstructors()
+        if (item.getConstructors()
                 .stream()
                 .filter(JavaConstructor::isConstructor)
                 .filter(o -> o.getModifiers().contains(JavaModifier.PUBLIC))
                 .filter(o -> o.getRawParameterTypes().isEmpty())
-                .findFirst();
-        if (constructor.isEmpty())
+                .findAny().isEmpty()) {
             events.add(new SimpleConditionEvent(null, false, "expected 1 public no argument constructor"));
+        }
     }
 }
