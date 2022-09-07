@@ -5,8 +5,8 @@ import com.tngtech.archunit.core.importer.ClassFileImporter;
 import layers.Config;
 import layers.persistence.entities.EntityTemplate;
 import org.junit.Test;
-import specials.ClassHasExactlyOnePublicNoArgumentsConstructor;
-import specials.MethodHasExactlyOneParameter;
+import specials.conditions.ClassHasExactlyOnePublicNoArgumentsConstructor;
+import specials.conditions.MethodHasExactlyOneParameter;
 import thirdpartydependencies.daos.listeners.*;
 
 import static com.tngtech.archunit.lang.syntax.ArchRuleDefinition.classes;

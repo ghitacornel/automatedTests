@@ -4,7 +4,7 @@ import com.tngtech.archunit.core.domain.JavaClasses;
 import com.tngtech.archunit.core.importer.ClassFileImporter;
 import layers.Config;
 import org.junit.Test;
-import specials.ClassHasOnePublicNoArgumentsConstructor;
+import specials.conditions.ClassHasOnePublicNoArgumentsConstructor;
 import thirdpartydependencies.daos.converters.AttributeConverter;
 import thirdpartydependencies.daos.converters.Converter;
 

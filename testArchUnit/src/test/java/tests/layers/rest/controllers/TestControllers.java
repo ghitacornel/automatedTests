@@ -4,8 +4,8 @@ import com.tngtech.archunit.core.domain.JavaClasses;
 import com.tngtech.archunit.core.importer.ClassFileImporter;
 import layers.Config;
 import org.junit.Test;
-import specials.MethodHasAtLeastOneParameter;
-import specials.MethodHasExactlyOneParameter;
+import specials.conditions.MethodHasAtLeastOneParameter;
+import specials.conditions.MethodHasExactlyOneParameter;
 import thirdpartydependencies.rest.*;
 
 import static com.tngtech.archunit.lang.syntax.ArchRuleDefinition.classes;

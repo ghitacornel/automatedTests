@@ -6,7 +6,7 @@ import com.tngtech.archunit.core.importer.ClassFileImporter;
 import layers.Config;
 import layers.persistence.entities.EntityTemplate;
 import org.junit.Test;
-import specials.ClassHasOnePublicNoArgumentsConstructor;
+import specials.conditions.ClassHasOnePublicNoArgumentsConstructor;
 import thirdpartydependencies.daos.entities.Entity;
 import thirdpartydependencies.daos.entities.MappedSuperclass;
 import thirdpartydependencies.daos.entities.Table;

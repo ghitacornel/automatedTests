@@ -1,4 +1,4 @@
-package specials;
+package specials.conditions;
 
 import com.tngtech.archunit.core.domain.JavaMethod;
 import com.tngtech.archunit.lang.ArchCondition;
