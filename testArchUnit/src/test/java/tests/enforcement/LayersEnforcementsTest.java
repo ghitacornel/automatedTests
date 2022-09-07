@@ -4,11 +4,6 @@ import com.tngtech.archunit.core.domain.JavaClasses;
 import com.tngtech.archunit.core.importer.ClassFileImporter;
 import layers.Config;
 import org.junit.Test;
-import thirdpartydependencies.business.components.Component;
-import thirdpartydependencies.business.services.Service;
-import thirdpartydependencies.configurations.Configuration;
-import thirdpartydependencies.daos.repositories.Repository;
-import thirdpartydependencies.rest.RestController;
 
 import static com.tngtech.archunit.lang.syntax.ArchRuleDefinition.classes;
 import static com.tngtech.archunit.lang.syntax.ArchRuleDefinition.noClasses;
@@ -17,35 +12,6 @@ import static com.tngtech.archunit.library.Architectures.layeredArchitecture;
 public class LayersEnforcementsTest {
 
     private final JavaClasses classes = new ClassFileImporter().importPackages(Config.ROOT);
-
-    @Test
-    public void testNamingConventionsByPackageName() {
-
-        classes().that().resideInAPackage(Config.BUSINESS_CONFIGURATION)
-                .should().haveSimpleNameEndingWith("Configuration")
-                .check(classes);
-
-    }
-
-    @Test
-    public void testNamingConventionsByAnnotation() {
-
-        classes().that().areAnnotatedWith(Configuration.class)
-                .should().haveSimpleNameEndingWith("Configuration")
-                .check(classes);
-        classes().that().areAnnotatedWith(RestController.class)
-                .should().haveSimpleNameEndingWith("Controller")
-                .check(classes);
-        classes().that().areAnnotatedWith(Service.class)
-                .should().haveSimpleNameEndingWith("Service")
-                .check(classes);
-        classes().that().areAnnotatedWith(Repository.class)
-                .should().haveSimpleNameEndingWith("Repository")
-                .check(classes);
-        classes().that().areAnnotatedWith(Component.class)
-                .should().haveSimpleNameEndingWith("Component")
-                .check(classes);
-    }
 
     @Test
     public void testClassLayerAccess() {
@@ -65,9 +31,9 @@ public class LayersEnforcementsTest {
     @Test
     public void layer_dependencies_are_respected() {
         layeredArchitecture()
-                .layer("Rest").definedBy(Config.REST+"..")
-                .layer("Business").definedBy(Config.BUSINESS+"..")
-                .layer("Persistence").definedBy(Config.PERSISTENCE+"..")
+                .layer("Rest").definedBy(Config.REST + "..")
+                .layer("Business").definedBy(Config.BUSINESS + "..")
+                .layer("Persistence").definedBy(Config.PERSISTENCE + "..")
                 .whereLayer("Rest").mayNotBeAccessedByAnyLayer()
                 .whereLayer("Business").mayOnlyBeAccessedByLayers("Rest", "Business")
                 .whereLayer("Persistence").mayOnlyBeAccessedByLayers("Business")
