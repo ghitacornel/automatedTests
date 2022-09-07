@@ -1,6 +1,8 @@
 package specials;
 
-import com.tngtech.archunit.core.domain.*;
+import com.tngtech.archunit.core.domain.JavaClass;
+import com.tngtech.archunit.core.domain.JavaConstructor;
+import com.tngtech.archunit.core.domain.JavaModifier;
 import com.tngtech.archunit.lang.ArchCondition;
 import com.tngtech.archunit.lang.ConditionEvents;
 import com.tngtech.archunit.lang.SimpleConditionEvent;
@@ -17,17 +19,25 @@ public class ClassIsHelperClass extends ArchCondition<JavaClass> {
     @Override
     public void check(JavaClass item, ConditionEvents events) {
 
-        if (!item.getName().endsWith("Helper"))
+        if (!item.getName().endsWith("Helper")) {
             events.add(new SimpleConditionEvent(null, false, "helper class name does not end in Helper"));
+        }
 
-        if (!item.isAnnotatedWith(Utility.class))
+        if (!item.isAnnotatedWith(Utility.class)) {
             events.add(new SimpleConditionEvent(null, false, "helper class not annotated with @Utility"));
+        }
 
-        if (!item.getModifiers().contains(JavaModifier.FINAL))
+        if (!item.getModifiers().contains(JavaModifier.FINAL)) {
             events.add(new SimpleConditionEvent(null, false, "helper class is not final"));
+        }
 
-        if (!item.isTopLevelClass())
+        if (!item.isTopLevelClass()) {
             events.add(new SimpleConditionEvent(null, false, "helper class is not top level class"));
+        }
+
+        if (!item.isTopLevelClass()) {
+            events.add(new SimpleConditionEvent(null, false, "helper class is not top level class"));
+        }
 
         Optional<JavaConstructor> constructor = item.getConstructors()
                 .stream()
