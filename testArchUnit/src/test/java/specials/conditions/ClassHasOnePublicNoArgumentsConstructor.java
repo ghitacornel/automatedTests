@@ -20,7 +20,8 @@ public class ClassHasOnePublicNoArgumentsConstructor extends ArchCondition<JavaC
                 .filter(JavaConstructor::isConstructor)
                 .filter(o -> o.getModifiers().contains(JavaModifier.PUBLIC))
                 .filter(o -> o.getRawParameterTypes().isEmpty())
-                .findAny().isEmpty()) {
+                .findAny()
+                .isEmpty()) {
             events.add(new SimpleConditionEvent(null, false, "expected 1 public no argument constructor"));
         }
     }

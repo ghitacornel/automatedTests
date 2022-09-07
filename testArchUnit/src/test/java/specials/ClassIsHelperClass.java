@@ -8,8 +8,6 @@ import com.tngtech.archunit.lang.ConditionEvents;
 import com.tngtech.archunit.lang.SimpleConditionEvent;
 import thirdpartydependencies.business.Utility;
 
-import java.util.Optional;
-
 public class ClassIsHelperClass extends ArchCondition<JavaClass> {
 
     public ClassIsHelperClass() {
@@ -39,24 +37,25 @@ public class ClassIsHelperClass extends ArchCondition<JavaClass> {
             events.add(new SimpleConditionEvent(null, false, "helper class is not top level class"));
         }
 
-        Optional<JavaConstructor> constructor = item.getConstructors()
+        if (item.getConstructors()
                 .stream()
                 .filter(JavaConstructor::isConstructor)
                 .filter(o -> o.getModifiers().contains(JavaModifier.PRIVATE))
                 .filter(o -> o.getRawParameterTypes().isEmpty())
-                .findFirst();
-        if (constructor.isEmpty())
-            events.add(new SimpleConditionEvent(null, false, "expected 1 private no argument constructor"));
+                .findAny()
+                .isEmpty()) {
+            events.add(new SimpleConditionEvent(null, false, "expected exactly 1 private no argument constructor"));
+        }
 
         item.getFields().stream()
                 .filter(o -> !o.getModifiers().contains(JavaModifier.STATIC))
                 .filter(o -> o.getModifiers().contains(JavaModifier.FINAL))
-                .findFirst()
+                .findAny()
                 .ifPresent(javaField -> events.add(new SimpleConditionEvent(null, false, "found non static non final field " + javaField.getFullName())));
 
         item.getMethods().stream()
                 .filter(o -> !o.getModifiers().contains(JavaModifier.STATIC))
-                .findFirst()
+                .findAny()
                 .ifPresent(javaMethod -> events.add(new SimpleConditionEvent(null, false, "found non static method " + javaMethod.getFullName())));
     }
 }
