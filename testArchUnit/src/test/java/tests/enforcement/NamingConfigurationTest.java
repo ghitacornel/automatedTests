@@ -29,10 +29,12 @@ public class NamingConfigurationTest {
     public void testNamingConventionsByAnnotation() {
 
         classes().that().areAnnotatedWith(Configuration.class)
-                .should().haveSimpleNameEndingWith("Configuration")
+                .should().haveSimpleNameEndingWith("Config")
+                .orShould().haveSimpleNameEndingWith("Configuration")
                 .check(classes);
         classes().that().areAnnotatedWith(RestController.class)
                 .should().haveSimpleNameEndingWith("Controller")
+                .orShould().haveSimpleNameEndingWith("RestController")
                 .check(classes);
         classes().that().areAnnotatedWith(Service.class)
                 .should().haveSimpleNameEndingWith("Service")
