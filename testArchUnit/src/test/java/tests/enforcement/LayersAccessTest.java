@@ -9,7 +9,7 @@ import static com.tngtech.archunit.lang.syntax.ArchRuleDefinition.classes;
 import static com.tngtech.archunit.lang.syntax.ArchRuleDefinition.noClasses;
 import static com.tngtech.archunit.library.Architectures.layeredArchitecture;
 
-public class LayersEnforcementsTest {
+public class LayersAccessTest {
 
     private final JavaClasses classes = new ClassFileImporter().importPackages(Config.ROOT);
 
