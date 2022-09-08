@@ -10,7 +10,7 @@ import thirdpartydependencies.Converter;
 
 import static com.tngtech.archunit.lang.syntax.ArchRuleDefinition.classes;
 
-public class TestConverters {
+public class ConverterSpecificTest {
 
     JavaClasses classes = new ClassFileImporter().importPackages(Packages.PERSISTENCE_CONVERTER);
 
