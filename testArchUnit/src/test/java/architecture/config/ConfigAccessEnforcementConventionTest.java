@@ -13,7 +13,7 @@ public class ConfigAccessEnforcementConventionTest {
     @Test
     public void deny() {
         noClasses().that().resideInAPackage(Packages.CONFIG)
-                .should().dependOnClassesThat().resideInAPackage(Packages.BUSINESS)
+                .should().dependOnClassesThat().resideInAPackage(Packages.SERVICE)
                 .orShould().dependOnClassesThat().resideInAPackage(Packages.CONTROLLER)
                 .orShould().dependOnClassesThat().resideInAPackage(Packages.PERSISTENCE)
                 // TODO

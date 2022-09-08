@@ -13,14 +13,16 @@ public class ExceptionAccessEnforcementConventionTest {
     @Test
     public void deny() {
         noClasses().that().resideInAPackage(Packages.EXCEPTION)
-                .should().dependOnClassesThat().resideInAPackage(Packages.BUSINESS)
-                .orShould().dependOnClassesThat().resideInAPackage(Packages.BUSINESS_CONFIGURATION)
-                .orShould().dependOnClassesThat().resideInAPackage(Packages.EXCEPTION)
+                .should().dependOnClassesThat().resideInAPackage(Packages.EXCEPTION)
                 .orShould().dependOnClassesThat().resideInAPackage(Packages.CONTROLLER)
                 .orShould().dependOnClassesThat().resideInAPackage(Packages.CONTROLLER_ADVICE)
                 .orShould().dependOnClassesThat().resideInAPackage(Packages.MAPPER)
+                .orShould().dependOnClassesThat().resideInAPackage(Packages.SERVICE)
                 .orShould().dependOnClassesThat().resideInAPackage(Packages.PERSISTENCE)
-                // TODO
+                .orShould().dependOnClassesThat().resideInAPackage(Packages.PERSISTENCE_CONVERTER)
+                .orShould().dependOnClassesThat().resideInAPackage(Packages.PERSISTENCE_LISTENER)
+                .orShould().dependOnClassesThat().resideInAPackage(Packages.PERSISTENCE_ENTITY)
+                .orShould().dependOnClassesThat().resideInAPackage(Packages.PERSISTENCE_REPOSITORY)
                 .check(classes);
     }
 

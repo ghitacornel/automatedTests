@@ -14,7 +14,7 @@ import static com.tngtech.archunit.lang.syntax.ArchRuleDefinition.noClasses;
 
 public class TestBusinessLayerEnforcements {
 
-    JavaClasses classes = new ClassFileImporter().importPackages(Packages.BUSINESS);
+    JavaClasses classes = new ClassFileImporter().importPackages(Packages.SERVICE);
 
     @Test
     public void testNamingConventionsByPackageName() {
@@ -37,23 +37,12 @@ public class TestBusinessLayerEnforcements {
     public void testClassSameLayerAccess() {
 
         noClasses().that().resideInAPackage(Packages.BUSINESS_MODEL)
-                .or().resideInAPackage(Packages.BUSINESS_JSON)
                 .should().dependOnClassesThat().areAnnotatedWith(Service.class)
                 .orShould().dependOnClassesThat().areAnnotatedWith(Configuration.class)
                 .orShould().dependOnClassesThat().areAnnotatedWith(Component.class)
                 .orShould().dependOnClassesThat().areAnnotatedWith(Utility.class)
                 .check(classes);
 
-        noClasses().that().resideInAPackage(Packages.BUSINESS_CONFIGURATION)
-                .or().areAnnotatedWith(Configuration.class)
-                .should().dependOnClassesThat().resideInAPackage(Packages.BUSINESS_SERVICES)
-                .orShould().dependOnClassesThat().resideInAPackage(Packages.BUSINESS_COMPONENTS)
-                .check(classes);
-
-        classes().that().resideInAPackage(Packages.BUSINESS_CONFIGURATION)
-                .should().onlyBeAccessed().byClassesThat().resideInAPackage(Packages.BUSINESS_SERVICES)
-                .orShould().onlyBeAccessed().byClassesThat().resideInAPackage(Packages.BUSINESS_COMPONENTS)
-                .check(classes);
 
         classes().that().areAnnotatedWith(Component.class)
                 .should().onlyBeAccessed().byClassesThat().areAnnotatedWith(Component.class)

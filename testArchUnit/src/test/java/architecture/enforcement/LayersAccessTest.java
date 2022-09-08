@@ -18,12 +18,12 @@ public class LayersAccessTest {
         noClasses().that().resideInAPackage(Packages.PERSISTENCE)
                 .should().accessClassesThat().resideInAPackage(Packages.CONTROLLER).check(classes);
         noClasses().that().resideInAPackage(Packages.PERSISTENCE)
-                .should().accessClassesThat().resideInAPackage(Packages.BUSINESS).check(classes);
+                .should().accessClassesThat().resideInAPackage(Packages.SERVICE).check(classes);
 
-        noClasses().that().resideInAPackage(Packages.BUSINESS)
+        noClasses().that().resideInAPackage(Packages.SERVICE)
                 .should().accessClassesThat().resideInAPackage(Packages.CONTROLLER).check(classes);
 
-        noClasses().that().resideInAPackage(Packages.BUSINESS)
+        noClasses().that().resideInAPackage(Packages.SERVICE)
                 .should().accessClassesThat().resideInAPackage(Packages.PERSISTENCE).check(classes);
     }
 
@@ -31,7 +31,7 @@ public class LayersAccessTest {
     public void layer_dependencies_are_respected() {
         layeredArchitecture()
                 .layer("Rest").definedBy(Packages.CONTROLLER + "..")
-                .layer("Business").definedBy(Packages.BUSINESS + "..")
+                .layer("Business").definedBy(Packages.SERVICE + "..")
                 .layer("Persistence").definedBy(Packages.PERSISTENCE + "..")
                 .whereLayer("Rest").mayNotBeAccessedByAnyLayer()
                 .whereLayer("Business").mayOnlyBeAccessedByLayers("Rest", "Business")
@@ -41,52 +41,52 @@ public class LayersAccessTest {
 
     @Test
     public void services_should_not_access_controllers() {
-        noClasses().that().resideInAPackage(Packages.BUSINESS)
+        noClasses().that().resideInAPackage(Packages.SERVICE)
                 .should().accessClassesThat().resideInAPackage(Packages.CONTROLLER).check(classes);
     }
 
     @Test
     public void persistence_should_not_access_services() {
         noClasses().that().resideInAPackage(Packages.PERSISTENCE)
-                .should().accessClassesThat().resideInAPackage(Packages.BUSINESS).check(classes);
+                .should().accessClassesThat().resideInAPackage(Packages.SERVICE).check(classes);
     }
 
     @Test
     public void services_should_only_be_accessed_by_controllers_or_other_services() {
-        classes().that().resideInAPackage(Packages.BUSINESS)
-                .should().onlyBeAccessed().byAnyPackage(Packages.CONTROLLER, Packages.BUSINESS).check(classes);
+        classes().that().resideInAPackage(Packages.SERVICE)
+                .should().onlyBeAccessed().byAnyPackage(Packages.CONTROLLER, Packages.SERVICE).check(classes);
     }
 
     @Test
     public void services_should_only_access_persistence_or_other_services() {
-        classes().that().resideInAPackage(Packages.BUSINESS)
-                .should().onlyAccessClassesThat().resideInAnyPackage(Packages.BUSINESS, Packages.PERSISTENCE, "java..").check(classes);
+        classes().that().resideInAPackage(Packages.SERVICE)
+                .should().onlyAccessClassesThat().resideInAnyPackage(Packages.SERVICE, Packages.PERSISTENCE, "java..").check(classes);
     }
 
     // 'dependOn' catches a wider variety of violations, e.g. having fields of type, having method parameters of type, extending type ...
 
     @Test
     public void services_should_not_depend_on_controllers() {
-        noClasses().that().resideInAPackage(Packages.BUSINESS)
+        noClasses().that().resideInAPackage(Packages.SERVICE)
                 .should().dependOnClassesThat().resideInAPackage(Packages.CONTROLLER).check(classes);
     }
 
     @Test
     public void persistence_should_not_depend_on_services() {
         noClasses().that().resideInAPackage(Packages.PERSISTENCE)
-                .should().dependOnClassesThat().resideInAPackage(Packages.BUSINESS).check(classes);
+                .should().dependOnClassesThat().resideInAPackage(Packages.SERVICE).check(classes);
     }
 
     @Test
     public void services_should_only_be_depended_on_by_controllers_or_other_services() {
-        classes().that().resideInAPackage(Packages.BUSINESS)
-                .should().onlyHaveDependentClassesThat().resideInAnyPackage(Packages.CONTROLLER, Packages.BUSINESS).check(classes);
+        classes().that().resideInAPackage(Packages.SERVICE)
+                .should().onlyHaveDependentClassesThat().resideInAnyPackage(Packages.CONTROLLER, Packages.SERVICE).check(classes);
     }
 
     @Test
     public void services_should_only_depend_on_persistence_or_other_services() {
-        classes().that().resideInAPackage(Packages.BUSINESS)
-                .should().onlyDependOnClassesThat().resideInAnyPackage(Packages.BUSINESS, Packages.PERSISTENCE, "java..", "javax..", "thirdpartydependencies..")
+        classes().that().resideInAPackage(Packages.SERVICE)
+                .should().onlyDependOnClassesThat().resideInAnyPackage(Packages.SERVICE, Packages.PERSISTENCE, "java..", "javax..", "thirdpartydependencies..")
                 .check(classes);
     }
 
