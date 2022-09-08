@@ -12,9 +12,9 @@ import thirdpartydependencies.*;
 import static com.tngtech.archunit.lang.syntax.ArchRuleDefinition.classes;
 import static com.tngtech.archunit.lang.syntax.ArchRuleDefinition.methods;
 
-public class TestListeners {
+public class ListenerSpecificTest {
 
-    JavaClasses classes = new ClassFileImporter().importPackages(Packages.PERSISTENCE_LISTENER);
+    private final JavaClasses classes = new ClassFileImporter().importPackages(Packages.PERSISTENCE_LISTENER);
 
     @Test
     public void testClasses() {

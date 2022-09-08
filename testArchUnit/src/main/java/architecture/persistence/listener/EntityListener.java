@@ -5,9 +5,6 @@ import thirdpartydependencies.*;
 
 public class EntityListener {
 
-    public EntityListener() {
-    }
-
     @PrePersist
     public void m1(CustomEntity entity) {
     }
