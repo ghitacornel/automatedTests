@@ -21,6 +21,7 @@ public class ConverterAccessEnforcementConventionTest {
                 .orShould().dependOnClassesThat().resideInAPackage(Packages.CONTROLLER)
                 .orShould().dependOnClassesThat().resideInAPackage(Packages.CONTROLLER_ADVICE)
                 .orShould().dependOnClassesThat().resideInAPackage(Packages.MAPPER)
+                .orShould().dependOnClassesThat().resideInAPackage(Packages.MODEL)
                 .check(classes);
     }
 
