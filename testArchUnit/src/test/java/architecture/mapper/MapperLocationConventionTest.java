@@ -1,4 +1,4 @@
-package architecture.layers.business.mapper;
+package architecture.mapper;
 
 import architecture.Packages;
 import com.tngtech.archunit.core.domain.JavaClasses;

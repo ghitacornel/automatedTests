@@ -1,4 +1,4 @@
-package architecture.layers.business.mapper;
+package architecture.mapper;
 
 import architecture.Packages;
 import com.tngtech.archunit.core.domain.JavaClasses;
@@ -9,7 +9,7 @@ import static com.tngtech.archunit.lang.syntax.ArchRuleDefinition.classes;
 
 public class MapperNamingConventionTest {
 
-    private final JavaClasses classes = Packages.allClasses;
+    private final JavaClasses classes = Packages.allClassesWithoutTests;
 
     @Test
     public void basedOnPackage() {
