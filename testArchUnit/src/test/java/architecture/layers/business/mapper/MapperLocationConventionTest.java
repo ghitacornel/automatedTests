@@ -14,6 +14,7 @@ public class MapperLocationConventionTest {
     @Test
     public void location() {
         classes().that().areAnnotatedWith(Mapper.class)
+                .or().haveSimpleNameEndingWith("Map")
                 .or().haveSimpleNameEndingWith("Mapper")
                 .should().resideInAPackage(Packages.MAPPER)
                 .check(classes);

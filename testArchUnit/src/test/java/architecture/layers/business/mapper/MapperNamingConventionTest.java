@@ -14,7 +14,8 @@ public class MapperNamingConventionTest {
     @Test
     public void basedOnPackage() {
         classes().that().resideInAPackage(Packages.MAPPER)
-                .should().haveSimpleNameEndingWith("Mapper")
+                .should().haveSimpleNameEndingWith("Map")
+                .orShould().haveSimpleNameEndingWith("Mapper")
                 .check(classes);
     }
 

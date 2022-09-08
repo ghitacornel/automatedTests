@@ -15,6 +15,7 @@ public class MapperSpecificTest {
     @Test
     public void specific() {
         classes().that().areAnnotatedWith(Mapper.class)
+                .or().haveSimpleNameEndingWith("Map")
                 .or().haveSimpleNameEndingWith("Mapper")
                 .should().beTopLevelClasses()
                 .check(classes);
