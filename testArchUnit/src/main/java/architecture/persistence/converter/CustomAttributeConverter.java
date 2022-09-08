@@ -1,4 +1,4 @@
-package architecture.persistence.converters;
+package architecture.persistence.converter;
 
 import thirdpartydependencies.AttributeConverter;
 import thirdpartydependencies.Converter;

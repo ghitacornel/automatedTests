@@ -1,9 +1,9 @@
-package architecture.persistence.entities;
+package architecture.persistence.entity;
 
 import thirdpartydependencies.Entity;
 import thirdpartydependencies.Table;
 
 @Entity
 @Table
-public class Person extends EntityTemplate {
+public class CustomEntity extends EntityTemplate {
 }

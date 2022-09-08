@@ -16,10 +16,10 @@ public interface Packages {
     String CONTROLLER = ROOT + ".controller";
     String HANDLER = ROOT + ".controller.handler";
     String PERSISTENCE = ROOT + ".persistence";
-    String PERSISTENCE_ENTITIES = PERSISTENCE + ".entities";
-    String PERSISTENCE_CONVERTERS = PERSISTENCE + ".converters";
-    String PERSISTENCE_LISTENERS = PERSISTENCE + ".listeners";
-    String PERSISTENCE_REPOSITORIES = PERSISTENCE + ".repositories";
+    String PERSISTENCE_ENTITY = PERSISTENCE + ".entity";
+    String PERSISTENCE_CONVERTER = PERSISTENCE + ".converter";
+    String PERSISTENCE_LISTENER = PERSISTENCE + ".listener";
+    String PERSISTENCE_REPOSITORY = PERSISTENCE + ".repository";
 
     String BUSINESS = ROOT + ".business";
     String BUSINESS_COMPONENTS = BUSINESS + ".components";

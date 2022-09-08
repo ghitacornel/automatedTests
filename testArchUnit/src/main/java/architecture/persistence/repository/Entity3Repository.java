@@ -1,4 +1,4 @@
-package architecture.persistence.repositories;
+package architecture.persistence.repository;
 
 import thirdpartydependencies.TemplateRepository;
 
