@@ -70,7 +70,7 @@ public class ControllerSpecificTest {
         methods().that().areAnnotatedWith(DeleteMapping.class)
                 .should().haveNameStartingWith("delete")
                 .andShould().haveRawReturnType(void.class)
-                .andShould(new MethodHasExactlyOneParameter(Integer.class))
+                .andShould(new MethodHasExactlyOneParameter())
                 .check(classes);
     }
 
