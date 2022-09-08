@@ -5,7 +5,7 @@ import com.tngtech.archunit.core.domain.JavaClasses;
 import com.tngtech.archunit.core.importer.ClassFileImporter;
 import org.junit.Test;
 import thirdpartydependencies.Repository;
-import thirdpartydependencies.TemplateRepository;
+import thirdpartydependencies.JpaRepository;
 
 import static com.tngtech.archunit.lang.syntax.ArchRuleDefinition.classes;
 
@@ -22,16 +22,16 @@ public class TestRepositories {
                 .andShould().haveSimpleNameEndingWith("Repository")
                 .check(classes);
 
-        classes().that().areNotInterfaces().and().areNotAssignableFrom(TemplateRepository.class)
+        classes().that().areNotInterfaces().and().areNotAssignableFrom(JpaRepository.class)
                 .should().beAnnotatedWith(Repository.class)
                 .check(classes);
 
-        classes().that().areNotInterfaces().and().implement(TemplateRepository.class)
+        classes().that().areNotInterfaces().and().implement(JpaRepository.class)
                 .should().beAnnotatedWith(Repository.class)
                 .check(classes);
 
         classes().that().areInterfaces()
-                .should().beAssignableTo(TemplateRepository.class)
+                .should().beAssignableTo(JpaRepository.class)
                 .check(classes);
     }
 
