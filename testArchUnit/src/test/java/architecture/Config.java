@@ -10,6 +10,7 @@ public interface Config {
     JavaClasses allClasses = new ClassFileImporter().importPackages(Config.ROOT);
     JavaClasses allClassesWithoutTests = new ClassFileImporter().withImportOption(ImportOption.Predefined.DO_NOT_INCLUDE_TESTS).importPackages(Config.ROOT);
 
+    String EXCEPTION = ROOT + ".exception";
     String PERSISTENCE = ROOT + ".persistence";
     String PERSISTENCE_ENTITIES = PERSISTENCE + ".entities";
     String PERSISTENCE_CONVERTERS = PERSISTENCE + ".converters";
