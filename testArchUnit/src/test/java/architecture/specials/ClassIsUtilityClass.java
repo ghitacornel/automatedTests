@@ -6,7 +6,6 @@ import com.tngtech.archunit.core.domain.JavaModifier;
 import com.tngtech.archunit.lang.ArchCondition;
 import com.tngtech.archunit.lang.ConditionEvents;
 import com.tngtech.archunit.lang.SimpleConditionEvent;
-import thirdpartydependencies.Utility;
 
 public class ClassIsUtilityClass extends ArchCondition<JavaClass> {
 
@@ -16,10 +15,6 @@ public class ClassIsUtilityClass extends ArchCondition<JavaClass> {
 
     @Override
     public void check(JavaClass item, ConditionEvents events) {
-
-        if (!item.isAnnotatedWith(Utility.class)) {
-            events.add(new SimpleConditionEvent(null, false, "utility class not annotated with @Utility"));
-        }
 
         if (!item.getModifiers().contains(JavaModifier.FINAL)) {
             events.add(new SimpleConditionEvent(null, false, "utility class is not final"));

@@ -1,8 +1,8 @@
 package architecture.service;
 
-final class BusinessServiceHelper {
+final class BusinessServiceUtility {
 
-    private BusinessServiceHelper() {
+    private BusinessServiceUtility() {
     }
 
     private static int x;

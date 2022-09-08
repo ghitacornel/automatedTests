@@ -6,7 +6,6 @@ import com.tngtech.archunit.core.importer.ClassFileImporter;
 import org.junit.Test;
 import thirdpartydependencies.Component;
 import thirdpartydependencies.Service;
-import thirdpartydependencies.Utility;
 import thirdpartydependencies.Configuration;
 
 import static com.tngtech.archunit.lang.syntax.ArchRuleDefinition.classes;
@@ -40,7 +39,6 @@ public class TestBusinessLayerEnforcements {
                 .should().dependOnClassesThat().areAnnotatedWith(Service.class)
                 .orShould().dependOnClassesThat().areAnnotatedWith(Configuration.class)
                 .orShould().dependOnClassesThat().areAnnotatedWith(Component.class)
-                .orShould().dependOnClassesThat().areAnnotatedWith(Utility.class)
                 .check(classes);
 
 
