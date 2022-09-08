@@ -1,4 +1,4 @@
 package architecture.model.event;
 
-public class ModelEvent3 {
+public class Model2Event {
 }

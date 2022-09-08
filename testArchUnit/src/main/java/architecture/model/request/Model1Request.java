@@ -1,4 +1,4 @@
 package architecture.model.request;
 
-public class ModelRequest2 {
+public class Model1Request {
 }

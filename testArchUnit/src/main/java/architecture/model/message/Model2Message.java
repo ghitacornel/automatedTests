@@ -1,4 +1,4 @@
 package architecture.model.message;
 
-public class ModelMessage1 {
+public class Model2Message {
 }

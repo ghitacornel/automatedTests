@@ -1,5 +1,4 @@
-
 package architecture.model.response;
 
-public class ModelResponse2 {
+public class Model1Response {
 }
