@@ -1,4 +1,4 @@
-package architecture.service;
+package architecture.misc;
 
 import architecture.Packages;
 import com.tngtech.archunit.core.domain.JavaClasses;
@@ -22,8 +22,7 @@ public class TransactionalTest {
 
     @Test
     public void testMethods() {
-        methods().that()
-                .areAnnotatedWith(Transactional.class)
+        methods().that().areAnnotatedWith(Transactional.class)
                 .should().beDeclaredInClassesThat().areAnnotatedWith(Service.class)
                 .andShould().bePublic()
                 .check(classes);
