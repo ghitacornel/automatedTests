@@ -6,15 +6,14 @@ import com.tngtech.archunit.core.domain.JavaClasses;
 import com.tngtech.archunit.core.domain.JavaModifier;
 import com.tngtech.archunit.core.importer.ClassFileImporter;
 import org.junit.Test;
-import thirdpartydependencies.Entity;
-import thirdpartydependencies.MappedSuperclass;
-import thirdpartydependencies.Table;
+import thirdpartydependencies.*;
 
 import static com.tngtech.archunit.lang.syntax.ArchRuleDefinition.classes;
+import static com.tngtech.archunit.lang.syntax.ArchRuleDefinition.fields;
 
 public class EntitySpecificTest {
 
-    JavaClasses classes = new ClassFileImporter().importPackages(Packages.PERSISTENCE_ENTITY);
+    private final JavaClasses classes = new ClassFileImporter().importPackages(Packages.PERSISTENCE_ENTITY);
 
     @Test
     public void testClasses() {
@@ -43,6 +42,11 @@ public class EntitySpecificTest {
                 .should().haveModifier(JavaModifier.ABSTRACT)
                 .andShould().beTopLevelClasses()
                 .andShould().haveSimpleNameEndingWith("Template")
+                .check(classes);
+
+        fields().that().areAnnotatedWith(OneToMany.class)
+                .or().areAnnotatedWith(ManyToMany.class)
+                .should().beFinal()
                 .check(classes);
     }
 
