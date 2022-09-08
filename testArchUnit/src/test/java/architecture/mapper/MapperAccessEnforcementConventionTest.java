@@ -8,7 +8,7 @@ import static com.tngtech.archunit.lang.syntax.ArchRuleDefinition.noClasses;
 
 public class MapperAccessEnforcementConventionTest {
 
-    private final JavaClasses classes = Packages.allClasses;
+    private final JavaClasses classes = Packages.allClassesWithoutTests;
 
     @Test
     public void deny() {
