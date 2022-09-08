@@ -1,15 +1,14 @@
 package architecture.enforcement;
 
-import com.tngtech.archunit.core.domain.JavaClasses;
-import com.tngtech.archunit.core.importer.ClassFileImporter;
 import architecture.Config;
+import com.tngtech.archunit.core.domain.JavaClasses;
 import org.junit.Test;
 
 import static com.tngtech.archunit.lang.syntax.ArchRuleDefinition.noClasses;
 
 public class ForbiddenUsageTest {
 
-    private final JavaClasses classes = new ClassFileImporter().importPackages(Config.ROOT);
+    private final JavaClasses classes = Config.allClassesWithoutTests;
 
     @Test
     public void reflection() {

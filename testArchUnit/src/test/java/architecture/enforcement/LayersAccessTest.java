@@ -11,7 +11,7 @@ import static com.tngtech.archunit.library.Architectures.layeredArchitecture;
 
 public class LayersAccessTest {
 
-    private final JavaClasses classes = new ClassFileImporter().importPackages(Config.ROOT);
+    private final JavaClasses classes = Config.allClassesWithoutTests;
 
     @Test
     public void testClassLayerAccess() {

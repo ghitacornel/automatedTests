@@ -1,8 +1,14 @@
 package architecture;
 
+import com.tngtech.archunit.core.domain.JavaClasses;
+import com.tngtech.archunit.core.importer.ClassFileImporter;
+import com.tngtech.archunit.core.importer.ImportOption;
+
 public interface Config {
 
-    String ROOT = "architecture.layers";
+    String ROOT = "architecture";
+    JavaClasses allClasses = new ClassFileImporter().importPackages(Config.ROOT);
+    JavaClasses allClassesWithoutTests = new ClassFileImporter().withImportOption(ImportOption.Predefined.DO_NOT_INCLUDE_TESTS).importPackages(Config.ROOT);
 
     String PERSISTENCE = ROOT + ".persistence";
     String PERSISTENCE_ENTITIES = PERSISTENCE + ".entities";
@@ -18,7 +24,7 @@ public interface Config {
     String BUSINESS_JSON = BUSINESS + ".jsons";
     String BUSINESS_MAPPERS = BUSINESS + ".mappers";
 
-    String REST = ROOT + ".rest";
+    String REST = ROOT + ".controllers";
     String REST_CONTROLLERS = REST + ".controllers";
 
 }
