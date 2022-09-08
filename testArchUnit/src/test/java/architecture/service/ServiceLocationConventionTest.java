@@ -16,7 +16,7 @@ public class ServiceLocationConventionTest {
         classes().that().areAnnotatedWith(Service.class)
                 .or().haveSimpleNameEndingWith("Service")
                 .or().haveSimpleNameEndingWith("ServiceImpl")
-                .should().resideInAPackage(Packages.SERVICE)
+                .should().resideInAPackage(Packages.SERVICE + "..")// this and all subpackages
                 .check(classes);
     }
 

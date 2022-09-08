@@ -22,7 +22,7 @@ public class ModelLocationConventionTest {
                 .or().haveSimpleNameEndingWith("Xml")
                 .or().haveSimpleNameEndingWith("Message")
                 .or().haveSimpleNameEndingWith("Event")
-                .should().resideInAPackage(Packages.MODEL)
+                .should().resideInAPackage(Packages.MODEL + "..")// this and all subpackages
                 .check(classes);
     }
 
