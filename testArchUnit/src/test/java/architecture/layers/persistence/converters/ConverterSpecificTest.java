@@ -21,7 +21,6 @@ public class ConverterSpecificTest {
                 .andShould().beTopLevelClasses()
                 .andShould().beAnnotatedWith(Converter.class)
                 .andShould().implement(AttributeConverter.class)
-                .andShould().haveSimpleNameEndingWith("Converter")
                 .andShould(new ClassHasOnePublicNoArgumentsConstructor())
                 .check(classes);
     }
