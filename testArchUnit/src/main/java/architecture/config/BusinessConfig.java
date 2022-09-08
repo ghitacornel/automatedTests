@@ -4,7 +4,7 @@ import thirdpartydependencies.Bean;
 import thirdpartydependencies.Configuration;
 
 @Configuration
-public class AnotherCustomConfig {
+public class BusinessConfig {
 
     @Bean
     public Object factory() {
