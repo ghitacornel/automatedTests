@@ -23,7 +23,6 @@ public class MapperAccessEnforcementConventionTest {
                 .orShould().dependOnClassesThat().resideInAPackage(Packages.PERSISTENCE_LISTENER)
                 .orShould().dependOnClassesThat().resideInAPackage(Packages.PERSISTENCE_ENTITY)
                 .orShould().dependOnClassesThat().resideInAPackage(Packages.PERSISTENCE_REPOSITORY)
-                // TODO
                 .check(classes);
     }
 
