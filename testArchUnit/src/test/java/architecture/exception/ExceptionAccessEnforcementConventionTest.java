@@ -17,6 +17,9 @@ public class ExceptionAccessEnforcementConventionTest {
                 .orShould().dependOnClassesThat().resideInAPackage(Packages.BUSINESS_CONFIGURATION)
                 .orShould().dependOnClassesThat().resideInAPackage(Packages.EXCEPTION)
                 .orShould().dependOnClassesThat().resideInAPackage(Packages.CONTROLLER)
+                .orShould().dependOnClassesThat().resideInAPackage(Packages.HANDLER)
+                .orShould().dependOnClassesThat().resideInAPackage(Packages.MAPPER)
+                .orShould().dependOnClassesThat().resideInAPackage(Packages.PERSISTENCE)
                 // TODO
                 .check(classes);
     }
