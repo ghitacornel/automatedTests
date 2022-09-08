@@ -16,21 +16,8 @@ public class NamingConfigurationTest {
     private final JavaClasses classes = new ClassFileImporter().importPackages(Packages.ROOT);
 
     @Test
-    public void testNamingConventionsByPackageName() {
-
-        classes().that().resideInAPackage(Packages.BUSINESS_CONFIGURATION)
-                .should().haveSimpleNameEndingWith("Configuration")
-                .check(classes);
-
-    }
-
-    @Test
     public void testNamingConventionsByAnnotation() {
 
-        classes().that().areAnnotatedWith(RestController.class)
-                .should().haveSimpleNameEndingWith("Controller")
-                .orShould().haveSimpleNameEndingWith("RestController")
-                .check(classes);
         classes().that().areAnnotatedWith(Service.class)
                 .should().haveSimpleNameEndingWith("Service")
                 .check(classes);
