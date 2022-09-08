@@ -9,9 +9,9 @@ import thirdpartydependencies.JpaRepository;
 
 import static com.tngtech.archunit.lang.syntax.ArchRuleDefinition.classes;
 
-public class TestRepositories {
+public class RepositorySpecificTest {
 
-    JavaClasses classes = new ClassFileImporter().importPackages(Packages.PERSISTENCE_REPOSITORY);
+    private final JavaClasses classes = new ClassFileImporter().importPackages(Packages.PERSISTENCE_REPOSITORY);
 
     @Test
     public void testClasses() {
