@@ -1,4 +1,4 @@
-package architecture.controllers;
+package architecture.controller;
 
 import thirdpartydependencies.*;
 

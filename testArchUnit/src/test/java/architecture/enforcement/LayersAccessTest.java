@@ -16,12 +16,12 @@ public class LayersAccessTest {
     public void testClassLayerAccess() {
 
         noClasses().that().resideInAPackage(Packages.PERSISTENCE)
-                .should().accessClassesThat().resideInAPackage(Packages.REST).check(classes);
+                .should().accessClassesThat().resideInAPackage(Packages.CONTROLLER).check(classes);
         noClasses().that().resideInAPackage(Packages.PERSISTENCE)
                 .should().accessClassesThat().resideInAPackage(Packages.BUSINESS).check(classes);
 
         noClasses().that().resideInAPackage(Packages.BUSINESS)
-                .should().accessClassesThat().resideInAPackage(Packages.REST).check(classes);
+                .should().accessClassesThat().resideInAPackage(Packages.CONTROLLER).check(classes);
 
         noClasses().that().resideInAPackage(Packages.BUSINESS)
                 .should().accessClassesThat().resideInAPackage(Packages.PERSISTENCE).check(classes);
@@ -30,7 +30,7 @@ public class LayersAccessTest {
     @Test
     public void layer_dependencies_are_respected() {
         layeredArchitecture()
-                .layer("Rest").definedBy(Packages.REST + "..")
+                .layer("Rest").definedBy(Packages.CONTROLLER + "..")
                 .layer("Business").definedBy(Packages.BUSINESS + "..")
                 .layer("Persistence").definedBy(Packages.PERSISTENCE + "..")
                 .whereLayer("Rest").mayNotBeAccessedByAnyLayer()
@@ -42,7 +42,7 @@ public class LayersAccessTest {
     @Test
     public void services_should_not_access_controllers() {
         noClasses().that().resideInAPackage(Packages.BUSINESS)
-                .should().accessClassesThat().resideInAPackage(Packages.REST_CONTROLLERS).check(classes);
+                .should().accessClassesThat().resideInAPackage(Packages.CONTROLLER).check(classes);
     }
 
     @Test
@@ -54,7 +54,7 @@ public class LayersAccessTest {
     @Test
     public void services_should_only_be_accessed_by_controllers_or_other_services() {
         classes().that().resideInAPackage(Packages.BUSINESS)
-                .should().onlyBeAccessed().byAnyPackage(Packages.REST_CONTROLLERS, Packages.BUSINESS).check(classes);
+                .should().onlyBeAccessed().byAnyPackage(Packages.CONTROLLER, Packages.BUSINESS).check(classes);
     }
 
     @Test
@@ -68,7 +68,7 @@ public class LayersAccessTest {
     @Test
     public void services_should_not_depend_on_controllers() {
         noClasses().that().resideInAPackage(Packages.BUSINESS)
-                .should().dependOnClassesThat().resideInAPackage(Packages.REST_CONTROLLERS).check(classes);
+                .should().dependOnClassesThat().resideInAPackage(Packages.CONTROLLER).check(classes);
     }
 
     @Test
@@ -80,7 +80,7 @@ public class LayersAccessTest {
     @Test
     public void services_should_only_be_depended_on_by_controllers_or_other_services() {
         classes().that().resideInAPackage(Packages.BUSINESS)
-                .should().onlyHaveDependentClassesThat().resideInAnyPackage(Packages.REST_CONTROLLERS, Packages.BUSINESS).check(classes);
+                .should().onlyHaveDependentClassesThat().resideInAnyPackage(Packages.CONTROLLER, Packages.BUSINESS).check(classes);
     }
 
     @Test

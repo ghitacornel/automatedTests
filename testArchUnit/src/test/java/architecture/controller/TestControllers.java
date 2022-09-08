@@ -1,4 +1,4 @@
-package architecture.layers.rest.controllers;
+package architecture.controller;
 
 import com.tngtech.archunit.core.domain.JavaClasses;
 import com.tngtech.archunit.core.importer.ClassFileImporter;
@@ -13,7 +13,7 @@ import static com.tngtech.archunit.lang.syntax.ArchRuleDefinition.methods;
 
 public class TestControllers {
 
-    JavaClasses classes = new ClassFileImporter().importPackages(Packages.REST_CONTROLLERS);
+    JavaClasses classes = Packages.allClassesWithoutTests;
 
     @Test
     public void testClasses() {

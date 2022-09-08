@@ -13,6 +13,7 @@ public interface Packages {
     String CONFIG = ROOT + ".config";
     String EXCEPTION = ROOT + ".exception";
     String MAPPER = ROOT + ".mapper";
+    String CONTROLLER = ROOT + ".controller";
     String PERSISTENCE = ROOT + ".persistence";
     String PERSISTENCE_ENTITIES = PERSISTENCE + ".entities";
     String PERSISTENCE_CONVERTERS = PERSISTENCE + ".converters";
@@ -25,8 +26,5 @@ public interface Packages {
     String BUSINESS_SERVICES = BUSINESS + ".services";
     String BUSINESS_CONFIGURATION = BUSINESS + ".configs";
     String BUSINESS_JSON = BUSINESS + ".jsons";
-
-    String REST = ROOT + ".controllers";
-    String REST_CONTROLLERS = REST + ".controllers";
 
 }

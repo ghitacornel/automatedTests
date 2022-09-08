@@ -13,8 +13,7 @@ public class MapperAccessEnforcementConventionTest {
     @Test
     public void deny() {
         noClasses().that().resideInAPackage(Packages.MAPPER)
-                .should().dependOnClassesThat().resideInAPackage(Packages.REST)
-                .orShould().dependOnClassesThat().resideInAPackage(Packages.REST_CONTROLLERS)
+                .should().dependOnClassesThat().resideInAPackage(Packages.CONTROLLER)
                 .orShould().dependOnClassesThat().resideInAPackage(Packages.BUSINESS)
                 .orShould().dependOnClassesThat().resideInAPackage(Packages.BUSINESS_COMPONENTS)
                 .orShould().dependOnClassesThat().resideInAPackage(Packages.BUSINESS_CONFIGURATION)
