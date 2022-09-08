@@ -1,34 +1,31 @@
-package architecture.misc;
+package architecture.controller;
 
 import architecture.Packages;
 import com.tngtech.archunit.core.domain.JavaClasses;
 import com.tngtech.archunit.core.importer.ClassFileImporter;
 import org.junit.Test;
-import thirdpartydependencies.RestController;
 import thirdpartydependencies.Operation;
+import thirdpartydependencies.RestController;
 import thirdpartydependencies.Tag;
 
 import static com.tngtech.archunit.lang.syntax.ArchRuleDefinition.classes;
 import static com.tngtech.archunit.lang.syntax.ArchRuleDefinition.methods;
 
-public class TestSwagger {
+public class ControllerDocumentationTest {
 
-    JavaClasses classes = new ClassFileImporter().importPackages(Packages.ROOT);
+    private final JavaClasses classes = new ClassFileImporter().importPackages(Packages.CONTROLLER);
 
     @Test
     public void testClasses() {
         classes().that().areAnnotatedWith(RestController.class)
-                .should().bePublic()
-                .andShould().beTopLevelClasses()
-                .andShould().beAnnotatedWith(Tag.class)
+                .should().beAnnotatedWith(Tag.class)
                 .check(classes);
     }
 
     @Test
     public void testMethods() {
         methods().that().areDeclaredInClassesThat().areAnnotatedWith(RestController.class)
-                .should().bePublic()
-                .andShould().beAnnotatedWith(Operation.class)
+                .should().beAnnotatedWith(Operation.class)
                 .check(classes);
     }
 

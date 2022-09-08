@@ -13,6 +13,7 @@ public interface Packages {
     String CONFIG = ROOT + ".config";
     String EXCEPTION = ROOT + ".exception";
     String MAPPER = ROOT + ".mapper";
+    String MODEL = ROOT + ".model";
     String CONTROLLER = ROOT + ".controller";
     String CONTROLLER_ADVICE = ROOT + ".controller.handler";
     String SERVICE = ROOT + ".service";
