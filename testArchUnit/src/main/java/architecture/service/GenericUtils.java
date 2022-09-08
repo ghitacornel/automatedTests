@@ -1,6 +1,6 @@
 package architecture.service;
 
-final class GenericUtils {
+final public class GenericUtils {
 
     private GenericUtils() {
 
