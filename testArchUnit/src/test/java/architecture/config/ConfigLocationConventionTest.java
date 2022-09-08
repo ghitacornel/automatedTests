@@ -1,4 +1,4 @@
-package architecture.layers.config;
+package architecture.config;
 
 import architecture.Packages;
 import com.tngtech.archunit.core.domain.JavaClasses;

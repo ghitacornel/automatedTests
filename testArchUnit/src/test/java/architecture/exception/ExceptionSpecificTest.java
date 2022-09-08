@@ -1,4 +1,4 @@
-package architecture.layers.exception;
+package architecture.exception;
 
 import architecture.Packages;
 import com.tngtech.archunit.core.domain.JavaClasses;

@@ -1,4 +1,4 @@
-package architecture.layers.config;
+package architecture.config;
 
 import architecture.Packages;
 import com.tngtech.archunit.core.domain.JavaClasses;
@@ -9,7 +9,7 @@ import static com.tngtech.archunit.lang.syntax.ArchRuleDefinition.classes;
 
 public class ConfigNamingConventionTest {
 
-    private final JavaClasses classes = Packages.allClasses;
+    private final JavaClasses classes = Packages.allClassesWithoutTests;
 
     @Test
     public void basedOnPackage() {
