@@ -14,11 +14,15 @@ public class MapperAccessEnforcementConventionTest {
     public void deny() {
         noClasses().that().resideInAPackage(Packages.MAPPER)
                 .should().dependOnClassesThat().resideInAPackage(Packages.CONTROLLER)
+                .orShould().dependOnClassesThat().resideInAPackage(Packages.CONTROLLER_ADVICE)
                 .orShould().dependOnClassesThat().resideInAPackage(Packages.BUSINESS)
                 .orShould().dependOnClassesThat().resideInAPackage(Packages.BUSINESS_COMPONENTS)
                 .orShould().dependOnClassesThat().resideInAPackage(Packages.BUSINESS_CONFIGURATION)
                 .orShould().dependOnClassesThat().resideInAPackage(Packages.PERSISTENCE)
-                .orShould().dependOnClassesThat().resideInAPackage(Packages.CONTROLLER_ADVICE)
+                .orShould().dependOnClassesThat().resideInAPackage(Packages.PERSISTENCE_CONVERTER)
+                .orShould().dependOnClassesThat().resideInAPackage(Packages.PERSISTENCE_LISTENER)
+                .orShould().dependOnClassesThat().resideInAPackage(Packages.PERSISTENCE_ENTITY)
+                .orShould().dependOnClassesThat().resideInAPackage(Packages.PERSISTENCE_REPOSITORY)
                 // TODO
                 .check(classes);
     }
