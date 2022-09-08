@@ -2,9 +2,9 @@ package architecture.controller;
 
 import thirdpartydependencies.*;
 
-@thirdpartydependencies.RestController
+@RestController
 @Tag
-public class RestController {
+public class CustomRestController {
 
     @Operation
     @GetMapping
