@@ -1,4 +1,4 @@
-package architecture.layers.persistence.repositories;
+package architecture.layers.persistence.repository;
 
 import architecture.Packages;
 import com.tngtech.archunit.core.domain.JavaClasses;

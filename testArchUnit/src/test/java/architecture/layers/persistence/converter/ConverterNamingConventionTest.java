@@ -1,4 +1,4 @@
-package architecture.layers.persistence.converters;
+package architecture.layers.persistence.converter;
 
 import architecture.Packages;
 import com.tngtech.archunit.core.domain.JavaClasses;

@@ -1,4 +1,4 @@
-package architecture.layers.persistence.listeners;
+package architecture.layers.persistence.listener;
 
 import architecture.Packages;
 import com.tngtech.archunit.core.domain.JavaClasses;

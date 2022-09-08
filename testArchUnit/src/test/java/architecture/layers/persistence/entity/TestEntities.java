@@ -1,4 +1,4 @@
-package architecture.layers.persistence.entities;
+package architecture.layers.persistence.entity;
 
 import architecture.persistence.entity.EntityTemplate;
 import com.tngtech.archunit.core.domain.JavaClasses;
