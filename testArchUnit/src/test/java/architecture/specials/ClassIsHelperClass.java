@@ -28,10 +28,6 @@ public class ClassIsHelperClass extends ArchCondition<JavaClass> {
             events.add(new SimpleConditionEvent(null, false, "helper class is not top level class"));
         }
 
-        if (!item.isTopLevelClass()) {
-            events.add(new SimpleConditionEvent(null, false, "helper class is not top level class"));
-        }
-
         if (item.getConstructors()
                 .stream()
                 .filter(JavaConstructor::isConstructor)

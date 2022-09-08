@@ -1,6 +1,6 @@
 package architecture.service;
 
-final class BusinessServiceUtility {
+final public class BusinessServiceUtility {
 
     private BusinessServiceUtility() {
     }
