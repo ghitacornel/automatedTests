@@ -15,14 +15,12 @@ public interface Packages {
     String MAPPER = ROOT + ".mapper";
     String CONTROLLER = ROOT + ".controller";
     String CONTROLLER_ADVICE = ROOT + ".controller.handler";
+    String SERVICE = ROOT + ".service";
     String PERSISTENCE = ROOT + ".persistence";
     String PERSISTENCE_ENTITY = PERSISTENCE + ".entity";
     String PERSISTENCE_CONVERTER = PERSISTENCE + ".converter";
     String PERSISTENCE_LISTENER = PERSISTENCE + ".listener";
     String PERSISTENCE_REPOSITORY = PERSISTENCE + ".repository";
-
-    String SERVICE = ROOT + ".service";
-    String BUSINESS_MODEL = SERVICE + ".model";
 
 
 }
