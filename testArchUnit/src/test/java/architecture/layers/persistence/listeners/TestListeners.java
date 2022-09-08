@@ -3,7 +3,7 @@ package architecture.layers.persistence.listeners;
 import com.tngtech.archunit.core.domain.JavaClasses;
 import com.tngtech.archunit.core.importer.ClassFileImporter;
 import architecture.Config;
-import layers.persistence.entities.EntityTemplate;
+import architecture.persistence.entities.EntityTemplate;
 import org.junit.Test;
 import architecture.specials.conditions.ClassHasExactlyOnePublicNoArgumentsConstructor;
 import architecture.specials.conditions.MethodHasExactlyOneParameter;

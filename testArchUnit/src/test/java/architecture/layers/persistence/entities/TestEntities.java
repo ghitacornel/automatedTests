@@ -1,10 +1,10 @@
 package architecture.layers.persistence.entities;
 
+import architecture.persistence.entities.EntityTemplate;
 import com.tngtech.archunit.core.domain.JavaClasses;
 import com.tngtech.archunit.core.domain.JavaModifier;
 import com.tngtech.archunit.core.importer.ClassFileImporter;
 import architecture.Config;
-import layers.persistence.entities.EntityTemplate;
 import org.junit.Test;
 import architecture.specials.conditions.ClassHasOnePublicNoArgumentsConstructor;
 import thirdpartydependencies.daos.entities.Entity;

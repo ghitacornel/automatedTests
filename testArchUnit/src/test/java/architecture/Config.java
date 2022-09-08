@@ -2,7 +2,7 @@ package architecture;
 
 public interface Config {
 
-    String ROOT = "layers";
+    String ROOT = "architecture/layers";
 
     String PERSISTENCE = ROOT + ".persistence";
     String PERSISTENCE_ENTITIES = PERSISTENCE + ".entities";
