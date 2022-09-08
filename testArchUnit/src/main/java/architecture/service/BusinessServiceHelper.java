@@ -1,4 +1,4 @@
-package architecture.business.services;
+package architecture.service;
 
 import thirdpartydependencies.Utility;
 

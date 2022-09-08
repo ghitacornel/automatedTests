@@ -1,4 +1,4 @@
-package architecture.business.components;
+package architecture.service;
 
 import thirdpartydependencies.Component;
 

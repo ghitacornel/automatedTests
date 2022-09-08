@@ -1,4 +1,4 @@
-package architecture.layers.business.model;
+package architecture.layers.service.model;
 
 import com.tngtech.archunit.core.domain.JavaClasses;
 import com.tngtech.archunit.core.importer.ClassFileImporter;

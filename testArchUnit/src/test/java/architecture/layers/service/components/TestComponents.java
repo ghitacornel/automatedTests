@@ -1,4 +1,4 @@
-package architecture.layers.business.components;
+package architecture.layers.service.components;
 
 import architecture.Packages;
 import com.tngtech.archunit.core.domain.JavaClasses;

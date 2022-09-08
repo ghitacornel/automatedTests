@@ -1,4 +1,4 @@
-package architecture.layers.business.jsons;
+package architecture.layers.service.jsons;
 
 import com.tngtech.archunit.core.domain.JavaClasses;
 import com.tngtech.archunit.core.importer.ClassFileImporter;

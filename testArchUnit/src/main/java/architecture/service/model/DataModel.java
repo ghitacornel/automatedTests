@@ -1,4 +1,4 @@
-package architecture.business.model;
+package architecture.service.model;
 
 import java.io.Serializable;
 

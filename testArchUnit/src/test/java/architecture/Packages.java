@@ -21,10 +21,10 @@ public interface Packages {
     String PERSISTENCE_LISTENER = PERSISTENCE + ".listener";
     String PERSISTENCE_REPOSITORY = PERSISTENCE + ".repository";
 
-    String BUSINESS = ROOT + ".business";
+    String BUSINESS = ROOT + ".service";
     String BUSINESS_COMPONENTS = BUSINESS + ".components";
     String BUSINESS_MODEL = BUSINESS + ".model";
-    String BUSINESS_SERVICES = BUSINESS + ".services";
+    String BUSINESS_SERVICES = BUSINESS;
     String BUSINESS_CONFIGURATION = BUSINESS + ".configs";
     String BUSINESS_JSON = BUSINESS + ".jsons";
 
