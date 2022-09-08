@@ -1,4 +1,4 @@
-package architecture.model;
+package architecture.scheduler;
 
 import architecture.Packages;
 import com.tngtech.archunit.core.domain.JavaClasses;
@@ -8,15 +8,14 @@ import org.junit.Test;
 
 import static com.tngtech.archunit.lang.syntax.ArchRuleDefinition.classes;
 
-public class ModelSpecificTest {
+public class SchedulerSpecificTest {
 
-    private final JavaClasses classes = new ClassFileImporter().withImportOption(ImportOption.Predefined.DO_NOT_INCLUDE_TESTS).importPackages(Packages.MODEL);
+    private final JavaClasses classes = new ClassFileImporter().withImportOption(ImportOption.Predefined.DO_NOT_INCLUDE_TESTS).importPackages(Packages.SCHEDULER);
 
     @Test
     public void testClasses() {
         classes()
                 .should().beTopLevelClasses()
-                .andShould().bePublic()
                 .check(classes);
     }
 

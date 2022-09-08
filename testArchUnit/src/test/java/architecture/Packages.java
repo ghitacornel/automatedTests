@@ -23,5 +23,6 @@ public interface Packages {
     String PERSISTENCE_LISTENER = PERSISTENCE + ".listener";
     String PERSISTENCE_REPOSITORY = PERSISTENCE + ".repository";
 
+    String SCHEDULER = ROOT + ".scheduler";
 
 }
