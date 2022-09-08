@@ -8,7 +8,7 @@ import static com.tngtech.archunit.lang.syntax.ArchRuleDefinition.classes;
 
 public class ModelLocationConventionTest {
 
-    private final JavaClasses classes = Packages.allClassesWithoutTests;
+    private final JavaClasses classes = Packages.allClasses;
 
     @Test
     public void location() {
