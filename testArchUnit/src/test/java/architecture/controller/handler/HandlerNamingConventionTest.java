@@ -14,7 +14,7 @@ public class HandlerNamingConventionTest {
 
     @Test
     public void basedOnPackage() {
-        classes().that().resideInAPackage(Packages.HANDLER)
+        classes().that().resideInAPackage(Packages.CONTROLLER_ADVICE)
                 .should().haveSimpleNameEndingWith("ControllerAdvice")
                 .check(classes);
     }

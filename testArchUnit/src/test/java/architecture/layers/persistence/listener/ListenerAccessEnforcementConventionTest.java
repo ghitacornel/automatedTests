@@ -18,7 +18,7 @@ public class ListenerAccessEnforcementConventionTest {
                 .orShould().dependOnClassesThat().resideInAPackage(Packages.PERSISTENCE_REPOSITORY)
                 .orShould().dependOnClassesThat().resideInAPackage(Packages.BUSINESS_SERVICES)
                 .orShould().dependOnClassesThat().resideInAPackage(Packages.CONTROLLER)
-                .orShould().dependOnClassesThat().resideInAPackage(Packages.HANDLER)
+                .orShould().dependOnClassesThat().resideInAPackage(Packages.CONTROLLER_ADVICE)
                 .orShould().dependOnClassesThat().resideInAPackage(Packages.MAPPER)
                 .check(classes);
     }

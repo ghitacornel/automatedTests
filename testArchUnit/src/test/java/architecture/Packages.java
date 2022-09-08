@@ -14,7 +14,7 @@ public interface Packages {
     String EXCEPTION = ROOT + ".exception";
     String MAPPER = ROOT + ".mapper";
     String CONTROLLER = ROOT + ".controller";
-    String HANDLER = ROOT + ".controller.handler";
+    String CONTROLLER_ADVICE = ROOT + ".controller.handler";
     String PERSISTENCE = ROOT + ".persistence";
     String PERSISTENCE_ENTITY = PERSISTENCE + ".entity";
     String PERSISTENCE_CONVERTER = PERSISTENCE + ".converter";

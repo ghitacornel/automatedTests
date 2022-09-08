@@ -17,7 +17,7 @@ public class HandlerLocationConventionTest {
         classes().that().areAnnotatedWith(ControllerAdvice.class)
                 .or().implement(ControllerAdviceInterface.class)
                 .or().haveSimpleNameEndingWith("ControllerAdvice")
-                .should().resideInAPackage(Packages.HANDLER)
+                .should().resideInAPackage(Packages.CONTROLLER_ADVICE)
                 .check(classes);
     }
 

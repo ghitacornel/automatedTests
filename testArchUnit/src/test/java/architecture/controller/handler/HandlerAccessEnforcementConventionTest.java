@@ -12,7 +12,7 @@ public class HandlerAccessEnforcementConventionTest {
 
     @Test
     public void deny() {
-        noClasses().that().resideInAPackage(Packages.HANDLER)
+        noClasses().that().resideInAPackage(Packages.CONTROLLER_ADVICE)
                 .should().dependOnClassesThat().resideInAPackage(Packages.CONTROLLER)
                 .orShould().dependOnClassesThat().resideInAPackage(Packages.PERSISTENCE)
                 // TODO

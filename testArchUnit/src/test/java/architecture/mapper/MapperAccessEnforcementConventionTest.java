@@ -18,7 +18,7 @@ public class MapperAccessEnforcementConventionTest {
                 .orShould().dependOnClassesThat().resideInAPackage(Packages.BUSINESS_COMPONENTS)
                 .orShould().dependOnClassesThat().resideInAPackage(Packages.BUSINESS_CONFIGURATION)
                 .orShould().dependOnClassesThat().resideInAPackage(Packages.PERSISTENCE)
-                .orShould().dependOnClassesThat().resideInAPackage(Packages.HANDLER)
+                .orShould().dependOnClassesThat().resideInAPackage(Packages.CONTROLLER_ADVICE)
                 // TODO
                 .check(classes);
     }
