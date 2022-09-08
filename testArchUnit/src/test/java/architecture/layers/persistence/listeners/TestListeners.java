@@ -1,8 +1,8 @@
 package architecture.layers.persistence.listeners;
 
+import architecture.Packages;
 import com.tngtech.archunit.core.domain.JavaClasses;
 import com.tngtech.archunit.core.importer.ClassFileImporter;
-import architecture.Config;
 import architecture.persistence.entities.EntityTemplate;
 import org.junit.Test;
 import architecture.specials.conditions.ClassHasExactlyOnePublicNoArgumentsConstructor;
@@ -14,7 +14,7 @@ import static com.tngtech.archunit.lang.syntax.ArchRuleDefinition.methods;
 
 public class TestListeners {
 
-    JavaClasses classes = new ClassFileImporter().importPackages(Config.PERSISTENCE_LISTENERS);
+    JavaClasses classes = new ClassFileImporter().importPackages(Packages.PERSISTENCE_LISTENERS);
 
     @Test
     public void testClasses() {

@@ -1,10 +1,10 @@
-package architecture.configurations;
+package architecture.config;
 
 import thirdpartydependencies.Bean;
 import thirdpartydependencies.Configuration;
 
 @Configuration
-public class CustomConfiguration {
+public class AnotherCustomConfig {
 
     @Bean
     public Object factory() {

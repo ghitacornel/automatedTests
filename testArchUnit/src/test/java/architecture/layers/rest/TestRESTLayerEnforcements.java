@@ -1,8 +1,8 @@
 package architecture.layers.rest;
 
+import architecture.Packages;
 import com.tngtech.archunit.core.domain.JavaClasses;
 import com.tngtech.archunit.core.importer.ClassFileImporter;
-import architecture.Config;
 import org.junit.Test;
 import thirdpartydependencies.RestController;
 
@@ -11,11 +11,11 @@ import static com.tngtech.archunit.lang.syntax.ArchRuleDefinition.noClasses;
 
 public class TestRESTLayerEnforcements {
 
-    JavaClasses classes = new ClassFileImporter().importPackages(Config.REST);
+    JavaClasses classes = new ClassFileImporter().importPackages(Packages.REST);
 
     @Test
     public void testNamingConventionsByPackageName() {
-        classes().that().resideInAPackage(Config.REST_CONTROLLERS)
+        classes().that().resideInAPackage(Packages.REST_CONTROLLERS)
                 .should().haveSimpleNameEndingWith("Controller")
                 .check(classes);
     }
@@ -32,9 +32,9 @@ public class TestRESTLayerEnforcements {
     @Test
     public void testClassSameLayerAccess() {
 
-        noClasses().that().resideInAPackage(Config.REST_CONTROLLERS)
+        noClasses().that().resideInAPackage(Packages.REST_CONTROLLERS)
                 .or().areAnnotatedWith(RestController.class)
-                .should().dependOnClassesThat().resideInAPackage(Config.REST_CONTROLLERS)
+                .should().dependOnClassesThat().resideInAPackage(Packages.REST_CONTROLLERS)
                 .orShould().dependOnClassesThat().areAnnotatedWith(RestController.class)
                 .check(classes);
 

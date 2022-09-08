@@ -2,7 +2,7 @@ package architecture.layers.business.services;
 
 import com.tngtech.archunit.core.domain.JavaClasses;
 import com.tngtech.archunit.core.importer.ClassFileImporter;
-import architecture.Config;
+import architecture.Packages;
 import org.junit.Test;
 import thirdpartydependencies.Service;
 import thirdpartydependencies.Transactional;
@@ -12,7 +12,7 @@ import static com.tngtech.archunit.lang.syntax.ArchRuleDefinition.methods;
 
 public class TestServices {
 
-    JavaClasses classes = new ClassFileImporter().importPackages(Config.BUSINESS_SERVICES);
+    JavaClasses classes = new ClassFileImporter().importPackages(Packages.BUSINESS_SERVICES);
 
     @Test
     public void testClasses() {

@@ -1,8 +1,8 @@
 package architecture.layers.misc;
 
+import architecture.Packages;
 import com.tngtech.archunit.core.domain.JavaClasses;
 import com.tngtech.archunit.core.importer.ClassFileImporter;
-import architecture.Config;
 import org.junit.Test;
 import thirdpartydependencies.RestController;
 import thirdpartydependencies.Operation;
@@ -13,7 +13,7 @@ import static com.tngtech.archunit.lang.syntax.ArchRuleDefinition.methods;
 
 public class TestSwagger {
 
-    JavaClasses classes = new ClassFileImporter().importPackages(Config.ROOT);
+    JavaClasses classes = new ClassFileImporter().importPackages(Packages.ROOT);
 
     @Test
     public void testClasses() {

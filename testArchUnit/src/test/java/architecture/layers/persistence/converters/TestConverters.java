@@ -1,8 +1,8 @@
 package architecture.layers.persistence.converters;
 
+import architecture.Packages;
 import com.tngtech.archunit.core.domain.JavaClasses;
 import com.tngtech.archunit.core.importer.ClassFileImporter;
-import architecture.Config;
 import org.junit.Test;
 import architecture.specials.conditions.ClassHasOnePublicNoArgumentsConstructor;
 import thirdpartydependencies.AttributeConverter;
@@ -12,7 +12,7 @@ import static com.tngtech.archunit.lang.syntax.ArchRuleDefinition.classes;
 
 public class TestConverters {
 
-    JavaClasses classes = new ClassFileImporter().importPackages(Config.PERSISTENCE_CONVERTERS);
+    JavaClasses classes = new ClassFileImporter().importPackages(Packages.PERSISTENCE_CONVERTERS);
 
     @Test
     public void testClasses() {

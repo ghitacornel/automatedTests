@@ -4,12 +4,13 @@ import com.tngtech.archunit.core.domain.JavaClasses;
 import com.tngtech.archunit.core.importer.ClassFileImporter;
 import com.tngtech.archunit.core.importer.ImportOption;
 
-public interface Config {
+public interface Packages {
 
     String ROOT = "architecture";
-    JavaClasses allClasses = new ClassFileImporter().importPackages(Config.ROOT);
-    JavaClasses allClassesWithoutTests = new ClassFileImporter().withImportOption(ImportOption.Predefined.DO_NOT_INCLUDE_TESTS).importPackages(Config.ROOT);
+    JavaClasses allClasses = new ClassFileImporter().importPackages(Packages.ROOT);
+    JavaClasses allClassesWithoutTests = new ClassFileImporter().withImportOption(ImportOption.Predefined.DO_NOT_INCLUDE_TESTS).importPackages(Packages.ROOT);
 
+    String CONFIG = ROOT + ".config";
     String EXCEPTION = ROOT + ".exception";
     String PERSISTENCE = ROOT + ".persistence";
     String PERSISTENCE_ENTITIES = PERSISTENCE + ".entities";

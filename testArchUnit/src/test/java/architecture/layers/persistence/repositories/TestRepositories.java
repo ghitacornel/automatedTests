@@ -1,8 +1,8 @@
 package architecture.layers.persistence.repositories;
 
+import architecture.Packages;
 import com.tngtech.archunit.core.domain.JavaClasses;
 import com.tngtech.archunit.core.importer.ClassFileImporter;
-import architecture.Config;
 import org.junit.Test;
 import thirdpartydependencies.Repository;
 import thirdpartydependencies.TemplateRepository;
@@ -11,7 +11,7 @@ import static com.tngtech.archunit.lang.syntax.ArchRuleDefinition.classes;
 
 public class TestRepositories {
 
-    JavaClasses classes = new ClassFileImporter().importPackages(Config.PERSISTENCE_REPOSITORIES);
+    JavaClasses classes = new ClassFileImporter().importPackages(Packages.PERSISTENCE_REPOSITORIES);
 
     @Test
     public void testClasses() {

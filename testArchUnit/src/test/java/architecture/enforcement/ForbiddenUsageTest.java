@@ -1,6 +1,6 @@
 package architecture.enforcement;
 
-import architecture.Config;
+import architecture.Packages;
 import com.tngtech.archunit.core.domain.JavaClasses;
 import org.junit.Test;
 
@@ -8,7 +8,7 @@ import static com.tngtech.archunit.lang.syntax.ArchRuleDefinition.noClasses;
 
 public class ForbiddenUsageTest {
 
-    private final JavaClasses classes = Config.allClassesWithoutTests;
+    private final JavaClasses classes = Packages.allClassesWithoutTests;
 
     @Test
     public void reflection() {

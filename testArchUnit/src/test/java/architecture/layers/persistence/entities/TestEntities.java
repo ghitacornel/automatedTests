@@ -4,7 +4,7 @@ import architecture.persistence.entities.EntityTemplate;
 import com.tngtech.archunit.core.domain.JavaClasses;
 import com.tngtech.archunit.core.domain.JavaModifier;
 import com.tngtech.archunit.core.importer.ClassFileImporter;
-import architecture.Config;
+import architecture.Packages;
 import org.junit.Test;
 import architecture.specials.conditions.ClassHasOnePublicNoArgumentsConstructor;
 import thirdpartydependencies.Entity;
@@ -15,7 +15,7 @@ import static com.tngtech.archunit.lang.syntax.ArchRuleDefinition.classes;
 
 public class TestEntities {
 
-    JavaClasses classes = new ClassFileImporter().importPackages(Config.PERSISTENCE_ENTITIES);
+    JavaClasses classes = new ClassFileImporter().importPackages(Packages.PERSISTENCE_ENTITIES);
 
     @Test
     public void testClasses() {

@@ -1,8 +1,8 @@
 package architecture.layers.business;
 
+import architecture.Packages;
 import com.tngtech.archunit.core.domain.JavaClasses;
 import com.tngtech.archunit.core.importer.ClassFileImporter;
-import architecture.Config;
 import org.junit.Test;
 import thirdpartydependencies.Component;
 import thirdpartydependencies.Service;
@@ -14,7 +14,7 @@ import static com.tngtech.archunit.lang.syntax.ArchRuleDefinition.noClasses;
 
 public class TestBusinessLayerEnforcements {
 
-    JavaClasses classes = new ClassFileImporter().importPackages(Config.BUSINESS);
+    JavaClasses classes = new ClassFileImporter().importPackages(Packages.BUSINESS);
 
     @Test
     public void testNamingConventionsByPackageName() {
@@ -36,23 +36,23 @@ public class TestBusinessLayerEnforcements {
     @Test
     public void testClassSameLayerAccess() {
 
-        noClasses().that().resideInAPackage(Config.BUSINESS_MODEL)
-                .or().resideInAPackage(Config.BUSINESS_JSON)
+        noClasses().that().resideInAPackage(Packages.BUSINESS_MODEL)
+                .or().resideInAPackage(Packages.BUSINESS_JSON)
                 .should().dependOnClassesThat().areAnnotatedWith(Service.class)
                 .orShould().dependOnClassesThat().areAnnotatedWith(Configuration.class)
                 .orShould().dependOnClassesThat().areAnnotatedWith(Component.class)
                 .orShould().dependOnClassesThat().areAnnotatedWith(Utility.class)
                 .check(classes);
 
-        noClasses().that().resideInAPackage(Config.BUSINESS_CONFIGURATION)
+        noClasses().that().resideInAPackage(Packages.BUSINESS_CONFIGURATION)
                 .or().areAnnotatedWith(Configuration.class)
-                .should().dependOnClassesThat().resideInAPackage(Config.BUSINESS_SERVICES)
-                .orShould().dependOnClassesThat().resideInAPackage(Config.BUSINESS_COMPONENTS)
+                .should().dependOnClassesThat().resideInAPackage(Packages.BUSINESS_SERVICES)
+                .orShould().dependOnClassesThat().resideInAPackage(Packages.BUSINESS_COMPONENTS)
                 .check(classes);
 
-        classes().that().resideInAPackage(Config.BUSINESS_CONFIGURATION)
-                .should().onlyBeAccessed().byClassesThat().resideInAPackage(Config.BUSINESS_SERVICES)
-                .orShould().onlyBeAccessed().byClassesThat().resideInAPackage(Config.BUSINESS_COMPONENTS)
+        classes().that().resideInAPackage(Packages.BUSINESS_CONFIGURATION)
+                .should().onlyBeAccessed().byClassesThat().resideInAPackage(Packages.BUSINESS_SERVICES)
+                .orShould().onlyBeAccessed().byClassesThat().resideInAPackage(Packages.BUSINESS_COMPONENTS)
                 .check(classes);
 
         classes().that().areAnnotatedWith(Component.class)

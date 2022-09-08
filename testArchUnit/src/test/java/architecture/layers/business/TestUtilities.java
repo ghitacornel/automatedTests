@@ -1,8 +1,8 @@
 package architecture.layers.business;
 
+import architecture.Packages;
 import com.tngtech.archunit.core.domain.JavaClasses;
 import com.tngtech.archunit.core.importer.ClassFileImporter;
-import architecture.Config;
 import org.junit.Test;
 import architecture.specials.ClassIsUtilityClass;
 import thirdpartydependencies.Component;
@@ -14,7 +14,7 @@ import static com.tngtech.archunit.lang.syntax.ArchRuleDefinition.classes;
 
 public class TestUtilities {
 
-    JavaClasses classes = new ClassFileImporter().importPackages(Config.BUSINESS);
+    JavaClasses classes = new ClassFileImporter().importPackages(Packages.BUSINESS);
 
     @Test
     public void testClasses() {
