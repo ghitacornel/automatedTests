@@ -5,8 +5,8 @@ import com.tngtech.archunit.core.importer.ClassFileImporter;
 import architecture.Config;
 import org.junit.Test;
 import architecture.specials.conditions.ClassHasOnePublicNoArgumentsConstructor;
-import thirdpartydependencies.daos.converters.AttributeConverter;
-import thirdpartydependencies.daos.converters.Converter;
+import thirdpartydependencies.AttributeConverter;
+import thirdpartydependencies.Converter;
 
 import static com.tngtech.archunit.lang.syntax.ArchRuleDefinition.classes;
 

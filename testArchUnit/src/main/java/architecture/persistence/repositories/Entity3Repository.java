@@ -1,6 +1,6 @@
 package architecture.persistence.repositories;
 
-import thirdpartydependencies.daos.repositories.TemplateRepository;
+import thirdpartydependencies.TemplateRepository;
 
 public interface Entity3Repository extends TemplateRepository {
 }

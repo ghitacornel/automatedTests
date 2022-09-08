@@ -1,6 +1,6 @@
 package architecture.business.components;
 
-import thirdpartydependencies.business.components.Component;
+import thirdpartydependencies.Component;
 
 @Component
 public class BusinessComponent {

@@ -1,6 +1,6 @@
 package architecture.business.configs;
 
-import thirdpartydependencies.configurations.Configuration;
+import thirdpartydependencies.Configuration;
 
 @Configuration
 public class BusinessConfiguration {

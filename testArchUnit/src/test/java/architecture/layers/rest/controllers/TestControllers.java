@@ -6,7 +6,7 @@ import architecture.Config;
 import org.junit.Test;
 import architecture.specials.conditions.MethodHasAtLeastOneParameter;
 import architecture.specials.conditions.MethodHasExactlyOneParameter;
-import thirdpartydependencies.rest.*;
+import thirdpartydependencies.*;
 
 import static com.tngtech.archunit.lang.syntax.ArchRuleDefinition.classes;
 import static com.tngtech.archunit.lang.syntax.ArchRuleDefinition.methods;

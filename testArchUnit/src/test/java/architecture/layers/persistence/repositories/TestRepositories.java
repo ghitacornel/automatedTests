@@ -4,8 +4,8 @@ import com.tngtech.archunit.core.domain.JavaClasses;
 import com.tngtech.archunit.core.importer.ClassFileImporter;
 import architecture.Config;
 import org.junit.Test;
-import thirdpartydependencies.daos.repositories.Repository;
-import thirdpartydependencies.daos.repositories.TemplateRepository;
+import thirdpartydependencies.Repository;
+import thirdpartydependencies.TemplateRepository;
 
 import static com.tngtech.archunit.lang.syntax.ArchRuleDefinition.classes;
 

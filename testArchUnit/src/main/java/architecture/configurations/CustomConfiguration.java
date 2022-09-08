@@ -1,7 +1,7 @@
 package architecture.configurations;
 
-import thirdpartydependencies.configurations.Bean;
-import thirdpartydependencies.configurations.Configuration;
+import thirdpartydependencies.Bean;
+import thirdpartydependencies.Configuration;
 
 @Configuration
 public class CustomConfiguration {

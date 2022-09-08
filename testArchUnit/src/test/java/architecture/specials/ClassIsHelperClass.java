@@ -6,7 +6,7 @@ import com.tngtech.archunit.core.domain.JavaModifier;
 import com.tngtech.archunit.lang.ArchCondition;
 import com.tngtech.archunit.lang.ConditionEvents;
 import com.tngtech.archunit.lang.SimpleConditionEvent;
-import thirdpartydependencies.business.Utility;
+import thirdpartydependencies.Utility;
 
 public class ClassIsHelperClass extends ArchCondition<JavaClass> {
 

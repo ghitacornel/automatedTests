@@ -1,7 +1,7 @@
 package architecture.persistence.listeners;
 
 import architecture.persistence.entities.Person;
-import thirdpartydependencies.daos.listeners.*;
+import thirdpartydependencies.*;
 
 public class EntityListener {
 

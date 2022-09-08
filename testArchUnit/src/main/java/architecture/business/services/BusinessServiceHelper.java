@@ -1,6 +1,6 @@
 package architecture.business.services;
 
-import thirdpartydependencies.business.Utility;
+import thirdpartydependencies.Utility;
 
 @Utility
 final class BusinessServiceHelper {

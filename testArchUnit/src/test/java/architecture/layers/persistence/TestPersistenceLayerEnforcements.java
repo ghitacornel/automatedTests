@@ -4,10 +4,10 @@ import com.tngtech.archunit.core.domain.JavaClasses;
 import com.tngtech.archunit.core.importer.ClassFileImporter;
 import architecture.Config;
 import org.junit.Test;
-import thirdpartydependencies.daos.converters.Converter;
-import thirdpartydependencies.daos.entities.Entity;
-import thirdpartydependencies.daos.entities.MappedSuperclass;
-import thirdpartydependencies.daos.repositories.Repository;
+import thirdpartydependencies.Converter;
+import thirdpartydependencies.Entity;
+import thirdpartydependencies.MappedSuperclass;
+import thirdpartydependencies.Repository;
 
 import static com.tngtech.archunit.lang.syntax.ArchRuleDefinition.classes;
 import static com.tngtech.archunit.lang.syntax.ArchRuleDefinition.noClasses;

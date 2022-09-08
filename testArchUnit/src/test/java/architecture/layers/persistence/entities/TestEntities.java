@@ -7,9 +7,9 @@ import com.tngtech.archunit.core.importer.ClassFileImporter;
 import architecture.Config;
 import org.junit.Test;
 import architecture.specials.conditions.ClassHasOnePublicNoArgumentsConstructor;
-import thirdpartydependencies.daos.entities.Entity;
-import thirdpartydependencies.daos.entities.MappedSuperclass;
-import thirdpartydependencies.daos.entities.Table;
+import thirdpartydependencies.Entity;
+import thirdpartydependencies.MappedSuperclass;
+import thirdpartydependencies.Table;
 
 import static com.tngtech.archunit.lang.syntax.ArchRuleDefinition.classes;
 

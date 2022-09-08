@@ -4,9 +4,9 @@ import com.tngtech.archunit.core.domain.JavaClasses;
 import com.tngtech.archunit.core.importer.ClassFileImporter;
 import architecture.Config;
 import org.junit.Test;
-import thirdpartydependencies.rest.RestController;
-import thirdpartydependencies.rest.swagger.Operation;
-import thirdpartydependencies.rest.swagger.Tag;
+import thirdpartydependencies.RestController;
+import thirdpartydependencies.Operation;
+import thirdpartydependencies.Tag;
 
 import static com.tngtech.archunit.lang.syntax.ArchRuleDefinition.classes;
 import static com.tngtech.archunit.lang.syntax.ArchRuleDefinition.methods;

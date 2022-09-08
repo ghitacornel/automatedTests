@@ -1,7 +1,7 @@
 package architecture.persistence.converters;
 
-import thirdpartydependencies.daos.converters.AttributeConverter;
-import thirdpartydependencies.daos.converters.Converter;
+import thirdpartydependencies.AttributeConverter;
+import thirdpartydependencies.Converter;
 
 @Converter
 public class CustomAttributeConverter implements AttributeConverter {

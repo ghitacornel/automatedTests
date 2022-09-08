@@ -1,7 +1,7 @@
 package architecture.business.services;
 
-import thirdpartydependencies.business.services.Service;
-import thirdpartydependencies.business.services.Transactional;
+import thirdpartydependencies.Service;
+import thirdpartydependencies.Transactional;
 
 @Service
 public class BusinessService {

@@ -4,7 +4,7 @@ import com.tngtech.archunit.core.domain.JavaClasses;
 import com.tngtech.archunit.core.importer.ClassFileImporter;
 import architecture.Config;
 import org.junit.Test;
-import thirdpartydependencies.business.services.Transactional;
+import thirdpartydependencies.Transactional;
 
 import java.io.Serializable;
 

@@ -1,6 +1,6 @@
 package architecture.persistence.repositories;
 
-import thirdpartydependencies.daos.repositories.Repository;
+import thirdpartydependencies.Repository;
 
 @Repository
 public class Entity1Repository {

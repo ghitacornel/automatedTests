@@ -1,7 +1,7 @@
 package architecture.persistence.repositories;
 
-import thirdpartydependencies.daos.repositories.Repository;
-import thirdpartydependencies.daos.repositories.TemplateRepository;
+import thirdpartydependencies.Repository;
+import thirdpartydependencies.TemplateRepository;
 
 @Repository
 public class Entity2Repository implements TemplateRepository {

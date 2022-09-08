@@ -7,7 +7,7 @@ import architecture.persistence.entities.EntityTemplate;
 import org.junit.Test;
 import architecture.specials.conditions.ClassHasExactlyOnePublicNoArgumentsConstructor;
 import architecture.specials.conditions.MethodHasExactlyOneParameter;
-import thirdpartydependencies.daos.listeners.*;
+import thirdpartydependencies.*;
 
 import static com.tngtech.archunit.lang.syntax.ArchRuleDefinition.classes;
 import static com.tngtech.archunit.lang.syntax.ArchRuleDefinition.methods;
