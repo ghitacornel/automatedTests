@@ -5,7 +5,6 @@ import com.tngtech.archunit.core.domain.JavaClasses;
 import com.tngtech.archunit.core.importer.ClassFileImporter;
 import com.tngtech.archunit.core.importer.ImportOption;
 import org.junit.Test;
-import thirdpartydependencies.Component;
 import thirdpartydependencies.Service;
 
 import static com.tngtech.archunit.lang.syntax.ArchRuleDefinition.classes;
@@ -19,10 +18,6 @@ public class ServicesSpecificTest {
         classes().that().areAnnotatedWith(Service.class)
                 .should().bePublic()
                 .andShould().beTopLevelClasses()
-                .check(classes);
-
-        classes().that().areAnnotatedWith(Component.class)
-                .should().beTopLevelClasses()
                 .check(classes);
     }
 
