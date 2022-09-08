@@ -7,7 +7,7 @@ import thirdpartydependencies.Configuration;
 
 import static com.tngtech.archunit.lang.syntax.ArchRuleDefinition.classes;
 
-public class PackagesLocationConventionTest {
+public class ConfigLocationConventionTest {
 
     private final JavaClasses classes = Packages.allClasses;
 

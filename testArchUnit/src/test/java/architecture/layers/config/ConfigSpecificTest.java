@@ -10,7 +10,7 @@ import thirdpartydependencies.Configuration;
 import static com.tngtech.archunit.lang.syntax.ArchRuleDefinition.classes;
 import static com.tngtech.archunit.lang.syntax.ArchRuleDefinition.methods;
 
-public class PackagesSpecificTest {
+public class ConfigSpecificTest {
 
     private final JavaClasses classes = new ClassFileImporter().importPackages(Packages.CONFIG);
 
