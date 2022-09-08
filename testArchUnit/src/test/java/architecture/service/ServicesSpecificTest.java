@@ -7,10 +7,8 @@ import com.tngtech.archunit.core.importer.ImportOption;
 import org.junit.Test;
 import thirdpartydependencies.Component;
 import thirdpartydependencies.Service;
-import thirdpartydependencies.Transactional;
 
 import static com.tngtech.archunit.lang.syntax.ArchRuleDefinition.classes;
-import static com.tngtech.archunit.lang.syntax.ArchRuleDefinition.methods;
 
 public class ServicesSpecificTest {
 
@@ -25,14 +23,6 @@ public class ServicesSpecificTest {
 
         classes().that().areAnnotatedWith(Component.class)
                 .should().beTopLevelClasses()
-                .check(classes);
-    }
-
-    @Test
-    public void testMethods() {
-        methods().that()
-                .areAnnotatedWith(Transactional.class)
-                .should().bePublic()
                 .check(classes);
     }
 
