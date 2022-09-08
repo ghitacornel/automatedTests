@@ -19,6 +19,7 @@ public class EntityAccessEnforcementConventionTest {
                 .orShould().dependOnClassesThat().resideInAPackage(Packages.CONTROLLER_ADVICE)
                 .orShould().dependOnClassesThat().resideInAPackage(Packages.MAPPER)
                 .orShould().dependOnClassesThat().resideInAPackage(Packages.EXCEPTION)
+                .orShould().dependOnClassesThat().resideInAPackage(Packages.SCHEDULER)
                 .check(classes);
     }
 

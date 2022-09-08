@@ -23,6 +23,7 @@ public class ExceptionAccessEnforcementConventionTest {
                 .orShould().dependOnClassesThat().resideInAPackage(Packages.PERSISTENCE_LISTENER)
                 .orShould().dependOnClassesThat().resideInAPackage(Packages.PERSISTENCE_ENTITY)
                 .orShould().dependOnClassesThat().resideInAPackage(Packages.PERSISTENCE_REPOSITORY)
+                .orShould().dependOnClassesThat().resideInAPackage(Packages.SCHEDULER)
                 .check(classes);
     }
 
