@@ -1,26 +1,25 @@
 package architecture.controller;
 
-import com.tngtech.archunit.core.domain.JavaClasses;
-import com.tngtech.archunit.core.importer.ClassFileImporter;
 import architecture.Packages;
-import org.junit.Test;
 import architecture.specials.conditions.MethodHasAtLeastOneParameter;
 import architecture.specials.conditions.MethodHasExactlyOneParameter;
+import com.tngtech.archunit.core.domain.JavaClasses;
+import com.tngtech.archunit.core.importer.ClassFileImporter;
+import org.junit.Test;
 import thirdpartydependencies.*;
 
 import static com.tngtech.archunit.lang.syntax.ArchRuleDefinition.classes;
 import static com.tngtech.archunit.lang.syntax.ArchRuleDefinition.methods;
 
-public class TestControllers {
+public class ControllerSpecificTest {
 
-    JavaClasses classes = Packages.allClassesWithoutTests;
+    private final JavaClasses classes = new ClassFileImporter().importPackages(Packages.CONTROLLER);
 
     @Test
     public void testClasses() {
         classes()
                 .should().bePublic()
-                .andShould().haveSimpleNameEndingWith("Controller")
-                .andShould().beAnnotatedWith(RestController.class)
+                .andShould().beTopLevelClasses()
                 .check(classes);
     }
 
