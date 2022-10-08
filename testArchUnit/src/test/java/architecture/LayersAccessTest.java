@@ -12,6 +12,7 @@ public class LayersAccessTest {
     @Test
     public void testLayersDependencies() {
         layeredArchitecture()
+                .consideringAllDependencies()
                 .layer("Controller").definedBy(Packages.CONTROLLER, Packages.CONTROLLER_ADVICE)
                 .layer("Service").definedBy(Packages.SERVICE + "..")
                 .layer("Repository").definedBy(Packages.PERSISTENCE + "..", Packages.PERSISTENCE_CONVERTER, Packages.PERSISTENCE_LISTENER, Packages.PERSISTENCE_ENTITY, Packages.PERSISTENCE_REPOSITORY)
@@ -24,6 +25,7 @@ public class LayersAccessTest {
     @Test
     public void testAllLayersDependencies() {
         layeredArchitecture()
+                .consideringAllDependencies()
                 .layer("Config").definedBy(Packages.CONFIG)
                 .layer("Exception").definedBy(Packages.EXCEPTION)
                 .layer("Mapper").definedBy(Packages.MAPPER)
