@@ -11,14 +11,11 @@ public abstract class TestsSetUp {
      * setup database connection, database initial state and tester
      */
     @Before
-    final public void setUpFlyway() throws Exception {
-
-        {// better logging
-            System.setProperty(org.slf4j.impl.SimpleLogger.DEFAULT_LOG_LEVEL_KEY, "DEBUG");
-        }
+    final public void setUpFlyway() {
 
         flyway = Flyway.
                 configure().
+                cleanDisabled(false).
                 dataSource("jdbc:hsqldb:mem:testdb", "", "").
                 locations("patches").// location of patch files
                 baselineVersion("0").// default is 1 and collides with the patch scripts staring version

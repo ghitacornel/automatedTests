@@ -28,8 +28,6 @@ public abstract class TestsSetUp {
     @BeforeClass
     public static void setUp() throws Exception {
 
-        System.setProperty(org.slf4j.impl.SimpleLogger.DEFAULT_LOG_LEVEL_KEY, "DEBUG");
-
         // set up connection
         // usually a data source is better
         {
