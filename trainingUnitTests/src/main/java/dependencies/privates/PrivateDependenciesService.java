@@ -16,11 +16,15 @@ public class PrivateDependenciesService {
         return (x + y) / 2;
     }
 
+    // PRIVATE methods "DO NOT EXIST"
+    // hence we are not allowed to unit test them
+    // even if we could use reflection for invoking them
+
     // OBSERVE private methods are tested through the exposed business method
     // OBSERVE private methods add testing complexity to the exposed business method
     // in some cases PARAMETERS MATRIX based I/O can be used => Parameterised tests
 
-    // in order to allow individual testing for such private methods
+    // in order to make possible unit testing of such private methods
     // we can use the approach of having these private methods made default and moved to default helper/companion/utility classes
 
 }
