@@ -26,8 +26,10 @@ public class PrivateDependenciesService {
     // in some cases PARAMETERS MATRIX based I/O can be used => Parameterised tests
 
     // in order to make possible unit testing of such private methods
-    // we can use the approach of
-    // 1. having these private methods marked with default visibility
-    // 2. moving these private methods to helper/companion/utility classes with default visibility
+    // we can use the following approach
+    // 1. mark these private methods with default visibility
+    // 2. move these private methods to helper/companion/utility classes
+    // 3. mark encapsulating helper/companion/utility classes with default visibility
+    // 4. writing unit tests in classes defined in same package as encapsulating helper/companion/utility classes
 
 }
