@@ -1,4 +1,4 @@
-package exercise1;
+package simple;
 
 import java.util.stream.IntStream;
 

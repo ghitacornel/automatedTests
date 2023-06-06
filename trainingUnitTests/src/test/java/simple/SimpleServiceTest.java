@@ -1,4 +1,4 @@
-package exercise1;
+package simple;
 
 import org.junit.Assert;
 import org.junit.Test;
