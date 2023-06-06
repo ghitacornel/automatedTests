@@ -1,6 +1,6 @@
 package dependencies.external;
 
-// hint => @Service
+// managed by a IoC container
 class ExternalDependency1 {
 
     public void validate(int x, int y) {

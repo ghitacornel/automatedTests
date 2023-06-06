@@ -1,12 +1,12 @@
 package dependencies.external;
 
-// hint => @Service
+// managed by a IoC container
 public class ExternalDependenciesService {
 
-    // hint => @Autowired of field by container
+    // injected by the container
     private ExternalDependency1 dependency1;
 
-    // hint => @Autowired of field by container
+    // injected by the container
     private ExternalDependency2 dependency2;
 
     public int complexBusiness(int x, int y) {
@@ -16,9 +16,5 @@ public class ExternalDependenciesService {
         }
         return x + y;
     }
-
-    // OBSERVE private methods were extracted to external dependencies
-    // OBSERVE extracted private methods are no more tested through the exposed business method
-    // OBSERVE extracted private methods do not add that much testing complexity to the exposed business method
 
 }

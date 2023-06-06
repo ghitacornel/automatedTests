@@ -1,6 +1,6 @@
 package dependencies.external;
 
-// hint => @Service
+// managed by a IoC container
 class ExternalDependency2 {
 
     public int calculateSpecific(int x, int y) {
