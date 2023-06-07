@@ -19,6 +19,7 @@ public class PrivateDependenciesService {
     // PRIVATE methods "DO NOT EXIST"
     // hence we are not allowed to unit test them
     // even if we could use reflection for invoking them
+    // testing them means acknowledging their existence and leaving no room for further transparent changes
 
     // OBSERVE private methods are tested through the exposed business methods that use them
     // OBSERVE private methods become part of the exposed business methods that use them
