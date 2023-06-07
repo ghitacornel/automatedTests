@@ -28,4 +28,11 @@ public class SimpleService {
         }
         return IntStream.range(1, x + 1).reduce(1, (a, b) -> a * b);
     }
+
+    // note that is not a good design to have methods that alter the input data
+    // think about pure functions ( https://en.wikipedia.org/wiki/Pure_function )
+    // but sometimes this kind of methods are very useful (e.g. merging data )
+    public void businessMethodThatAltersInputData(InputData inputData) {
+        inputData.setX(inputData.getX() + 1);
+    }
 }
