@@ -142,12 +142,12 @@ public class ExternalDependenciesServiceTest {
         Assert.assertEquals(expectedResult, actualResult);
 
         // 3.2
-        // verify mocking interaction
-        // - no not forget test invocation order
-        // - no not forget test no more interactions
+        // verify mocking interaction when more than 1 mock is involved
+        // - no not forget to test for mock invocation order
         InOrder order = Mockito.inOrder(mock1, mock2);
         order.verify(mock1).validate(x, y);
         order.verify(mock2).calculateSpecific(x, y);
+        // - no not forget to test for no more interactions
         order.verifyNoMoreInteractions();
 
     }
