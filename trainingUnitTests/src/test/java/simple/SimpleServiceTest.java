@@ -181,6 +181,7 @@ public class SimpleServiceTest {
 
     }
 
+    // sometimes provided input data is also part of the output
     @Test
     public void businessMethodThatAltersInputData() {
 
