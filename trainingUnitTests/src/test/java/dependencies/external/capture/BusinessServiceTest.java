@@ -15,10 +15,16 @@ public class BusinessServiceTest {
     BusinessService service = new BusinessService();
 
     @Mock
-    ExternalDependency mock;
+    ExternalDependency1 externalDependency1;
 
     @Captor
-    ArgumentCaptor<String> message;
+    ArgumentCaptor<ValueDto> valueDtoArgumentCaptor;
+
+    @Mock
+    ExternalDependency2 externalDependency2;
+
+    @Captor
+    ArgumentCaptor<String> stringArgumentCaptor;
 
     @Test
     public void testHappyPath() {
@@ -34,11 +40,12 @@ public class BusinessServiceTest {
 
         // 1.2
         // create expected result
-        int expectedResult = 33;
+        int expectedResult = -78;
 
         // 1.3
         // create mocking context
         // create mocks / create mocks input data / create mocks output data / define mocks behavior
+        Mockito.when(externalDependency1.execute(valueDtoArgumentCaptor.capture())).thenReturn(-100);
 
         // 2
         // 2.1 invoke to be tested method
@@ -49,14 +56,24 @@ public class BusinessServiceTest {
         // verify expectations
 
         // 3.1
+
         // verify I/O expectations
         Assert.assertEquals(expectedResult, actualResult);
 
         // 3.2
         // verify mocking interaction
-        Mockito.verify(mock, Mockito.times(2)).notify(message.capture());
-        List<String> expectedMessages = List.of("first parameter 11", "second parameter 22");
-        Assert.assertEquals(expectedMessages, message.getAllValues());
+        InOrder inOrder = Mockito.inOrder(externalDependency1, externalDependency2);
+        inOrder.verify(externalDependency1).execute(valueDtoArgumentCaptor.getValue());
+        inOrder.verify(externalDependency2, Mockito.times(2)).notify(stringArgumentCaptor.capture());
+        inOrder.verifyNoMoreInteractions();
+
+        // 3.3
+        // verify captured data
+        List<String> expectedMessages = List.of("first parameter -100", "second parameter 22");
+        Assert.assertEquals(expectedMessages, stringArgumentCaptor.getAllValues());
+
+        Assert.assertEquals(11, valueDtoArgumentCaptor.getValue().x);
+        Assert.assertEquals(22, valueDtoArgumentCaptor.getValue().y);
 
     }
 
