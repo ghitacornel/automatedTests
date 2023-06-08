@@ -35,4 +35,6 @@ public class PrivateDependenciesService {
     // 4. writing unit tests in classes defined in same package as encapsulating helper/companion/utility classes
     // note that static methods approach do not help here
 
+    // AGAIN : IF IT IS HARD TO WRITE A UNIT TEST THEN THE PROBLEM IS NOT THE UNIT TEST, THE PROBLEM LIES IN THE DESIGN OF THE CODE
+
 }
