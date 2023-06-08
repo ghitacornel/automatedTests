@@ -39,13 +39,14 @@ public class BusinessServiceTest {
         int y = 22;
 
         // 1.2
-        // create expected result
-        int expectedResult = -78;
-
-        // 1.3
         // create mocking context
         // create mocks / create mocks input data / create mocks output data / define mocks behavior
-        Mockito.when(externalDependency1.execute(valueDtoArgumentCaptor.capture())).thenReturn(-100);
+        int externalDependencyResult = -100;
+        Mockito.when(externalDependency1.execute(valueDtoArgumentCaptor.capture())).thenReturn(externalDependencyResult);
+
+        // 1.3
+        // create expected result
+        int expectedResult = y + externalDependencyResult;
 
         // 2
         // 2.1 invoke to be tested method
@@ -69,7 +70,7 @@ public class BusinessServiceTest {
 
         // 3.3
         // verify captured data
-        List<String> expectedMessages = List.of("first parameter -100", "second parameter 22");
+        List<String> expectedMessages = List.of("first parameter 11", "second parameter 22");
         Assert.assertEquals(expectedMessages, stringArgumentCaptor.getAllValues());
 
         Assert.assertEquals(x, valueDtoArgumentCaptor.getValue().x);

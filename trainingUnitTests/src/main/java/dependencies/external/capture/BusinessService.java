@@ -10,10 +10,10 @@ public class BusinessService {
         ValueDto valueDto = new ValueDto();
         valueDto.x = x;
         valueDto.y = y;
-        x = externalDependency1.execute(valueDto);
+        int q = externalDependency1.execute(valueDto);
         externalDependency2.notify("first parameter " + x);
         externalDependency2.notify("second parameter " + y);
-        return x + y;
+        return q + y;
     }
 
     // OBSERVE external dependency called multiple times with dynamically calculated argument
