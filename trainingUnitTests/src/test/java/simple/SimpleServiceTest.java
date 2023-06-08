@@ -5,11 +5,15 @@ import org.junit.Test;
 
 public class SimpleServiceTest {
 
+    // https://en.wikipedia.org/wiki/Unit_testing
+    // we test 1 method in isolation which is achieved using mocks when needed
     @Test
     public void simpleBusinessMethod() {
 
         // step 1 = GIVEN
         // create test context
+        // DO NOT SHARE test context for UNIT tests
+        // test context is usually shared for Integration tests
         SimpleService simpleService = new SimpleService();
 
         // step 1 - create input data
