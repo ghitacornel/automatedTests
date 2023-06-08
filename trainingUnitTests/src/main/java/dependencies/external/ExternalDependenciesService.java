@@ -3,11 +3,10 @@ package dependencies.external;
 // managed by a IoC container
 public class ExternalDependenciesService {
 
-    // injected by the container
-    private ExternalDependency1 dependency1;
+    private ExternalDependency1 dependency1;// injected
 
     // injected by the container
-    private ExternalDependency2 dependency2;
+    private ExternalDependency2 dependency2;// injected
 
     public int complexBusiness(int x, int y) {
         dependency1.validate(x, y);
