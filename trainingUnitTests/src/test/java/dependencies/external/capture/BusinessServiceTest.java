@@ -72,8 +72,8 @@ public class BusinessServiceTest {
         List<String> expectedMessages = List.of("first parameter -100", "second parameter 22");
         Assert.assertEquals(expectedMessages, stringArgumentCaptor.getAllValues());
 
-        Assert.assertEquals(11, valueDtoArgumentCaptor.getValue().x);
-        Assert.assertEquals(22, valueDtoArgumentCaptor.getValue().y);
+        Assert.assertEquals(x, valueDtoArgumentCaptor.getValue().x);
+        Assert.assertEquals(y, valueDtoArgumentCaptor.getValue().y);
 
     }
 
