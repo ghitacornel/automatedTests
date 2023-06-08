@@ -7,6 +7,13 @@ public class SimpleServiceTest {
 
     // https://en.wikipedia.org/wiki/Unit_testing
     // we test 1 method in isolation which is achieved using mocks when needed
+    // OBSERVE : I don't need to think/understand what the code is supposed to do
+    // OBSERVE : I assume the code does what is supposed to do
+    // OBSERVE : I write the unit test to ensure that the actual code does what is meant to do now
+    // OBSERVE : This way I protect it from further "accidental" changes
+    // OBSERVE : That's why unit tests are written best at the same time with the code
+    // OBSERVE : TDD tells us to write tests first then the code, sometimes this is difficult but achievable
+    // IF IT IS HARD TO WRITE A UNIT TEST THEN THE PROBLEM IS NOT THE UNIT TEST, THE PROBLEM LIES IN THE DESIGN OF THE CODE
     @Test
     public void simpleBusinessMethod() {
 
