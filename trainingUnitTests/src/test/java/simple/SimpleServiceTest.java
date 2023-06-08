@@ -192,8 +192,8 @@ public class SimpleServiceTest {
 
         // step 1 - create input data
         InputData inputData = new InputData();
-        int x = 10;
-        inputData.setX(x);
+        int initialInputDataX = 10;
+        inputData.setX(initialInputDataX);
 
         // step 1 - create expected output data
 
@@ -207,7 +207,7 @@ public class SimpleServiceTest {
 
         // step 3 - validate expected output vs actual output
         // in this case output is part of the provided input
-        Assert.assertEquals(x + 1, inputData.getX());
+        Assert.assertEquals(initialInputDataX + 1, inputData.getX());
 
     }
 }
