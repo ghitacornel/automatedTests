@@ -33,5 +33,6 @@ public class PrivateDependenciesService {
     // 2. move these private methods to helper/companion/utility classes
     // 3. mark encapsulating helper/companion/utility classes with default visibility
     // 4. writing unit tests in classes defined in same package as encapsulating helper/companion/utility classes
+    // note that static methods approach do not help here
 
 }
