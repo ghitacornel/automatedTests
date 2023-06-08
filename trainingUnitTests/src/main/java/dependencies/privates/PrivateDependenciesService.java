@@ -2,6 +2,7 @@ package dependencies.privates;
 
 public class PrivateDependenciesService {
 
+    // complex business method that delegates to private methods
     public int complexBusiness(int x, int y) {
         validate(x, y);
         if (x < 10 || y < 10) return calculateSpecific(x, y);
