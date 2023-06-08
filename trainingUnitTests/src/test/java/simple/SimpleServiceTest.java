@@ -21,7 +21,8 @@ public class SimpleServiceTest {
         int b = 2;
 
         // step 1 - create expected output data
-        int expectedResult = 3;
+        // usually this is the last part of step 1 due to dependency of input data
+        int expectedResult = a + b;
 
         // step 2 = WHEN
         // invoke
@@ -48,7 +49,7 @@ public class SimpleServiceTest {
         int x = 1;
 
         // step 1 - create expected output data
-        int expectedResult = 1;
+        int expectedResult = x;
 
         // step 2 = WHEN
         // invoke
@@ -75,7 +76,7 @@ public class SimpleServiceTest {
         int x = -1;
 
         // step 1 - create expected output data
-        int expectedResult = 1;
+        int expectedResult = -x;
 
         // step 2 = WHEN
         // invoke
@@ -191,7 +192,8 @@ public class SimpleServiceTest {
 
         // step 1 - create input data
         InputData inputData = new InputData();
-        inputData.setX(10);
+        int x = 10;
+        inputData.setX(x);
 
         // step 1 - create expected output data
 
@@ -205,7 +207,7 @@ public class SimpleServiceTest {
 
         // step 3 - validate expected output vs actual output
         // in this case output is part of the provided input
-        Assert.assertEquals(11, inputData.getX());
+        Assert.assertEquals(x + 1, inputData.getX());
 
     }
 }
