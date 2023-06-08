@@ -4,15 +4,19 @@ import java.util.stream.IntStream;
 
 public class SimpleService {
 
-    // simple, linear
+    // simple method, linear execution path
     public int simpleBusinessMethod(int a, int b) {
         return a + b;
     }
 
-    // simple but with multiple execution paths
+    // method with multiple execution paths
     // need to identify each execution path and test them individually
     public int businessMethodWithMultipleExecutionPaths(int x) {
-        return x < 0 ? -x : x;
+        if (x < 0) {
+            return -x;
+        } else {
+            return x;
+        }
     }
 
     // multiple execution paths

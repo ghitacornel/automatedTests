@@ -36,6 +36,7 @@ public class SimpleServiceTest {
 
     }
 
+    // give meaningful name when testing specific execution path (not like this one)
     @Test
     public void businessMethodWithMultipleExecutionPaths_PATH_1() {
 
@@ -62,6 +63,7 @@ public class SimpleServiceTest {
 
     }
 
+    // give meaningful name when testing specific execution path (not like this one)
     @Test
     public void businessMethodWithMultipleExecutionPaths_PATH_2() {
 
