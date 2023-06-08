@@ -90,6 +90,7 @@ public class SimpleServiceTest {
 
     }
 
+    // give meaningful name when testing specific execution path (not like this one)
     @Test
     public void businessMethodWithExceptions_PATH_1() {
 
@@ -116,6 +117,7 @@ public class SimpleServiceTest {
 
     }
 
+    // give meaningful name when testing specific execution path (not like this one)
     @Test
     public void businessMethodWithExceptions_PATH_2() {
 
@@ -142,6 +144,9 @@ public class SimpleServiceTest {
 
     }
 
+    // give meaningful name when testing specific execution path (not like this one)
+    // when testing for exceptions check the test framework functionalities
+    // when testing for exceptions check the exception class but also the exception content
     @Test
     public void businessMethodWithExceptions_PATH_Exception() {
 
