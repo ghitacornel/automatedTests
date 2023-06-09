@@ -7,7 +7,7 @@ public class SimpleServiceTest {
 
     // https://en.wikipedia.org/wiki/Unit_testing
     // we test 1 method in isolation which is achieved using mocks when needed
-    // we test 1 method in isolation which means is forbidden for sharing test contexts
+    // we test 1 method in isolation which means sharing test contexts is forbidden
     // OBSERVE : I don't need to think/understand what the code is supposed to do
     // OBSERVE : I assume the code does what is supposed to do
     // OBSERVE : I write the unit test to ensure that the actual code does what is meant to do now
