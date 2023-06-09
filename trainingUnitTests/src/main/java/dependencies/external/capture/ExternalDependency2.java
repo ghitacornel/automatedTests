@@ -1,9 +1,10 @@
 package dependencies.external.capture;
 
 // managed by a IoC container
-public class ExternalDependency2 {
+class ExternalDependency2 {
 
-    public void notify(String message) {
+    // no need to be public as long as is accessible
+    void notify(String message) {
         // just send nome notifications
     }
 

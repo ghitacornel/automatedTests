@@ -1,9 +1,10 @@
 package dependencies.external.capture;
 
 // managed by a IoC container
-public class ExternalDependency1 {
+class ExternalDependency1 {
 
-    public int execute(ValueDto valueDto) {
+    // no need to be public as long as is accessible
+    int execute(ValueDto valueDto) {
         return valueDto.x * valueDto.y;
     }
 
