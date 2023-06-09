@@ -57,6 +57,7 @@ public class ExternalDependenciesServiceTest {
 
         // 3.2
         // verify mocking interaction
+        // since it is only 1 mock interacted with, no need to use an InOrder check
         Mockito.verify(mock1).validate(x, y);
 
     }
@@ -80,6 +81,8 @@ public class ExternalDependenciesServiceTest {
 
         // 1.3
         // create mocking context
+        // create mock return and input data
+        // do not create a fully fledged input/output data, only a minimalistic input/ output data model
         Mockito.doThrow(new RuntimeException("mock exception")).when(mock1).validate(x, y);
 
         // 2
@@ -129,6 +132,7 @@ public class ExternalDependenciesServiceTest {
         // - mock method invocation behavior is defined
         // - input parameters are defined => x, y
         // - output values are defined => 5
+        // do not create a fully fledged input/output data, only a minimalistic input/ output data model
         Mockito.when(mock2.calculateSpecific(x, y)).thenReturn(5);
 
         // 2
