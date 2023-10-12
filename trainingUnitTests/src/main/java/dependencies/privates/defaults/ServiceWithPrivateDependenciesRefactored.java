@@ -9,6 +9,12 @@ public class ServiceWithPrivateDependenciesRefactored {
         return x + y;
     }
 
+    // old PRIVATE dependencies are marked now as DEFAULT
+    // a generic practice is to move them to a "Helper" class
+    // "Helper" class => class that has name equal to the helped class + suffix "Helper"
+    // "Helper" class => class that is declared in the same package with the helped class
+    // "Helper" class => class that is marked as DEFAULT + FINAL
+    // "Helper" class => class that has all its methods DEFAULT
     void validate(int x, int y) {
         if (x < 0 || y < 0) throw new IllegalArgumentException("Negative parameter");
     }
@@ -16,25 +22,5 @@ public class ServiceWithPrivateDependenciesRefactored {
     int calculateSpecific(int x, int y) {
         return (x + y) / 2;
     }
-
-    // PRIVATE methods "DO NOT EXIST"
-    // hence we are not allowed to unit test them
-    // even if we could use reflection for invoking them
-    // testing them means acknowledging their existence and leaving no room for further transparent changes
-
-    // OBSERVE private methods are tested through the exposed business methods that use them
-    // OBSERVE private methods become part of the exposed business methods that use them
-    // OBSERVE private methods add testing complexity to the exposed business methods that use them
-    // in some cases PARAMETERS MATRIX based I/O can be used => Parameterised tests
-
-    // in order to make possible unit testing of such private methods
-    // we can use the following approach
-    // 1. mark these private methods with default visibility
-    // 2. move these private methods to helper/companion/utility classes
-    // 3. mark encapsulating helper/companion/utility classes with default visibility
-    // 4. writing unit tests in classes defined in same package as encapsulating helper/companion/utility classes
-    // note that static methods approach do not help here
-
-    // AGAIN : IF IT IS HARD TO WRITE A UNIT TEST THEN THE PROBLEM IS NOT THE UNIT TEST, THE PROBLEM LIES IN THE DESIGN OF THE CODE
 
 }
