@@ -1,4 +1,4 @@
-package simple;
+package simple4;
 
 public class InputData {
 

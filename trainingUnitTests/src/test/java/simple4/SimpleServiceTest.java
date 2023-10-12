@@ -1,4 +1,4 @@
-package simple;
+package simple4;
 
 import org.junit.Assert;
 import org.junit.Test;
