@@ -1,7 +1,7 @@
 package dependencies.external;
 
 // managed by a IoC container
-public class ServiceWithExternalDependencies {
+class ServiceWithExternalDependencies {
 
     private ExternalDependency1 dependency1;// injected
     private ExternalDependency2 dependency2;// injected
