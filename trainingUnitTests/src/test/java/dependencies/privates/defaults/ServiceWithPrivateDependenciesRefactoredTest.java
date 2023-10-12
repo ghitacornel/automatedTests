@@ -46,6 +46,32 @@ public class ServiceWithPrivateDependenciesRefactoredTest {
         Mockito.verifyNoMoreInteractions(service);
     }
 
+    @Test(expected = IllegalArgumentException.class)
+    public void testValidationFails() {
+
+        // 1
+        // create test context
+
+        // 1
+        // 1.1
+        // create input data
+        int x = 11;
+        int y = 22;
+
+        // 1.2
+        // mock parts of the spied object
+        Mockito.doThrow(IllegalArgumentException.class).when(service).validate(x, y);
+
+        // 2
+        // 2.1 invoke to be tested method
+        // 2.2 and collect result
+        service.complexBusiness(x, y);
+
+        // 3
+        // verify expectations
+
+    }
+
     @Test
     public void testSpecialCaseFirstParameterLessThan10() {
 
