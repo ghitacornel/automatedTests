@@ -1,6 +1,6 @@
-package dependencies.privates;
+package dependencies.privates.defaults;
 
-class ServiceWithPrivateDependencies {
+public class ServiceWithPrivateDependenciesRefactored {
 
     // complex business method that delegates to private methods
     public int complexBusiness(int x, int y) {
@@ -9,11 +9,11 @@ class ServiceWithPrivateDependencies {
         return x + y;
     }
 
-    private void validate(int x, int y) {
+    void validate(int x, int y) {
         if (x < 0 || y < 0) throw new RuntimeException("Negative parameter");
     }
 
-    private int calculateSpecific(int x, int y) {
+    int calculateSpecific(int x, int y) {
         return (x + y) / 2;
     }
 
