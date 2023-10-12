@@ -4,13 +4,13 @@ import java.util.stream.IntStream;
 
 public class SimpleService {
 
-    // simple method, linear execution path
+    // simple method with a linear execution path
     public int simpleBusinessMethod(int a, int b) {
         return a + b;
     }
 
     // method with multiple execution paths
-    // need to identify each execution path and test them individually
+    // need to identify each execution path and test it individually
     public int businessMethodWithMultipleExecutionPaths(int x) {
         if (x < 0) {
             return -x;
@@ -21,7 +21,7 @@ public class SimpleService {
 
     // multiple execution paths
     // some execution paths end with exception raised
-    // kind reminder : a "throw" is equivalent with a "return" but is used for "exception"al cases
+    // kind reminder => a "throw" is equivalent with a "return" but is used for "exception"al cases
     // need to identify each execution path and test them individually
     // need to verify the raised exception type and message
     public int businessMethodWithExceptions(int x) {
