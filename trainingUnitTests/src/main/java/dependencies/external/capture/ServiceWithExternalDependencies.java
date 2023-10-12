@@ -3,8 +3,13 @@ package dependencies.external.capture;
 // managed by a IoC container
 class ServiceWithExternalDependencies {
 
-    private ExternalDependency1 externalDependency1;// injected
-    private ExternalDependency2 externalDependency2;// injected
+    private final ExternalDependency1 externalDependency1;// injected
+    private final ExternalDependency2 externalDependency2;// injected
+
+    ServiceWithExternalDependencies(ExternalDependency1 externalDependency1, ExternalDependency2 externalDependency2) {
+        this.externalDependency1 = externalDependency1;
+        this.externalDependency2 = externalDependency2;
+    }
 
     // OBSERVE external dependency 1 called once with dynamically calculated argument
     // OBSERVE external dependency 2 called multiple times with dynamically calculated argument

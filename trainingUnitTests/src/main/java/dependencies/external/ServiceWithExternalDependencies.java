@@ -3,13 +3,18 @@ package dependencies.external;
 // managed by a IoC container
 class ServiceWithExternalDependencies {
 
-    private ExternalDependency1 dependency1;// injected
-    private ExternalDependency2 dependency2;// injected
+    private final ExternalDependency1 externalDependency1;// injected
+    private final ExternalDependency2 externalDependency2;// injected
+
+    ServiceWithExternalDependencies(ExternalDependency1 externalDependency1, ExternalDependency2 externalDependency2) {
+        this.externalDependency1 = externalDependency1;
+        this.externalDependency2 = externalDependency2;
+    }
 
     public int complexBusiness(int x, int y) {
-        dependency1.validate(x, y);
+        externalDependency1.validate(x, y);
         if (x < 10 || y < 10) {
-            return dependency2.calculateSpecific(x, y);
+            return externalDependency2.calculateSpecific(x, y);
         }
         return x + y;
     }
