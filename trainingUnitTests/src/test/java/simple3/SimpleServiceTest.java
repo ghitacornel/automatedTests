@@ -38,7 +38,7 @@ public class SimpleServiceTest {
 
         // step 1 = GIVEN
         // create test context
-        simple.SimpleService simpleService = new simple.SimpleService();
+        SimpleService simpleService = new SimpleService();
 
         // step 1 - create input data
         int x = 3;
@@ -67,7 +67,7 @@ public class SimpleServiceTest {
 
         // step 1 = GIVEN
         // create test context
-        simple.SimpleService simpleService = new simple.SimpleService();
+        SimpleService simpleService = new SimpleService();
 
         // step 1 - create input data
         int x = -1;
