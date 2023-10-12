@@ -21,6 +21,7 @@ public class SimpleService {
 
     // multiple execution paths
     // some execution paths end with exception raised
+    // kind reminder : a "throw" is equivalent with a "return" but is used for "exception"al cases
     // need to identify each execution path and test them individually
     // need to verify the raised exception type and message
     public int businessMethodWithExceptions(int x) {
@@ -35,7 +36,7 @@ public class SimpleService {
 
     // note that is not a good design to have methods that alter the input data
     // think about pure functions ( https://en.wikipedia.org/wiki/Pure_function )
-    // but sometimes this kind of methods are very useful (e.g. merging data methods)
+    // but sometimes this kind of method are very useful (e.g. merging data methods)
     public void businessMethodThatAltersInputData(InputData inputData) {
         inputData.setX(inputData.getX() + 1);
     }
