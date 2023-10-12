@@ -1,6 +1,8 @@
 package dependencies.external.capture;
 
-public class ValueDto {
+class ValueDto {
+
     public int x;
     public int y;
+
 }
