@@ -15,6 +15,7 @@ public class ServiceWithPrivateDependenciesRefactored {
     // "Helper" class => class that is declared in the same package with the helped class
     // "Helper" class => class that is marked as DEFAULT + FINAL
     // "Helper" class => class that has all its methods DEFAULT
+    // "Helper" class => class that will be injected in the helped class (preferred approach) or can contain only static methods
     void validate(int x, int y) {
         if (x < 0 || y < 0) throw new IllegalArgumentException("Negative parameter");
     }
