@@ -9,12 +9,12 @@ import org.mockito.junit.MockitoJUnitRunner;
 import java.util.List;
 
 @RunWith(MockitoJUnitRunner.class)
-public class BusinessServiceTest {
+public class ServiceWithExternalDependenciesTest {
 
     // no need to create it manually
     // Mockito inject @Mock fields without the need of an IoC container
     @InjectMocks
-    BusinessService service;
+    ServiceWithExternalDependencies service;
 
     @Mock
     ExternalDependency1 externalDependency1;
