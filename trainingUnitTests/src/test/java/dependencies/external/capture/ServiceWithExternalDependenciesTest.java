@@ -14,7 +14,7 @@ import static org.mockito.Mockito.inOrder;
 import static org.mockito.Mockito.when;
 
 @ExtendWith(MockitoExtension.class)
-public class ServiceWithExternalDependenciesTest {
+class ServiceWithExternalDependenciesTest {
 
     // no need to create it manually
     // Mockito inject @Mock fields without the need of an IoC container
@@ -34,7 +34,7 @@ public class ServiceWithExternalDependenciesTest {
     ArgumentCaptor<String> stringArgumentCaptor;
 
     @Test
-    public void testHappyPath() {
+    void testHappyPath() {
 
         // 1
         // create test context
