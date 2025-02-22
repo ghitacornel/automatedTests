@@ -5,10 +5,10 @@ import org.dbunit.DefaultDatabaseTester;
 import org.dbunit.database.DatabaseConfig;
 import org.dbunit.database.DatabaseConnection;
 import org.dbunit.ext.hsqldb.HsqldbDataTypeFactory;
-import org.junit.After;
-import org.junit.AfterClass;
-import org.junit.Before;
-import org.junit.BeforeClass;
+import org.junit.jupiter.api.AfterAll;
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.BeforeEach;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -25,7 +25,7 @@ public abstract class TestsSetUp {
     /**
      * setup database connection, database initial state and tester
      */
-    @BeforeClass
+    @BeforeAll
     public static void setUp() throws Exception {
 
         // set up connection
@@ -50,26 +50,26 @@ public abstract class TestsSetUp {
 
     }
 
-    @AfterClass
+    @AfterAll
     public static void tearDown() throws SQLException {
         if (databaseConnection != null) {
             databaseConnection.close();
         }
     }
 
-    @Before
+    @BeforeEach
     final public void setUpService() {
         service = new Service(databaseConnection);
     }
 
     // for transactional tests
-    @Before
+    @BeforeEach
     final public void setUpConnectionTransaction() throws SQLException {
         databaseConnection.setAutoCommit(false);
     }
 
     // for transactional tests
-    @After
+    @AfterEach
     final public void tearDownConnectionTransaction() throws SQLException {
         databaseConnection.rollback();
     }

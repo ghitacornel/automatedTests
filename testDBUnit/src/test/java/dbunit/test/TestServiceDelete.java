@@ -1,22 +1,23 @@
 package dbunit.test;
 
 import dbunit.model.Bean;
-import org.dbunit.Assertion;
 import org.dbunit.dataset.IDataSet;
 import org.dbunit.dataset.ITable;
 import org.dbunit.dataset.xml.FlatXmlDataSet;
 import org.dbunit.dataset.xml.FlatXmlDataSetBuilder;
 import org.dbunit.operation.DatabaseOperation;
-import org.junit.After;
-import org.junit.Before;
-import org.junit.Test;
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+
+import static org.dbunit.Assertion.assertEquals;
 
 public class TestServiceDelete extends TestsSetUp {
 
     private static final String DATABASE_REQUIRED = "databaseRequiredByDelete.xml";
     private static final String DATABASE_EXPECTED = "databaseExpectedAfterDelete.xml";
 
-    @Before
+    @BeforeEach
     public void setupDatabaseToInitialState() throws Exception {
         FlatXmlDataSet dataSet = new FlatXmlDataSetBuilder().build(TestServiceDelete.class.getResourceAsStream(DATABASE_REQUIRED));
         DatabaseOperation.TRUNCATE_TABLE.execute(tester.getConnection(), dataSet);
@@ -48,13 +49,13 @@ public class TestServiceDelete extends TestsSetUp {
             ITable expectedTable = expectedDataSet.getTable("testtable");
 
             // Assert actual database table match expected table
-            Assertion.assertEquals(expectedTable, actualTable);
+            assertEquals(expectedTable, actualTable);
 
         }
 
     }
 
-    @After
+    @AfterEach
     public void tearDownDatabaseToInitialState() throws Exception {
         FlatXmlDataSet dataSet = new FlatXmlDataSetBuilder().build(TestServiceDelete.class.getResourceAsStream(DATABASE_EXPECTED));
         DatabaseOperation.TRUNCATE_TABLE.execute(tester.getConnection(), dataSet);
