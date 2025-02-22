@@ -2,7 +2,7 @@ package architecture.misc;
 
 import architecture.Packages;
 import com.tngtech.archunit.core.domain.JavaClasses;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 import thirdpartydependencies.Service;
 import thirdpartydependencies.Transactional;
 

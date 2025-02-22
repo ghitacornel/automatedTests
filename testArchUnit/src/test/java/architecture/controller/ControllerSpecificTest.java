@@ -5,7 +5,7 @@ import architecture.specials.conditions.MethodHasAtLeastOneParameter;
 import architecture.specials.conditions.MethodHasExactlyOneParameter;
 import com.tngtech.archunit.core.domain.JavaClasses;
 import com.tngtech.archunit.core.importer.ClassFileImporter;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 import thirdpartydependencies.*;
 
 import static com.tngtech.archunit.lang.syntax.ArchRuleDefinition.classes;

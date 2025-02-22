@@ -4,7 +4,7 @@ import architecture.Packages;
 import architecture.specials.ClassIsHelperClass;
 import architecture.specials.ClassIsUtilityClass;
 import com.tngtech.archunit.core.domain.JavaClasses;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 import thirdpartydependencies.Component;
 
 import static com.tngtech.archunit.lang.syntax.ArchRuleDefinition.classes;

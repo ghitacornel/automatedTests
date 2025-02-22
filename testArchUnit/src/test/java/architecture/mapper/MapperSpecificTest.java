@@ -3,7 +3,7 @@ package architecture.mapper;
 import architecture.Packages;
 import com.tngtech.archunit.core.domain.JavaClasses;
 import com.tngtech.archunit.core.importer.ClassFileImporter;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 import thirdpartydependencies.Mapper;
 
 import static com.tngtech.archunit.lang.syntax.ArchRuleDefinition.classes;

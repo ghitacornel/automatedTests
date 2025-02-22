@@ -2,7 +2,7 @@ package architecture.persistence.repository;
 
 import architecture.Packages;
 import com.tngtech.archunit.core.domain.JavaClasses;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 import thirdpartydependencies.JpaRepository;
 import thirdpartydependencies.Repository;
 

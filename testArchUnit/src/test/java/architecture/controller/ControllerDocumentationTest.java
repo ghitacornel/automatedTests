@@ -3,7 +3,7 @@ package architecture.controller;
 import architecture.Packages;
 import com.tngtech.archunit.core.domain.JavaClasses;
 import com.tngtech.archunit.core.importer.ClassFileImporter;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 import thirdpartydependencies.Operation;
 import thirdpartydependencies.RestController;
 import thirdpartydependencies.Tag;

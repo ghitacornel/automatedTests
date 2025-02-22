@@ -2,12 +2,7 @@ package architecture.persistence.entity;
 
 import architecture.Packages;
 import com.tngtech.archunit.core.domain.JavaClasses;
-import org.junit.Test;
-import thirdpartydependencies.AttributeConverter;
-import thirdpartydependencies.Converter;
-import thirdpartydependencies.Entity;
-
-import static com.tngtech.archunit.lang.syntax.ArchRuleDefinition.classes;
+import org.junit.jupiter.api.Test;
 
 public class EntityNamingConventionTest {
 

@@ -2,7 +2,7 @@ package architecture.persistence.converter;
 
 import architecture.Packages;
 import com.tngtech.archunit.core.domain.JavaClasses;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import static com.tngtech.archunit.lang.syntax.ArchRuleDefinition.noClasses;
 
