@@ -10,7 +10,6 @@
     <modules>
         <module>testMockito</module>
         <module>testDBUnit</module>
-        <module>testEasyMock</module>
         <module>testAssertJ</module>
         <module>testFlyway</module>
         <module>testCucumber</module>
