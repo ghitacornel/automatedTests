@@ -8,7 +8,6 @@
     <version>1</version>
 
     <modules>
-        <module>testJUnit</module>
         <module>testMockito</module>
         <module>testDBUnit</module>
         <module>testEasyMock</module>

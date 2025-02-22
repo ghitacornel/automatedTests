@@ -1,3 +1,0 @@
-Other alternative frameworks as TestNG are present. 
-Tests can be executed in a continuous integration manner.
-What is continuous integration is out of scope.
