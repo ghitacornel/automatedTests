@@ -2,9 +2,8 @@ package asserts;
 
 import model.Dog;
 import org.assertj.core.api.Assertions;
-import org.junit.Rule;
-import org.junit.Test;
-import org.junit.rules.TemporaryFolder;
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.io.TempDir;
 
 import java.io.File;
 import java.util.*;
@@ -15,8 +14,8 @@ import static org.assertj.core.data.MapEntry.entry;
 
 public class TestAsserts {
 
-    @Rule
-    public TemporaryFolder temporaryFolderRule = new TemporaryFolder();
+    @TempDir
+    File tempDir;
 
     @Test
     public void testAsserts() throws Exception {
@@ -105,7 +104,8 @@ public class TestAsserts {
         }
 
         {
-            File temporaryFile = temporaryFolderRule.newFile("temporaryFile.txt");
+            File temporaryFile = new File(tempDir, "temporaryFile.txt");
+            temporaryFile.createNewFile();
             assertThat(temporaryFile)
                     .exists()
                     .isFile()
