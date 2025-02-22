@@ -1,13 +1,15 @@
 package flyway;
 
-import org.junit.Assert;
-import org.junit.Test;
+
+import org.junit.jupiter.api.Test;
 
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class TestFlyway extends TestsSetUp {
 
@@ -29,8 +31,8 @@ public class TestFlyway extends TestsSetUp {
             connection.close();
         }
 
-        Assert.assertEquals(ints, Arrays.asList(1, 2, 3));
-        Assert.assertEquals(strings, Arrays.asList("d1", "d2", null));
+        assertEquals(ints, Arrays.asList(1, 2, 3));
+        assertEquals(strings, Arrays.asList("d1", "d2", null));
 
     }
 }
