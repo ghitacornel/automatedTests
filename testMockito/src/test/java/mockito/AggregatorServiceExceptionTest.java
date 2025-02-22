@@ -1,13 +1,16 @@
 package mockito;
 
-import org.junit.Assert;
-import org.junit.Test;
-import org.junit.runner.RunWith;
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.*;
-import org.mockito.junit.MockitoJUnitRunner;
+import org.mockito.junit.jupiter.MockitoExtension;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertThrows;
+import static org.mockito.Mockito.*;
 
 // special runner must be used when using Mockito
-@RunWith(MockitoJUnitRunner.class)
+@ExtendWith(MockitoExtension.class)
 public class AggregatorServiceExceptionTest {
 
     // this is the targeted test object
@@ -32,7 +35,7 @@ public class AggregatorServiceExceptionTest {
     @Mock
     BusinessService3 mock3;
 
-    @Test(expected = RuntimeException.class)
+    @Test
     public void testAggregatorServiceWithException() {
 
         // STEP 1
@@ -51,10 +54,10 @@ public class AggregatorServiceExceptionTest {
             // for mock 1 no need to define a behavior => Mockito is NICE ( no null pointer exceptions are raised )
 
             // for mock 2 define a behavior
-            Mockito.when(mock2.businessMethod2(inputData)).thenReturn(outputData);
+            when(mock2.businessMethod2(inputData)).thenReturn(outputData);
 
             // for mock 3 define a behavior
-            Mockito.doThrow(new RuntimeException("bad luck, client does not like 10")).when(mock3).businessMethod3(Mockito.any());
+            doThrow(new RuntimeException("bad luck, client does not like 10")).when(mock3).businessMethod3(Mockito.any());
 
         }
 
@@ -62,60 +65,49 @@ public class AggregatorServiceExceptionTest {
         // STEP 2
 
         // execute to be tested method
-        try {
-            aggregatorService.businessMethod(inputData);
-        } catch (Exception e) {
+        RuntimeException e = assertThrows(RuntimeException.class, () -> aggregatorService.businessMethod(inputData));
 
-            // STEP 3
+        // STEP 3
+        {
+
+            // step 3.1
+
+            // verify expectations in terms of pure JUnit asserts
+            {
+                assertEquals(RuntimeException.class, e.getClass());
+                assertEquals("bad luck, client does not like 10", e.getMessage());
+            }
+
+            // step 3.2
+
+            // verify mocks expectations
             {
 
-                // step 3.1
+                // verify mock interactions were executed in the expected order
+                // verifying mock interactions were executed in the expected order is optional in some cases
+                // verifying mock interactions were executed in the expected order is mandatory in some cases
+                // see UML sequence diagram
+                InOrder order = inOrder(mock1, mock2, mock3);
 
-                // verify expectations in terms of pure JUnit asserts
-                {
-                    Assert.assertEquals(RuntimeException.class, e.getClass());
-                    Assert.assertEquals("bad luck, client does not like 10", e.getMessage());
-                }
+                // verify mock interactions
 
-                // step 3.2
+                // verify mock 1 interaction
+                order.verify(mock1).businessMethod1(inputData); // the actual parameter value is also tested
 
-                // verify mocks expectations
-                {
+                // verify mock 2 interaction
+                order.verify(mock2).businessMethod2(inputData);// the actual parameter value is also tested
 
-                    // verify mock interactions were executed in the expected order
-                    // verifying mock interactions were executed in the expected order is optional in some cases
-                    // verifying mock interactions were executed in the expected order is mandatory in some cases
-                    // see UML sequence diagram
-                    InOrder order = Mockito.inOrder(mock1, mock2, mock3);
+                // verify mock 3 interaction
+                ArgumentCaptor<TemporaryData> argument = ArgumentCaptor.forClass(TemporaryData.class);
+                order.verify(mock3).businessMethod3(argument.capture());
+                assertEquals(3, argument.getValue().getW());
 
-                    // verify mock interactions
-
-                    // verify mock 1 interaction
-                    order.verify(mock1).businessMethod1(inputData); // the actual parameter value is also tested
-
-                    // verify mock 2 interaction
-                    order.verify(mock2).businessMethod2(inputData);// the actual parameter value is also tested
-
-                    // verify mock 3 interaction
-                    ArgumentCaptor<TemporaryData> argument = ArgumentCaptor.forClass(TemporaryData.class);
-                    order.verify(mock3).businessMethod3(argument.capture());
-                    Assert.assertEquals(3, argument.getValue().getW());
-
-                    // verify no other mock interactions occurred
-                    order.verifyNoMoreInteractions();
-
-                }
+                // verify no other mock interactions occurred
+                order.verifyNoMoreInteractions();
 
             }
 
-            // throw exception
-            throw e;
-
         }
-
-        // fail test in case no exception was raised
-        Assert.fail("No exception was raised");
-
     }
 
     // MOCKITO allows for test of multiple same mock interactions

@@ -1,13 +1,17 @@
 package mockito;
 
-import org.junit.Assert;
-import org.junit.Test;
-import org.junit.runner.RunWith;
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.*;
-import org.mockito.junit.MockitoJUnitRunner;
+import org.mockito.junit.jupiter.MockitoExtension;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertSame;
+import static org.mockito.Mockito.inOrder;
+import static org.mockito.Mockito.when;
 
 // special runner must be used when using Mockito
-@RunWith(MockitoJUnitRunner.class)
+@ExtendWith(MockitoExtension.class)
 public class AggregatorServiceTest {
 
     // this is the targeted test object
@@ -51,7 +55,7 @@ public class AggregatorServiceTest {
             // for mock 1 no need to define a behavior => Mockito is NICE ( no null pointer exceptions are raised )
 
             // for mock 2 define a behavior
-            Mockito.when(mock2.businessMethod2(inputData)).thenReturn(outputData);
+            when(mock2.businessMethod2(inputData)).thenReturn(outputData);
 
             // for mock 3 no need to define a behavior
 
@@ -71,7 +75,7 @@ public class AggregatorServiceTest {
 
             // verify expectations in terms of pure JUnit asserts
             {
-                Assert.assertSame(outputData, returnedData);
+                assertSame(outputData, returnedData);
             }
 
             // step 3.2
@@ -83,7 +87,7 @@ public class AggregatorServiceTest {
                 // verifying mock interactions were executed in the expected order is optional in some cases
                 // verifying mock interactions were executed in the expected order is mandatory in some cases
                 // see UML sequence diagram
-                InOrder order = Mockito.inOrder(mock1, mock2, mock3);
+                InOrder order = inOrder(mock1, mock2, mock3);
 
                 // verify mock interactions
 
@@ -96,7 +100,7 @@ public class AggregatorServiceTest {
                 // verify mock 3 interaction
                 ArgumentCaptor<TemporaryData> argument = ArgumentCaptor.forClass(TemporaryData.class);
                 order.verify(mock3).businessMethod3(argument.capture());
-                Assert.assertEquals(3, argument.getValue().getW());
+                assertEquals(3, argument.getValue().getW());
 
                 // verify no other mock interactions occurred
                 order.verifyNoMoreInteractions();
