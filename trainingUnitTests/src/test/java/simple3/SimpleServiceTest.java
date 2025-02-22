@@ -1,7 +1,9 @@
 package simple3;
 
-import org.junit.Assert;
-import org.junit.Test;
+
+import org.junit.jupiter.api.Test;
+
+import static org.junit.jupiter.api.Assertions.*;
 
 public class SimpleServiceTest {
 
@@ -28,7 +30,7 @@ public class SimpleServiceTest {
         // validate
 
         // step 3 - validate expected output vs actual output
-        Assert.assertEquals(expectedResult, actualResult);
+        assertEquals(expectedResult, actualResult);
 
     }
 
@@ -55,7 +57,7 @@ public class SimpleServiceTest {
         // validate
 
         // step 3 - validate expected output vs actual output
-        Assert.assertEquals(expectedResult, actualResult);
+        assertEquals(expectedResult, actualResult);
 
     }
 
@@ -79,21 +81,17 @@ public class SimpleServiceTest {
         // invoke
         // collect return if available
         // this time the return is an exception
-        try {
-            simpleService.businessMethodWithExceptions(x);
-            Assert.fail("expected exception");
-        } catch (Exception e) {
+        Exception e = assertThrows(RuntimeException.class, () -> simpleService.businessMethodWithExceptions(x));
 
-            // step 3 = THEN
-            // validate
+        // step 3 = THEN
+        // validate
 
-            // step 3 - validate expected output vs actual output
-            // for exceptions need to verify exception type
-            Assert.assertSame(RuntimeException.class, e.getClass());
-            // for exceptions need to verify exception message/content
-            Assert.assertEquals(message, e.getMessage());
+        // step 3 - validate expected output vs actual output
+        // for exceptions need to verify exception type
+        assertSame(RuntimeException.class, e.getClass());
+        // for exceptions need to verify exception message/content
+        assertEquals(message, e.getMessage());
 
-        }
 
     }
 

@@ -1,15 +1,19 @@
 package dependencies.external;
 
-import org.junit.Assert;
-import org.junit.Test;
-import org.junit.runner.RunWith;
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InOrder;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.Mockito;
-import org.mockito.junit.MockitoJUnitRunner;
+import org.mockito.junit.jupiter.MockitoExtension;
 
-@RunWith(MockitoJUnitRunner.class)
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertThrows;
+import static org.mockito.Mockito.*;
+
+@ExtendWith(MockitoExtension.class)
 public class ServiceWithExternalDependenciesTest {
 
     // no need to create it manually
@@ -53,17 +57,17 @@ public class ServiceWithExternalDependenciesTest {
 
         // 3.1
         // verify I/O expectations
-        Assert.assertEquals(expectedResult, actualResult);
+        assertEquals(expectedResult, actualResult);
 
         // 3.2
         // verify mocking interaction
         // since it is only 1 mock interacted with, no need to use an InOrder check
-        Mockito.verify(mock1).validate(x, y);
+        verify(mock1).validate(x, y);
 
     }
 
 
-    @Test(expected = RuntimeException.class)
+    @Test
     public void testMock1Exception() {
 
         // 1
@@ -83,30 +87,23 @@ public class ServiceWithExternalDependenciesTest {
         // create mocking context
         // create mock return and input data
         // do not create a fully fledged input/output data, only a minimalistic input/ output data model
-        Mockito.doThrow(new RuntimeException("mock exception")).when(mock1).validate(x, y);
+        doThrow(new RuntimeException("mock exception")).when(mock1).validate(x, y);
 
         // 2
         // 2.1 invoke to be tested method
         // 2.2 and collect result
-        try {
-            service.complexBusiness(x, y);
-        } catch (Exception e) {
+        RuntimeException e = assertThrows(RuntimeException.class, () -> service.complexBusiness(x, y));
 
-            // 3
-            // verify expectations
-            Assert.assertEquals("mock exception", e.getMessage());
+        // 3
+        // verify expectations
+        assertEquals("mock exception", e.getMessage());
 
-            // 3.1
-            // verify I/O expectations
+        // 3.1
+        // verify I/O expectations
 
-            // 3.2
-            // verify mocking interaction
-            Mockito.verify(mock1).validate(x, y);
-            throw e;
-
-        }
-
-        Assert.fail("expected exception not raised");
+        // 3.2
+        // verify mocking interaction
+        verify(mock1).validate(x, y);
 
     }
 
@@ -133,7 +130,7 @@ public class ServiceWithExternalDependenciesTest {
         // - input parameters are defined => x, y
         // - output values are defined => 5
         // do not create a fully fledged input/output data, only a minimalistic input/ output data model
-        Mockito.when(mock2.calculateSpecific(x, y)).thenReturn(5);
+        when(mock2.calculateSpecific(x, y)).thenReturn(5);
 
         // 2
         // 2.1 invoke to be tested method
@@ -145,12 +142,12 @@ public class ServiceWithExternalDependenciesTest {
 
         // 3.1
         // verify I/O expectations
-        Assert.assertEquals(expectedResult, actualResult);
+        assertEquals(expectedResult, actualResult);
 
         // 3.2
         // verify mocking interaction when more than 1 mock is involved
         // - no not forget to test for mock invocation order
-        InOrder order = Mockito.inOrder(mock1, mock2);
+        InOrder order = inOrder(mock1, mock2);
         order.verify(mock1).validate(x, y);
         order.verify(mock2).calculateSpecific(x, y);
         // - no not forget to test for no more interactions

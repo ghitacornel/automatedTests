@@ -1,14 +1,16 @@
 package dependencies.privates.defaults;
 
-import org.junit.Assert;
-import org.junit.Test;
-import org.junit.runner.RunWith;
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
-import org.mockito.Mockito;
 import org.mockito.Spy;
-import org.mockito.junit.MockitoJUnitRunner;
+import org.mockito.junit.jupiter.MockitoExtension;
 
-@RunWith(MockitoJUnitRunner.class)
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertThrows;
+import static org.mockito.Mockito.*;
+
+@ExtendWith(MockitoExtension.class)
 public class ServiceWithPrivateDependenciesRefactoredTest {
 
     @InjectMocks
@@ -40,13 +42,13 @@ public class ServiceWithPrivateDependenciesRefactoredTest {
         // verify expectations
         // 3.1
         // verify I/O expectations
-        Assert.assertEquals(expectedResult, actualResult);
-        Mockito.verify(service).complexBusiness(x, y);
-        Mockito.verify(service).validate(x, y);
-        Mockito.verifyNoMoreInteractions(service);
+        assertEquals(expectedResult, actualResult);
+        verify(service).complexBusiness(x, y);
+        verify(service).validate(x, y);
+        verifyNoMoreInteractions(service);
     }
 
-    @Test(expected = IllegalArgumentException.class)
+    @Test
     public void testValidationFails() {
 
         // 1
@@ -60,12 +62,12 @@ public class ServiceWithPrivateDependenciesRefactoredTest {
 
         // 1.2
         // mock parts of the spied object
-        Mockito.doThrow(IllegalArgumentException.class).when(service).validate(x, y);
+        doThrow(IllegalArgumentException.class).when(service).validate(x, y);
 
         // 2
         // 2.1 invoke to be tested method
         // 2.2 and collect result
-        service.complexBusiness(x, y);
+        assertThrows(IllegalArgumentException.class, () -> service.complexBusiness(x, y));
 
         // 3
         // verify expectations
@@ -89,7 +91,7 @@ public class ServiceWithPrivateDependenciesRefactoredTest {
         int expectedResult = -10;
 
         // mock parts of the spied object
-        Mockito.doReturn(expectedResult).when(service).calculateSpecific(x, y);
+        doReturn(expectedResult).when(service).calculateSpecific(x, y);
 
         // 2
         // 2.1 invoke to be tested method
@@ -100,11 +102,11 @@ public class ServiceWithPrivateDependenciesRefactoredTest {
         // verify expectations
         // 3.1
         // verify I/O expectations
-        Assert.assertEquals(expectedResult, actualResult);
-        Mockito.verify(service).complexBusiness(x, y);
-        Mockito.verify(service).validate(x, y);
-        Mockito.verify(service).calculateSpecific(x, y);
-        Mockito.verifyNoMoreInteractions(service);
+        assertEquals(expectedResult, actualResult);
+        verify(service).complexBusiness(x, y);
+        verify(service).validate(x, y);
+        verify(service).calculateSpecific(x, y);
+        verifyNoMoreInteractions(service);
 
     }
 
@@ -124,7 +126,7 @@ public class ServiceWithPrivateDependenciesRefactoredTest {
         // create expected result
         int expectedResult = -10;
         // mock parts of the spied object
-        Mockito.doReturn(expectedResult).when(service).calculateSpecific(x, y);
+        doReturn(expectedResult).when(service).calculateSpecific(x, y);
 
 
         // 2
@@ -136,30 +138,30 @@ public class ServiceWithPrivateDependenciesRefactoredTest {
         // verify expectations
         // 3.1
         // verify I/O expectations
-        Assert.assertEquals(expectedResult, actualResult);
-        Mockito.verify(service).complexBusiness(x, y);
-        Mockito.verify(service).validate(x, y);
-        Mockito.verify(service).calculateSpecific(x, y);
-        Mockito.verifyNoMoreInteractions(service);
+        assertEquals(expectedResult, actualResult);
+        verify(service).complexBusiness(x, y);
+        verify(service).validate(x, y);
+        verify(service).calculateSpecific(x, y);
+        verifyNoMoreInteractions(service);
 
     }
 
     // test "default"ed dependencies separately
     @Test
     public void calculateSpecific() {
-        Assert.assertEquals(3, service.calculateSpecific(2, 4));
+        assertEquals(3, service.calculateSpecific(2, 4));
     }
 
     // test "default"ed dependencies separately
-    @Test(expected = IllegalArgumentException.class)
+    @Test
     public void validateFirstNegative() {
-        service.validate(-10, 10);
+        assertThrows(IllegalArgumentException.class, () -> service.complexBusiness(-10, 10));
     }
 
     // test "default"ed dependencies separately
-    @Test(expected = IllegalArgumentException.class)
+    @Test
     public void validateSecondNegative() {
-        service.validate(10, -10);
+        assertThrows(IllegalArgumentException.class, () -> service.complexBusiness(10, -10));
     }
 
 }

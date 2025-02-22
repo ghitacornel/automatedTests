@@ -1,7 +1,9 @@
 package dependencies.privates;
 
-import org.junit.Assert;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 
 public class ServiceWithPrivateDependenciesTest {
 
@@ -31,12 +33,12 @@ public class ServiceWithPrivateDependenciesTest {
         // verify expectations
         // 3.1
         // verify I/O expectations
-        Assert.assertEquals(expectedResult, actualResult);
+        assertEquals(expectedResult, actualResult);
 
     }
 
 
-    @Test(expected = RuntimeException.class)
+    @Test
     public void testSpecialCaseFirstParameterNegative() {
 
         // 1
@@ -55,12 +57,8 @@ public class ServiceWithPrivateDependenciesTest {
         // 2
         // 2.1 invoke to be tested method
         // 2.2 and collect result
-        try {
-            service.complexBusiness(x, y);
-        } catch (Exception e) {
-            Assert.assertEquals("Negative parameter", e.getMessage());
-            throw e;
-        }
+        Exception e = assertThrows(RuntimeException.class, () -> service.complexBusiness(x, y));
+        assertEquals("Negative parameter", e.getMessage());
 
         // 3
         // verify expectations
@@ -69,7 +67,7 @@ public class ServiceWithPrivateDependenciesTest {
 
     }
 
-    @Test(expected = RuntimeException.class)
+    @Test
     public void testSpecialCaseSecondParameterNegative() {
 
         // 1
@@ -88,12 +86,8 @@ public class ServiceWithPrivateDependenciesTest {
         // 2
         // 2.1 invoke to be tested method
         // 2.2 and collect result
-        try {
-            service.complexBusiness(x, y);
-        } catch (Exception e) {
-            Assert.assertEquals("Negative parameter", e.getMessage());
-            throw e;
-        }
+        Exception e = assertThrows(RuntimeException.class, () -> service.complexBusiness(x, y));
+        assertEquals("Negative parameter", e.getMessage());
 
         // 3
         // verify expectations
@@ -129,7 +123,7 @@ public class ServiceWithPrivateDependenciesTest {
         // verify expectations
         // 3.1
         // verify I/O expectations
-        Assert.assertEquals(expectedResult, actualResult);
+        assertEquals(expectedResult, actualResult);
 
     }
 
@@ -159,7 +153,7 @@ public class ServiceWithPrivateDependenciesTest {
         // verify expectations
         // 3.1
         // verify I/O expectations
-        Assert.assertEquals(expectedResult, actualResult);
+        assertEquals(expectedResult, actualResult);
 
     }
 }

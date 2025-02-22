@@ -1,7 +1,8 @@
 package simple2;
 
-import org.junit.Assert;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class SimpleServiceTest {
 
@@ -39,7 +40,7 @@ public class SimpleServiceTest {
         // validate
 
         // step 3 - validate expected output vs actual output
-        Assert.assertEquals(expectedResult, actualResult);
+        assertEquals(expectedResult, actualResult);
 
     }
 
@@ -66,7 +67,7 @@ public class SimpleServiceTest {
         // validate
 
         // step 3 - validate expected output vs actual output
-        Assert.assertEquals(expectedResult, actualResult);
+        assertEquals(expectedResult, actualResult);
 
     }
 

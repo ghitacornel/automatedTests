@@ -1,14 +1,19 @@
 package dependencies.external.capture;
 
-import org.junit.Assert;
-import org.junit.Test;
-import org.junit.runner.RunWith;
+
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
+
 import org.mockito.*;
-import org.mockito.junit.MockitoJUnitRunner;
+import org.mockito.junit.jupiter.MockitoExtension;
 
 import java.util.List;
 
-@RunWith(MockitoJUnitRunner.class)
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.mockito.Mockito.inOrder;
+import static org.mockito.Mockito.when;
+
+@ExtendWith(MockitoExtension.class)
 public class ServiceWithExternalDependenciesTest {
 
     // no need to create it manually
@@ -44,7 +49,7 @@ public class ServiceWithExternalDependenciesTest {
         // create mocking context
         // create mocks / create mocks input data / create mocks output data / define mocks behavior
         int externalDependencyResult = -100;
-        Mockito.when(externalDependency1.execute(valueDtoArgumentCaptor.capture())).thenReturn(externalDependencyResult);
+        when(externalDependency1.execute(valueDtoArgumentCaptor.capture())).thenReturn(externalDependencyResult);
 
         // 1.3
         // create expected result
@@ -61,11 +66,11 @@ public class ServiceWithExternalDependenciesTest {
         // 3.1
 
         // verify I/O expectations
-        Assert.assertEquals(expectedResult, actualResult);
+        assertEquals(expectedResult, actualResult);
 
         // 3.2
         // verify mocking interaction
-        InOrder inOrder = Mockito.inOrder(externalDependency1, externalDependency2);
+        InOrder inOrder = inOrder(externalDependency1, externalDependency2);
         inOrder.verify(externalDependency1).execute(valueDtoArgumentCaptor.getValue());
         inOrder.verify(externalDependency2, Mockito.times(2)).notify(stringArgumentCaptor.capture());
         inOrder.verifyNoMoreInteractions();
@@ -73,10 +78,10 @@ public class ServiceWithExternalDependenciesTest {
         // 3.3
         // verify captured data
         List<String> expectedMessages = List.of("first parameter 11", "second parameter 22");
-        Assert.assertEquals(expectedMessages, stringArgumentCaptor.getAllValues());
+        assertEquals(expectedMessages, stringArgumentCaptor.getAllValues());
 
-        Assert.assertEquals(x, valueDtoArgumentCaptor.getValue().x);
-        Assert.assertEquals(y, valueDtoArgumentCaptor.getValue().y);
+        assertEquals(x, valueDtoArgumentCaptor.getValue().x);
+        assertEquals(y, valueDtoArgumentCaptor.getValue().y);
 
     }
 

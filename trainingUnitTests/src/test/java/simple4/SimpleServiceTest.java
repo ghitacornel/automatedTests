@@ -1,7 +1,9 @@
 package simple4;
 
-import org.junit.Assert;
-import org.junit.Test;
+
+import org.junit.jupiter.api.Test;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class SimpleServiceTest {
 
@@ -30,7 +32,7 @@ public class SimpleServiceTest {
 
         // step 3 - validate expected output vs actual output
         // in this case output is part of the provided input
-        Assert.assertEquals(initialInputDataX + 1, inputData.x);
+        assertEquals(initialInputDataX + 1, inputData.x);
 
     }
 }
